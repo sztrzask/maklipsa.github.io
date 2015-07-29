@@ -49,6 +49,18 @@
 	}
 }
 
+.gradient
+{
+	display:flex;
+	flex-direction:row;
+}
+
+.gradient div
+{
+	width:6%;
+	height:250px;
+}
+		
 // Global Transition
 // ---------------------------------------------------
 b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a {

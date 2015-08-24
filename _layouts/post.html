@@ -33,12 +33,18 @@
 		<div style="background:#FFE200" ></div>
 		<div style="background:#FFFF00" ></div>
     </div><!-- /.entry-image -->
+	<div class="header-title header-title-post">
+		<div class="header-title-wrap header-title-index">
+		  <h1>{{ site.title }}</h1>
+		  <h2></h2>
+		</div><!-- /.header-title-wrap -->
+	</div>
 </div><!-- /.entry-header -->
 
 <div id="main" role="main">
   <article class="hentry">
     <header class="header-title">
-      <div class="header-title-wrap">
+		<div class="header-title-wrap" {% if page.image.feature %} style="background-image:{{ site.url }}/images/{{ page.image.feature }}"{% endif %} >
         {% if page.link %}
           <h1 class="entry-title"><i class="fa fa-bookmark permalink"></i> <a href="{{ page.link }}">{{ page.title }}</a></h1>
         {% else %}

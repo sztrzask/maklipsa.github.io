@@ -33,5 +33,5 @@ All select scripts are additive (they extend the previous one)
 * `03_SelectSushi.txt` - Select 'sushi' food type
 * `04_SelectSushiRestaurants.txt` - Selects sushi restaurants
 * `05_SelectRestaurantsThatMyFriendsLike.txt` - Selects sushi restaurants that my friends like.
-* `06_SelectRestaurantsInNewYork.txt` - And the finall one. Narrows the restaurants to those in New York.
+* `06_SelectRestaurantsInNewYork.txt` - Narrows the restaurants to those in New York.
 * `selectAll.txt` - Selects all edges.

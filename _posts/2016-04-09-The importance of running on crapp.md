@@ -46,6 +46,6 @@ There are many reasons, but here are some of them:
 - **I shouldn't need a better server**. The http load that cookit is taking isn't that big, so this machine should have plenty of computing power spare. This wasn't true in the past, but now it uses ~15% CPU and ~1GB of RAM.
 - **It is auto testing my code**. Any performance problems will be visible much sooner. Basically if in the morning my mail isn't flooded with error logs, or any of my monitoring services didn't send me an auto alert, in most cases it means things are fine.
 - **Fast is callable.** It isn't true in general, but it is easier to scale a fast application, then a slow one. Running on this machine gives me a lot of space to go up without any need for major code changes.
-- **It is hard**. Running on crap is much harder than on an 8 core 32GB machine with SSD/nvme drives. It makes is easier to run into strange problems, and that means I have to learn more. And very often go outside of my comfort zone. That is a good thing.  
+- **It is hard**. Running on crap is much harder than on an 8 core 32GB machine with SSD/nvme drives. It makes is easier to run into strange problems, and that means I have to learn more. And very often go outside of my comfort zone. That is a good thing.
 - Finally it turns out **crap if cheep**. And since I'm not making any money from it, spending little is nice.
 

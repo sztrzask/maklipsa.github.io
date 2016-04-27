@@ -1,3 +1,10 @@
+---
+layout: post
+title: How is cookit build
+description: "A short description how cookit runs and why it looks this way."
+modified: 2016-04-27
+tags: [cookit,Hangfire,SQL Server,graphs]
+---
 The last time I described the hardware cookit is running on. Commonly referred as crap.
 
 Now it's time for some info what exactly is running on this fine pieace of hardware.

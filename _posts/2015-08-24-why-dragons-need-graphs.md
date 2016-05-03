@@ -2,7 +2,7 @@
 layout: post
 title: Why dragons need graphs - demo files
 description: "Demo files for my talk on state on graph databases, with demos with Neo4j"
-modified: 2015-08-24
+modified: 2016-05-04
 tags: [talk, graph databases, Neo4j]
 ---
 
@@ -35,3 +35,8 @@ All select scripts are additive (they extend the previous one)
 * `05_SelectRestaurantsThatMyFriendsLike.txt` - Selects sushi restaurants that my friends like.
 * `06_SelectRestaurantsInNewYork.txt` - Narrows the restaurants to those in New York.
 * `selectAll.txt` - Selects all edges.
+
+**Update**
+And the video:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Bo6uOQ-P25w" frameborder="0" allowfullscreen></iframe>

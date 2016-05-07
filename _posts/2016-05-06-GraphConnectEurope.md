@@ -3,7 +3,9 @@ layout: post
 title: Graph Connect Europe 2016
 description: "Graph Connect Europe is over, and "
 modified: 2016-05-04
-tags: [graph databases, Neo4j, Neo4j3.0, conference] 
+tags: [graph databases, Neo4j, Neo4j3.0, conference]
+image:
+  feature: data/GraphConnect2016/GrahConnect.png 
 ---
 Last week I had the opportunity to attend [Graph Connect Europe](http://graphconnect.com/). Many great sessions, but one thing topped them all - [Neo4j 3.0 is out](http://neo4j.com/release-notes/neo4j-3-0-0/)!
 

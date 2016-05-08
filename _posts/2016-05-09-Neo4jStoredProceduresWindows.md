@@ -5,7 +5,7 @@ description: "A full how to get Neo4j stored procedures working on Windows, and 
 modified: 2016-05-05
 tags: [graph databases, Neo4j, Neo4j3.0, Neo4j stored procedures, stored procedures, how to]
 image:
-  feature: data/Neo4jStoredProcedures/storedProcedures.png
+  feature: data/Neo4jStoredProcedures/StoredProcedures.png
 ---
 
 In the [previous post I've written about new features in Neo4j](http://indexoutofrange.com/GraphConnectEurope/). 

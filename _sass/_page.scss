@@ -124,7 +124,7 @@ body {
 	color: $white;
 	@include font-rem(12);
 	text-align: right;
-	@include border-radius(3px,0,0,3px);
+	border-radius: 3px 0 0 3px;
 	z-index: 10;
 	@media #{$medium} {
 		max-width: 760px;
@@ -156,7 +156,7 @@ body {
 		display: inline-block;
 		margin: 4px;
 		color: $white;
-		@include rounded(3px);
+		border-radius: 3px;
 		background-color: lighten($base-color,50);
 		span {
 			float: left;
@@ -164,7 +164,7 @@ body {
 		}
 		.count {
 			background-color: lighten($base-color,40);
-			@include border-radius(3px,3px,0,0);
+			border-radius: 0 3px 3px 0;
 		}
 		&:hover {
 			background-color: lighten($base-color,40);
@@ -187,7 +187,7 @@ header .entry-meta {
 		padding: 10px 15px;
 		background-color: $white;
 		box-shadow: 0 0 0 0, 0 6px 12px rgba($black,0.1);
-		@include rounded(3px);
+		border-radius: 3px;
 		@media #{$medium} {
 			margin-left: 10px;
 			margin-right: 10px;
@@ -210,7 +210,7 @@ header .entry-meta {
 		padding: 10px 15px;
 		background-color: $white;
 		box-shadow: 0 0 0 1px rgba($border-color,0.1), 0 6px 12px rgba($black,0.1);
-		@include rounded(3px);
+		border-radius: 3px;
 		@media #{$medium} {
 			margin-left: 10px;
 			margin-right: 10px;
@@ -264,7 +264,7 @@ header .entry-meta {
 	padding: 40px 15px 25px;
 	background-color: $white;
 	box-shadow: 0 0 0 1px rgba($border-color,0.1), 0 6px 12px rgba($black,0.1);
-	@include rounded(3px);
+	border-radius: 3px;
 	@media #{$medium} {
 		margin: 50px 10px 20px 10px;
 		padding: 50px 40px 25px;
@@ -351,7 +351,7 @@ header .entry-meta {
 	article {
 		background-color: $white;
 		box-shadow: 0 0 0 0, 0 6px 12px rgba($base-color,0.1);
-		@include rounded(3px);
+		border-radius: 3px;
 		margin-bottom: 20px;
 		padding: 25px 15px;
 		@media #{$medium} {
@@ -381,7 +381,7 @@ header .entry-meta {
 		margin-bottom: 20px;
 	}
 	img {
-		@include border-radius(3px,0,0,3px); // round image corners
+		border-radius: 3px 0 0 3px; // round image corners
 	}
 }
 
@@ -443,7 +443,7 @@ header .entry-meta {
 	border-width: 2px !important;
 	border-style: solid !important;
 	border-color: lighten($primary,50);
-	@include rounded(3px);
+	border-radius: 3px;
 }
 #goog-wm-sb {
 	@extend .btn;

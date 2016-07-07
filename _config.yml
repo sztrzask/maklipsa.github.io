@@ -56,7 +56,9 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: true
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  input: GFM
+  syntax_highlighter: rouge
 
   coderay:
     coderay_line_numbers: nil

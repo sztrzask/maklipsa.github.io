@@ -14,18 +14,60 @@
 	<meta content="authenticity_token" name="csrf-param">
 	<meta content="zTAoTq1tLiVobbHS4f9S16J765vVDV9Vb4xzzUM8VXs=" name="csrf-token">
 	<style id="user-css-output" type="text/css"></style>
+	<style type="text/css" >
+		.entry-header {
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+		}
+		.gradient {
+			display: flex;
+			flex-direction: row;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+		.gradient div {
+			width: 6%;
+			height: 100%;
+		}
+		.gradient-text{
+			color: white;
+		}
+		.sl-block-content{
+			color: white;
+		}
+	</style>
 </head>
 
 <body>
 	<div class="reveal slide" role="application" data-transition-speed="default" data-background-transition="slide">
 		<div class="slides" style="width: 960px; height: 700px; zoom: 1.20214;">
+				<div class="gradient">
+					<div style="background:#000000"></div>
+					<div style="background:#1C0000"></div>
+					<div style="background:#380000"></div>
+					<div style="background:#550000"></div>
+					<div style="background:#710000"></div>
+					<div style="background:#8D0000"></div>
+					<div style="background:#AA0000"></div>
+					<div style="background:#C60000"></div>
+					<div style="background:#E20000"></div>
+					<div style="background:#FF0000"></div>
+					<div style="background:#FF3800"></div>
+					<div style="background:#FF5500"></div>
+					<div style="background:#FF7100"></div>
+					<div style="background:#FF8D00"></div>
+					<div style="background:#FFAA00"></div>
+					<div style="background:#FFC600"></div>
+					<div style="background:#FFE200"></div>
+					<div style="background:#FFFF00"></div>
+				</div>
 			<section data-id="e44f967dbf942b5e049518fad36e7cab" class="present" style="display: block;">
 				<div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 70px; height: auto;" data-block-id="e6c103671a3f87df22edc6d22790b919">
-
-					<div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
-						<h1><span style="color:rgba(0, 0, 0, 0.870588); text-align:left">Grafy, </span></h1>
-
-						<h1><span style="color:rgba(0, 0, 0, 0.870588); text-align:left">czyli Neo4j w praktyce</span></h1>
+					<div class="gradient-text sl-block-content" style="-webkit-background-clip: text !important" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+						<h1><span style="text-align:left">Grafy,</span></h1>
+						<h1><span style="text-align:left">czyli Neo4j w praktyce</span></h1>
 					</div>
 				</div>
 				<div class="sl-block" data-block-type="table" style="height: auto; min-width: 120px; min-height: 30px; width: 960px; left: 0px; top: 0px;" data-block-id="eceb4e6deb2f3ac7666fac9f89865076">
@@ -52,7 +94,7 @@
 			<section data-id="8c2db08e5a19029454e75918feceb429" hidden="" aria-hidden="true" class="future" style="display: block;">
 				<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;" data-block-id="8ad148bebb92633020fb5155bc1a8a36">
 					<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
-						<h2>Kto ja jestem</h2>
+						<h2>Kto ja jestem?</h2>
 					</div>
 				</div>
 				<div class="sl-block" data-block-type="text" style="width: 631px; left: 296px; top: 210px; height: auto;" data-block-id="fdc9fcf103ec17d256229ea3c3c4e5c8">
@@ -61,12 +103,12 @@
 							<li style="text-align:left">​Architekt i TeamLeader w ITMAGINATION</li>
 							<li style="text-align:left">Zajmuję się systemami rozproszonymi i tym co można wywnioskować z danych​​</li>
 							<li style="text-align:left">No i można mnie spotkać na rekrutacji :)</li>
-							<li style="text-align:left"><span style="color:#0000CD">IndexOutOfRange.com</span></li>
+							<li style="text-align:left"><a href="http://IndexoutOfRange.com" >IndexOutOfRange.com</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="sl-block" data-block-type="image" data-block-id="7a865899705093ab6e50ab6408c2ebc6" style="min-width: 30px; min-height: 30px; width: 260px; height: 260px; left: 36px; top: 210px;">
-					<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="600" data-natural-height="600" src="./IndexOutOfRangeTitle Text_ Slides_files/logo_TYYD4u0.jpg"></div>
+					<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="600" data-natural-height="600" src="./images/logo.jpg"></div>
 				</div>
 			</section>
 			<section data-id="33037c306a36c1e78b03dcbf31138dd0" hidden="" aria-hidden="true" class="future" style="display: block;">
@@ -145,7 +187,7 @@ Czy nie brakuje tu komuś jakiegoś typu?" class="future" aria-hidden="true" sty
 					</div>
 					<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 505px;" data-block-id="39202d4c7040fc45fae5c238e1ccf014">
 						<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="5">
-							<p>Nie ma nulli</p>
+							<p>Nie ma NULLi!</p>
 						</div>
 					</div>
 				</section>
@@ -224,7 +266,7 @@ Bo inaczej wymagany jest skan po wszystkich wierzchołkach" class="future" aria-
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="0cced6c692926a113715325b57c4dd24" style="min-width: 30px; min-height: 30px; width: 113px; height: 113px; left: 194px; top: 467px;">
-						<div class="sl-block-content fragment" style="z-index: 18;" data-fragment-index="1"><img data-natural-width="58" data-natural-height="58" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2779979/graph__9_.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 18;" data-fragment-index="1"><img data-natural-width="58" data-natural-height="58" data-src="./images/graph__9_.svg"></div>
 					</div>
 					<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 494px; left: 400px; top: 504px;" data-block-id="696f94f8c39bb8c0952318e27e3fc605">
 						<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;" data-fragment-index="1">
@@ -298,13 +340,13 @@ Bo inaczej wymagany jest skan po wszystkich wierzchołkach" class="future" aria-
 
 							<p style="text-align:left">- 1.001.000 nodów Node</p>
 
-							<p style="text-align:left">- <span style="color:rgb(51, 51, 51); text-align:start">1.001.010</span>&nbsp;nodów</p>
+							<p style="text-align:left">- <span style="text-align:start">1.001.010</span>&nbsp;nodów</p>
 
 							<p style="text-align:left">- 1.001.010 relacji</p>
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="22e6608c82e092b4c430593e20e0d2cd" style="min-width: 30px; min-height: 30px; width: 348.228px; height: 350px; left: 42px; top: 210px;">
-						<div class="sl-block-content" style="z-index: 17;"><img data-natural-width="393" data-natural-height="395" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2781806/graph__10_.svg"></div>
+						<div class="sl-block-content" style="z-index: 17;"><img data-natural-width="393" data-natural-height="395" data-src="./images/graph__10_.svg"></div>
 					</div>
 				</section>
 				<section data-id="92d8d819722f42c37f55677c83fa1ad5" class="future" aria-hidden="true" style="display: none;">
@@ -357,10 +399,10 @@ Bo inaczej wymagany jest skan po wszystkich wierzchołkach" class="future" aria-
 
 
 					<div class="sl-block" data-block-type="image" data-block-id="0847c5478b63b18e471cebea804e20cc" style="min-width: 30px; min-height: 30px; width: 556.253px; height: 137px; left: 202px; top: 242px;">
-						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="337" data-natural-height="83" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2782397/graph__11_.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="337" data-natural-height="83" data-src="./images/graph__11_.svg"></div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="3bb52aa881e8eb75a57bbd9bc44a7844" style="min-width: 30px; min-height: 30px; width: 523.84px; height: 151px; left: 218px; top: 444px;">
-						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="281" data-natural-height="81" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2782398/graph__12_.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="281" data-natural-height="81" data-src="./images/graph__12_.svg"></div>
 					</div>
 				</section>
 				<section data-id="8744b008f30166baa853b6bbbbb5a09b" data-notes="Np bycie w związku małżeńskim" class="future" aria-hidden="true" style="display: none;">
@@ -380,10 +422,10 @@ Bo inaczej wymagany jest skan po wszystkich wierzchołkach" class="future" aria-
 
 
 					<div class="sl-block" data-block-type="image" data-block-id="4d6a8093b30405c8d090b0a544d65895" style="min-width: 30px; min-height: 30px; width: 494.205px; height: 121px; left: 233px; top: 246px;">
-						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="339" data-natural-height="83" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2782407/graph__13_.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="339" data-natural-height="83" data-src="./images/graph__13_.svg"></div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="b6396c734497469aed762194a6e6133b" style="min-width: 30px; min-height: 30px; width: 487px; height: 114.944px; left: 237px; top: 420px;">
-						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="322" data-natural-height="76" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2782409/graph__14_.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="322" data-natural-height="76" data-src="./images/graph__14_.svg"></div>
 					</div>
 					<div class="sl-block" data-block-type="code" data-block-id="2040cbcf7c8e525a460cd80a135d787b" style="min-width: 30px; min-height: 30px; width: 500px; height: 55px; left: 230px; top: 603px;">
 						<div class="sl-block-content fragment" style="z-index: 15; font-size: 130%;" data-highlight-theme="github-gist" data-fragment-index="2"><pre class="less"><code class="hljs"><span class="hljs-attribute">MATCH (a</span>:Person)-[:IS_MARIED]-(<span class="hljs-attribute">b</span>:Person)</code></pre></div>
@@ -401,10 +443,10 @@ Bo inaczej wymagany jest skan po wszystkich wierzchołkach" class="future" aria-
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="590f96fb9fdf96b9ee5dc25370446c0a" style="min-width: 30px; min-height: 30px; width: 846px; height: 200.419px; left: 57px; top: 217.5px;">
-						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="878" data-natural-height="208" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2779637/twiter_my.png"></div>
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="878" data-natural-height="208" data-src="./images/twiter_my.png"></div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="49e6df0c1fb609ae1f9fec391b4983f6" style="min-width: 30px; min-height: 30px; width: 846px; height: 201.154px; left: 57px; top: 448px;">
-						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="879" data-natural-height="209" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2779819/twiter_barack.png"></div>
+						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="879" data-natural-height="209" data-src="./images/twiter_barack.png"></div>
 					</div>
 				</section>
 				<section data-id="dcc071acc68369ca51235a7ee175771d" data-notes="Czemu to jest problem?
@@ -421,7 +463,7 @@ Bo wszystko jest blisko siebie (nie odflitrowywujemy grafu)" class="future" aria
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="b7dd5d0f90df5a6dfebac52edb44562e" style="min-width: 30px; min-height: 30px; width: 339.527px; height: 335px; left: 0px; top: 210px;">
-						<div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0"><img data-natural-width="225" data-natural-height="222" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2779641/supernodes-graph.png"></div>
+						<div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0"><img data-natural-width="225" data-natural-height="222" data-src="./images/supernodes-graph.png"></div>
 					</div>
 					<div class="sl-block" data-block-type="text" data-block-id="7663378a235f6cc708ffb663136c06df" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 360px; top: 241px;">
 						<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="1">
@@ -469,7 +511,7 @@ Bo wszystko jest blisko siebie (nie odflitrowywujemy grafu)" class="future" aria
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" style="width: 729px; height: 404.697px; left: 116px; top: 251.5px;" data-block-id="c8e7b4b1b19bee500dee7eafa90a28e3">
-						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="535" data-natural-height="297" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2775791/nodeas_and_relations_01.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="535" data-natural-height="297" data-src="./images/nodeas_and_relations_01.svg"></div>
 					</div>
 				</section>
 				<section data-id="b33768b13e963bb25d3019dffd9ffcd5" class="future" aria-hidden="true" style="display: none;">
@@ -490,7 +532,7 @@ Bo wszystko jest blisko siebie (nie odflitrowywujemy grafu)" class="future" aria
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="1c66d106132977a37add0056a1438aa0" style="min-width: 30px; min-height: 30px; width: 727.946px; height: 463px; left: 116px; top: 237px;">
-						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="555" data-natural-height="353" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2775881/method-draw-image__1_.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="555" data-natural-height="353" data-src="./images/method-draw-image__1_.svg"></div>
 					</div>
 				</section>
 				<section data-id="1c1f95e39bba8074e750ffe7bdb81566" class="future" aria-hidden="true" style="display: none;">
@@ -511,7 +553,7 @@ Bo wszystko jest blisko siebie (nie odflitrowywujemy grafu)" class="future" aria
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" style="width: 802.941px; height: 364px; left: 79px; top: 280px;" data-block-id="dbf42a00eb30ef2df22f3698873c5f53">
-						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="750" data-natural-height="340" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2775992/graph__2_.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1"><img data-natural-width="750" data-natural-height="340" data-src="./images/graph__2_.svg"></div>
 					</div>
 				</section>
 				<section data-id="a5e444568396a9ae3fef434f6ec18424" class="future" aria-hidden="true" style="display: none;">
@@ -527,7 +569,7 @@ Bo wszystko jest blisko siebie (nie odflitrowywujemy grafu)" class="future" aria
 					</div>
 
 					<div class="sl-block" data-block-type="image" data-block-id="224dbb0a2761ecc3e21ecdf32bb42cc1" style="min-width: 30px; min-height: 30px; width: 860.373px; height: 135px; left: 50px; top: 350px;">
-						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="427" data-natural-height="67" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2776355/graph__3_.svg"></div>
+						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="427" data-natural-height="67" data-src="./images/graph__3_.svg"></div>
 					</div>
 				</section>
 			</section>
@@ -558,7 +600,7 @@ A jak dodamy Kasię?" style="display: none;">
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="a2894c9f38851d5a3f3433930e1b08cf" style="min-width: 30px; min-height: 30px; width: 689.737px; height: 298px; left: 135px; top: 332px;">
-						<div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="2"><img data-natural-width="493" data-natural-height="213" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2776646/graph__5_.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="2"><img data-natural-width="493" data-natural-height="213" data-src="./images/graph__5_.svg"></div>
 					</div>
 				</section>
 				<section data-id="129548e569093c890522ad7429571095" class="future" aria-hidden="true" style="display: none;">
@@ -574,7 +616,7 @@ A jak dodamy Kasię?" style="display: none;">
 					</div>
 
 					<div class="sl-block" data-block-type="image" data-block-id="762a97eed2451499e3fb2c9b097c3252" style="min-width: 30px; min-height: 30px; width: 583.848px; height: 449px; left: 188px; top: 210px;">
-						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="394" data-natural-height="303" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2776692/graph__7_.svg"></div>
+						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="394" data-natural-height="303" data-src="./images/graph__7_.svg"></div>
 					</div>
 				</section>
 				<section data-id="812f87a364043584d323f733f2d4a842" data-notes="Zamiast typu relacji są id zamówień" class="future" aria-hidden="true" style="display: none;">
@@ -590,7 +632,7 @@ A jak dodamy Kasię?" style="display: none;">
 					</div>
 
 					<div class="sl-block" data-block-type="image" style="width: 584px; height: 448.02px; left: 188px; top: 210.5px;" data-block-id="09ad249e9757534f7dab861dba27a427">
-						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="408" data-natural-height="313" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2776730/graph__8_.svg"></div>
+						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="408" data-natural-height="313" data-src="./images/graph__8_.svg"></div>
 					</div>
 				</section>
 			</section>
@@ -610,7 +652,7 @@ A jak dodamy Kasię?" style="display: none;">
 
 
 					<div class="sl-block" data-block-type="image" data-block-id="88a0efce64686ff050eca92a69e90fa0" style="min-width: 30px; min-height: 30px; width: 653.409px; height: 452px; left: 158.591px; top: 210px;">
-						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="558" data-natural-height="386" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2782462/timeline_01.svg"></div>
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="558" data-natural-height="386" data-src="./images/timeline_01.svg"></div>
 					</div>
 				</section>
 				<section data-id="80bba4517bde1bff567bd345268c86f2" class="future" aria-hidden="true" style="display: none;">
@@ -666,7 +708,7 @@ A jak dodamy Kasię?" style="display: none;">
 
 
 					<div class="sl-block" data-block-type="image" data-block-id="ef20290af965a832dc9c7a1d072bb0b5" style="min-width: 30px; min-height: 30px; width: 453.353px; height: 500px; left: 254px; top: 191px;">
-						<div class="sl-block-content" style="z-index: 14;"><img data-natural-width="311" data-natural-height="343" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2782581/graph__18_.svg"></div>
+						<div class="sl-block-content" style="z-index: 14;"><img data-natural-width="311" data-natural-height="343" data-src="./images/graph__18_.svg"></div>
 					</div>
 				</section>
 			</section>
@@ -1105,7 +1147,7 @@ RETURN t.name,b.tags</code></pre></div>
 							<p style="text-align:left">Operatory: ANY, ALL, NONE, SINGLE</p>
 						</div>
 					</div>
-					<div class="sl-block" data-block-type="code" data-block-id="ee5c366da4608cbb767c74245c08bc30" style="min-width: 30px; min-height: 30px; width: 716px; height: 111px; left: 122px; top: 449px;">
+					<div class="sl-block" data-block-type="code" data-block-id="ee5c366da4608cbb767c74245c08bc30" style="min-width: 30px; min-height: 30px; width: 716px; height: 120px; left: 122px; top: 449px;">
 						<div class="sl-block-content fragment" style="z-index: 16; font-size: 130%;" data-highlight-theme="github-gist" data-fragment-index="1"><pre class="less"><code class="hljs"><span class="hljs-attribute">MATCH (b</span>:Book)
 WHERE ANY (tag IN b.tags WHERE tag = <span class="hljs-string">'nosql'</span>)
 	AND NONE (tag IN b.tags WHERE tag = <span class="hljs-string">'neo4j'</span>)
@@ -1279,7 +1321,7 @@ RETURN REDUCE (path=<span class="hljs-string">"START"</span>, i IN nodes(p) | pa
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="946e94d18588767b05862f343ce92332" style="min-width: 30px; min-height: 30px; width: 960px; height: 519.6px; left: 0px; top: 210px;">
-						<div class="sl-block-content" style="z-index: 14;"><img data-natural-width="1600" data-natural-height="866" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2780967/cypher_refCard.png"></div>
+						<div class="sl-block-content" style="z-index: 14;"><img data-natural-width="1600" data-natural-height="866" data-src="./images/cypher_refCard.png"></div>
 					</div>
 				</section>
 				<section data-id="3b420b893a59723490776a1e39a99a88" data-notes="call apoc.help(&quot;apoc&quot;)" class="future" aria-hidden="true" style="display: none;">
@@ -1295,11 +1337,11 @@ RETURN REDUCE (path=<span class="hljs-string">"START"</span>, i IN nodes(p) | pa
 					</div>
 					<div class="sl-block" data-block-type="text" style="height: auto; width: 616px; left: 160px; top: 210px;" data-block-id="e4bca70d300642052e2df76167d08ceb">
 						<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
-							<p>(<span style="color:rgb(51, 51, 51); text-align:start">Awesome Procedures On Cypher</span>) APOC</p>
+							<p>APOC(Awesome Procedures On Cypher)</p>
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="ecd480d21d28c075705578fbfab911fe" style="min-width: 30px; min-height: 30px; width: 207.309px; height: 300px; left: 119px; top: 280px;">
-						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="208" data-natural-height="301" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2780993/apoc.gif"></div>
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="208" data-natural-height="301" data-src="./images/apoc.gif"></div>
 					</div>
 					<div class="sl-block" data-block-type="code" data-block-id="1cd0e50706cc721ba5eec4d23fe0c177" style="min-width: 30px; min-height: 30px; width: 500px; height: 49px; left: 360px; top: 280px;">
 						<div class="sl-block-content fragment" style="z-index: 14; font-size: 140%;" data-highlight-theme="github-gist" data-fragment-index="1"><pre class="less"><code class="hljs"><span class="hljs-attribute">CALL apoc.help("apoc")</span></code></pre></div>
@@ -1352,7 +1394,7 @@ Konsola jest instalowana jako plugin w neo4j" class="future" aria-hidden="true" 
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="2f318b7c9ee1700fac56f6ad52dfc7f9" style="min-width: 30px; min-height: 30px; width: 360px; height: 221.16px; left: 28px; top: 210px;">
-						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="1465" data-natural-height="900" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2781077/tinkerpop-splash.png"></div>
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="1465" data-natural-height="900" data-src="./images/tinkerpop-splash.png"></div>
 					</div>
 					<div class="sl-block" data-block-type="code" data-block-id="a727f0ab20a9540a7d2e60fd77abd3aa" style="min-width: 30px; min-height: 30px; width: 504px; height: 106px; left: 212px; top: 490px;">
 						<div class="sl-block-content fragment" style="z-index: 15; font-size: 130%;" data-highlight-theme="github-gist" data-fragment-index="2"><pre class="java"><code class="hljs">g.V().has(<span class="hljs-string">"name"</span>,<span class="hljs-string">"gremlin"</span>)
@@ -1360,7 +1402,7 @@ Konsola jest instalowana jako plugin w neo4j" class="future" aria-hidden="true" 
 	.values(<span class="hljs-string">"name"</span>)</code></pre></div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="c6e5d8a501ec88a8dc03de167f5759c9" style="min-width: 30px; min-height: 30px; width: 435.749px; height: 169px; left: 464px; top: 251px;">
-						<div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="1"><img data-natural-width="740" data-natural-height="287" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2781102/gremlin-logo.png"></div>
+						<div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="1"><img data-natural-width="740" data-natural-height="287" data-src="./images/gremlin-logo.png"></div>
 					</div>
 				</section>
 			</section>
@@ -1388,7 +1430,7 @@ AST - Abstract Syntax Tree" class="future" aria-hidden="true" style="display: no
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" data-block-id="443b9ccaedc193a900c6fde8608d4eeb" style="min-width: 30px; min-height: 30px; width: 960px; height: 270.807px; left: 0px; top: 188px;">
-						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="1301" data-natural-height="367" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2781576/cypher_execution_plan.png"></div>
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="1301" data-natural-height="367" data-src="./images/cypher_execution_plan.png"></div>
 					</div>
 					<div class="sl-block" data-block-type="text" data-block-id="67b101119dfce432d3ec88110f35576a" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 459px;">
 						<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="1">
@@ -1412,7 +1454,7 @@ AST - Abstract Syntax Tree" class="future" aria-hidden="true" style="display: no
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" style="width: 960px; height: 270.807px; left: 0px; top: 188px;" data-block-id="bcff132f9aab845e30b958ecc7e31896">
-						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1301" data-natural-height="367" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2781576/cypher_execution_plan.png"></div>
+						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1301" data-natural-height="367" data-src="./images/cypher_execution_plan.png"></div>
 					</div>
 					<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 459px;" data-block-id="24715e1c803ef50cdb8e49c0e0accd8b">
 						<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="0">
@@ -1435,7 +1477,7 @@ Mocno zmieniło się w 3.0" class="future" aria-hidden="true" style="display: no
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" style="width: 960px; height: 270.807px; left: 0px; top: 188px;" data-block-id="f922ef1aa93433475c7660decffc7a8d">
-						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1301" data-natural-height="367" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2781576/cypher_execution_plan.png"></div>
+						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1301" data-natural-height="367" data-src="./images/cypher_execution_plan.png"></div>
 					</div>
 					<div class="sl-block" data-block-type="text" style="height: auto; width: 833px; left: 80px; top: 459px;" data-block-id="1e8de0574dcbba4d0611803625aebb02">
 						<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="0">
@@ -1459,7 +1501,7 @@ Mocno zmieniło się w 3.0" class="future" aria-hidden="true" style="display: no
 						</div>
 					</div>
 					<div class="sl-block" data-block-type="image" style="width: 960px; height: 270.807px; left: 0px; top: 188px;" data-block-id="b14ff494b2cd285f801e16116986997e">
-						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1301" data-natural-height="367" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/534763/images/2781576/cypher_execution_plan.png"></div>
+						<div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1301" data-natural-height="367" data-src="./images/cypher_execution_plan.png"></div>
 					</div>
 					<div class="sl-block" data-block-type="text" style="height: auto; width: 680px; left: 80px; top: 490px;" data-block-id="b9fbb0d0943617cff301842fa6993572">
 						<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">

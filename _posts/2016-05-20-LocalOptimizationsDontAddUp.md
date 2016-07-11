@@ -87,7 +87,8 @@ From the two above it was clear what to search for in the code.
 
 This is the culprit:
 
-<pre><code class="csharp">return ingredients
+```csharp
+return ingredients
     .AsParallel()
     .Select(a =>
         {
@@ -98,7 +99,7 @@ This is the culprit:
                 relevance = _ingredientRelevance[a.Id];
             return new IngredientWithRelevanceAndLevel(a.Name, relevance, a.Level);
         }).ToList();
-</code></pre>
+```
 
 Because the profiler is showing only my code that means that the rest of the processing power was used to switch threads.
  

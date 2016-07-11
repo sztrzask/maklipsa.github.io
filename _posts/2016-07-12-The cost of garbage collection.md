@@ -205,7 +205,7 @@ The second is that it runs every test twice as a warm up to minimize for such th
 
 ## Gen0Collection (objects collected in generation 0 collection):
 
-```Console
+```bash
 ------------ STARTING Tests.GCCollection+Gen0Collection ----------
 Objects generated.
 Gen 0 ticks:       21257
@@ -251,7 +251,7 @@ The test itself is the part after `END WARMUP`. And according do this run genera
 
 ## Gen1Collection (objects collected in generation 1 collection)
 
-```console
+```bash
 ------------ STARTING Tests.GCCollection+Gen1Collection ----------
 Objects generated.
 Gen 0 ticks:       45994
@@ -300,7 +300,7 @@ The difference between 47584 ticks for generation 0 and 472 ticks for generation
 
 ## Gen2Collection (objects collected in generation 2 collection)
 
-```console
+```bash
 ------------ STARTING Tests.GCCollection+Gen2Collection ----------
 Objects generated.
 Gen 0 ticks:       46034

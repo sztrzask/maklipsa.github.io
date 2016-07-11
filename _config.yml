@@ -58,7 +58,7 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   input: GFM
-  syntax_highlighter: rouge
+#  syntax_highlighter: hljs
 
   coderay:
     coderay_line_numbers: nil

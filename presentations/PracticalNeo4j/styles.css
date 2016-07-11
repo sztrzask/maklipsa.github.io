@@ -2925,7 +2925,7 @@
 			max-height: none;
 			margin: 0;
 			outline: 0;
-			word-wrap: break-word
+			word-wrap: break-word;
 		}
 		
 		.reveal .sl-block .sl-block-content .sl-block-content-preview {

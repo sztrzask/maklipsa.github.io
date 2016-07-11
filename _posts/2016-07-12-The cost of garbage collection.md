@@ -25,7 +25,7 @@ To check I needed couple of things:
 I've assumed that increasing the number of objects will influence garbage collection time - this is quite logical assumption. One thing to have in mind is that those **have to be objects** (instances of classes) **not structs**. Why? Because structs and classes are collected in different ways. Classes are collected by counting references during `GC.Collect`, and structs, since you can't have a reference to it, are collected when they loose scope, or during collection of object that contains it. More on this can be read for example [here](https://www.simple-talk.com/dotnet/.net-framework/5-tips-and-techniques-for-avoiding-automatic-gc-collections/)
 So my class looks like this:
 
-```csharp
+<pre><code class="csharp">
 private class MyGCTestClass
 {
     private readonly string Text;
@@ -40,11 +40,12 @@ private class MyGCTestClass
         Text = source.Text;
     }
 }
-```
+</code></pre>
+
 
 And generating code looks like this:
     
-```csharp
+<pre><code class="csharp">
 private List<MyGCTestClass> GenerateObjects(long count)
 {
     var ret = new List<MyGCTestClass>();
@@ -54,18 +55,18 @@ private List<MyGCTestClass> GenerateObjects(long count)
     }
     return ret;
 }
-```
+</code></pre>
 
 ## 2. A way to trigger garbage collection
 Since [.NET has two garbage collectors (client and server)](https://blogs.msdn.microsoft.com/dotnet/2012/07/20/the-net-framework-4-5-includes-new-garbage-collector-enhancements-for-client-and-server-apps/) and I wanted to measure time impact so using the blocking one (client) was the only logical choice. A quick entry in [app/web.config](https://msdn.microsoft.com/en-us/library/ms229357(v=vs.110).aspx):
 
-```xml
+<pre><code class="xml">
 <configuration>
     <runtime>
         <gcServer enabled="false" />
     </runtime>
 </configuration>
-```
+</code></pre>
  
 Also `GC.Collect` has several overloads. The [four parameter overload](https://msdn.microsoft.com/en-us/library/dn906200(v=vs.110).aspx) enables to:
 
@@ -74,9 +75,9 @@ Also `GC.Collect` has several overloads. The [four parameter overload](https://m
 -  force compacting (So not only marking objects for deletion, [but also moving the rest together to minimize memory fragmentation](https://msdn.microsoft.com/en-us/library/ee787088(v=vs.110).aspx) )
 The call will look like this:
 
-```csharp
+<pre><code class="csharp">
 GC.Collect(generationNumber, GCCollectionMode.Forced, true, true);
-```
+</code></pre>
 
 ## 3. A way to check how many times collection was executed
 
@@ -85,7 +86,7 @@ This can be done by using [`GC.RegisterForFullGCNotification`](https://msdn.micr
 
 So my test class looked like this:
 
-```csharp
+<pre><code class="csharp">
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -190,7 +191,7 @@ namespace Tests
         }
     }
 }
-```
+</code></pre>
 
 Some things to point out:
 
@@ -205,7 +206,7 @@ The second is that it runs every test twice as a warm up to minimize for such th
 
 ## Gen0Collection (objects collected in generation 0 collection):
 
-```Console
+<pre><code class="console">
 ------------ STARTING Tests.GCCollection+Gen0Collection ----------
 Objects generated.
 Gen 0 ticks:       21257
@@ -245,13 +246,13 @@ TotalCollections [Gen2]: Max / s: 0,00 collections, Average / s: 0,00 collection
 [PASS] Expected TotalCollections [Gen2] to must be exactly 0,00 collections; actual value was 0,00 collections.
 
 ------------ FINISHED Tests.GCCollection+Gen0Collection ----------
-```
+</code></pre>
 
 The test itself is the part after `END WARMUP`. And according do this run generation 0 collection collecting all the objects lasts 47949 ticks. 
 
 ## Gen1Collection (objects collected in generation 1 collection)
 
-```console
+<pre><code class="console">
 ------------ STARTING Tests.GCCollection+Gen1Collection ----------
 Objects generated.
 Gen 0 ticks:       45994
@@ -294,13 +295,13 @@ TotalCollections [Gen2]: Max / s: 0,00 collections, Average / s: 0,00 collection
 [PASS] Expected TotalCollections [Gen2] to must be exactly 0,00 collections; actual value was 0,00 collections.
 
 ------------ FINISHED Tests.GCCollection+Gen1Collection ----------
-```
+</code></pre>
 
 The difference between 47584 ticks for generation 0 and 472 ticks for generation 1 collection is big (more than 100 times), but keep reading because the best is yet to come.
 
 ## Gen2Collection (objects collected in generation 2 collection)
 
-```console
+<pre><code class="console">
 ------------ STARTING Tests.GCCollection+Gen2Collection ----------
 Objects generated.
 Gen 0 ticks:       46034
@@ -347,7 +348,7 @@ TotalCollections [Gen2]: Max / s: 1,81 collections, Average / s: 1,81 collection
 
 ------------ FINISHED Tests.GCCollection+Gen2Collection ----------
 
-``` 
+</code></pre>
 
 # The final results
 
@@ -368,7 +369,7 @@ So generation 1 is surprisingly fast, and generation 2 collection is relatively 
 Not exactly.<br/>
 Take a look at this test:
 
-```csharp
+<pre><code class="csharp">
 [PerfBenchmark(Description = "Gen 2 collection with nothing", NumberOfIterations = 1, RunMode = RunMode.Iterations, TestMode = TestMode.Test)]
 [GcTotalAssertion(GcMetric.TotalCollections, GcGeneration.Gen0, MustBe.ExactlyEqualTo, 3d)]
 [GcTotalAssertion(GcMetric.TotalCollections, GcGeneration.Gen1, MustBe.ExactlyEqualTo, 2d)]
@@ -385,7 +386,7 @@ public void Gen2CollectionWithNothing()
 
     RunGCAndCheck(2, sw);/* Nothing should be here.*/
 }
-```
+</code></pre>
 
 It should collect everything in generation 0 collection, the rest should be close to 0, but here are the results:
     

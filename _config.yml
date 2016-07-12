@@ -41,6 +41,9 @@ highlighter: rouge
 markdown:    kramdown
 gems:
   - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-gist
+  - jekyll-feed
 sass:
   sass_dir: _sass
   style: compressed

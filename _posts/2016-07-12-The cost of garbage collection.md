@@ -8,6 +8,9 @@ image:
   feature: data/2016-07-12-The-cost-of-garbage-collection/logo.png
 ---
 
+**Update**
+There is a error in the first version of this code, and the tests are in fact always operating in a situation that almost all object are in generation 2. The answer is in the [next post](/The-cost-of-garbage-collection.Part-2-rectification)  
+ 
 In the [previous post](http://indexoutofrange.com/GC-can-kill-You-Practical-GC-performance-counters-in-NET/) I've promised to write how to have differentiate the number of workers in Hangfie, but in the comments Michał asked one interesting question - "Is generation 1 collection more expensive then generation 0 collection?". Going further how does generation 2 collection fit into it?
 
 I always believed that running `GC.Collect` is more expensive the deeper we go. So `GC.Collect(0)` is the least expensive, and `GC.Collect(2)` is most expensive. This opinion was reinforced by articles I remember reading and general opinion that .NET is optimized for fast young object collection.
@@ -347,7 +350,7 @@ TotalCollections [Gen2]: Max / s: 1,81 collections, Average / s: 1,81 collection
 
 ------------ FINISHED Tests.GCCollection+Gen2Collection ----------
 
-``` 
+```
 
 # The final results
 

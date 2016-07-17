@@ -3,6 +3,7 @@
    ========================================================================== */
 
 .dl-menuwrapper {
+	width: 150px;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -143,7 +144,7 @@
 		position: relative;
 		max-height: 90%;
 		overflow-y: auto;
-	  overflow-x: hidden;
+	  	overflow-x: hidden;
 		opacity: 0;
 		pointer-events: none;
 		box-shadow: 0 12px 24px rgba(#000,0.4);

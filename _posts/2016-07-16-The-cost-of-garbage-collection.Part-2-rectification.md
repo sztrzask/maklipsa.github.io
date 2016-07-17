@@ -8,7 +8,7 @@ image:
   feature: data/2016-07-16-The-cost-of-garbage-collection.Part-2-rectification/logo.jpg
 ---
 
-This is a rectification for the [previous post about the cost of garbage collection](indexoutofrange.com/The-cost-of-garbage-collection/). If You didn't read it give it a try and check if You can spot the bug/mistake.
+This is a rectification for the [previous post about the cost of garbage collection](/The-cost-of-garbage-collection/). If You didn't read it give it a try and check if You can spot the bug/mistake.
 
 Like [Konrad](http://blog.kokosa.net/) pointed out in [his comment](http://disq.us/p/1a0iccx) not all objects were in generation 0 as I assumed. This is partly connected to the fact that .NET, seeing rapid need for memory in `Setup`, will try to collect some of them, calling garbage collection, but I make the matters worse by calling `GC.Collect` in the end. So making sure that objects created during `Setup` will be in generation 2 (in my defence it was left over after a bit different take on this problem).
 

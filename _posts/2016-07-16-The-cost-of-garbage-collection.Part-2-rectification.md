@@ -170,5 +170,5 @@ Gen 0+1 ticks:     140
 Gen 0+1+2 ticks:   1365
 
 ## Final thoughts: 
-1. `GC.Collect(1)` takes a bit more time (keep in mind we are talking in ticks, not even miliseconds!) than `GC.Collect(0)`. For me it was not intuitive, and strange since calling `GC.Collect(1)` also calls `GC.Collect(0)`. 
+1. `GC.Collect(1)` takes a bit less time (keep in mind we are talking in ticks, not even miliseconds!) than `GC.Collect(0)`. For me it was not intuitive, and strange since calling `GC.Collect(1)` also calls `GC.Collect(0)`. 
 2. And finally to answer [Michał's question](http://disq.us/p/18p9xvb). I think generation 0 and generation 1 algorithms are a bit different, and definitely generation 2 uses different, more complicated algorithm.

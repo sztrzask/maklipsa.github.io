@@ -1,16 +1,3 @@
----
-sitemap: false
----
-
-/*
- *
- *  HPSTR
- *
- *  Designer: Michael Rose
- *  Twitter: http://twitter.com/mmistakes
- *
-*/
-
 // Partials
 @import "variables";
 // set-up the body font-size / line-height
@@ -27,7 +14,7 @@ body {
 //@import "syntax";
 //@import "coderay";
 //@import "grid";
-@import "elements";
+//@import "elements";
 //@import "animations";
-//@import "dl-menu";
-@import "page";
+@import "dl-menu";
+@import "pageInline";

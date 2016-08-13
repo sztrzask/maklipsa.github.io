@@ -44,7 +44,7 @@ The key point in procrastinating tasks is to not do them now, but to have certai
 - PostgreSql ([nuget package](postgres)) 
 - Redis (nuget package, but only in paid pro version) 
 
-And configuring any of them is ass simple as scheduling a job:
+And configuring any of them is as simple as scheduling a job:
 
 ```csharp
 JobStorage.Current = new SqlServerStorage("HangfireConnectionString")

@@ -15,7 +15,7 @@ This is the third part of a series discussing job scheduling and Hangfire detail
 - [part 3 - Scheduling and Queuing jobs in Hangfire](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/)
 
 This part will focus on the basic scheduling API of Hangfire.
-The easiest way to create a fire and forget job is by using the class`Hangfire.BackgroundJob` and it's minimalistic  (and this is a complement) API of static functions:
+The easiest way to create a fire and forget job is by using the class`Hangfire.BackgroundJob` and its minimalistic  (and this is a complement) API of static functions:
 
 ## Enqueue
 As the name suggests it is **the** method for enqueuing jobs. It comes in different overrides:
@@ -26,15 +26,15 @@ static string Enqueue(Expression<Action> methodCall);
 static string Enqueue<T>(Expression<Func<T, Task>> methodCall);
 static string Enqueue<T>(Expression<Action<T>> methodCall);
 ```
-Two of them are non generic implementations of the generic version, so it comes down to weather we want to:
+Two of them are non generic implementations of the generic version, so it comes down to whatever we want to:
 
-- schedule an async function `Func<T, Task>`
-- schedule a synchronius function `Action<T>`
+- schedule an `async` function `Func<T, Task>`
+- schedule a synchronous function `Action<T>`
 
-What will be important further on is that all this methods return a string which a unique identifier of the job. It will come in handy in the next posts.
+What will be important further on is that all this methods return a string which is a unique identifier of the job. It will come in handy in the next posts.
 
 ## Schedule
-As the name suggests - it allows to enqueue a job, but delay it's execution by some time period. The overrides are:
+As the name suggests - it allows to enqueue a job, but delay its execution by some time period. The overrides are:
 
 ```csharp
 static string Schedule(Expression<Func<Task>> methodCall, DateTimeOffset enqueueAt);
@@ -48,21 +48,21 @@ static string Schedule<T>(Expression<Action<T>> methodCall, DateTimeOffset enque
 ```
 A few overrides, but it boils down to:
 
-- generic or non generic version
-- async vs. sync (`Func<T, Task>` vs. `Action<T>`)
+- generic or nongeneric version
+- asynchronous vs. synchronous (`Func<T, Task>` vs. `Action<T>`)
 - delay it by a period from now, or execute it at specific time in future (`TimeSpan delay` vs. `DateTimeOffset`)
 
-Similar to the `Enqueue`, this functions also return a string identifier of a job.
+Similar to the `Enqueue` this functions also returns a string identifier of a job.
 
-This two function is enough to start to worry about corner cases when using `SqlServerStorage` (probably the most common usage). These are some that needed to be checked and findings.
+This two function are enough to start to worry about corner cases when using `SqlServerStorage` (probably the most common usage), so here we go:
 
 ## Corner cases
 
 ### Does Hangfire using SQLServer storage requires an opened transaction?
-No Hangfire will create it's own transaction scope and manage it. Code handling it an be found in [`Hangfire.SqlServer.SqlServerStorage.CreateTransaction`](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.SqlServer/SqlServerStorage.cs).
+No Hangfire will create its own transaction scope and manage it. Code handling it an be found in [`Hangfire.SqlServer.SqlServerStorage.CreateTransaction`](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.SqlServer/SqlServerStorage.cs).
 
 ### If there is an opened transaction will Hangfire use it?
-Yes Hangfire will enlist to an opened transaction, and use it. This means that the job will be enqueued only if rest of the process succeded and we commit the transaction.
+Yes Hangfire will enlist to an opened transaction, and use it. This means that the job will be enqueued only if rest of the process succeeded and we commit the transaction.
 
 ### Does Hangfie using SQLServer storage support [distributed transactions](https://en.wikipedia.org/wiki/Distributed_transaction)?
 Yes. Again the code can be found in [`Hangfire.SqlServer.SqlServerStorage.CreateTransaction`](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.SqlServer/SqlServerStorage.cs).
@@ -72,7 +72,7 @@ No. Only things being serialized are:
 - object type
 - called method
 - passed parameters
-This means that we can't rely on any object state that the object had at the time of scheduling it's function, because it won't be recreated. This is why I wrote that Hangfire enables to schedule functions, and because in C# functions aren't [first class ciitizen](https://en.wikipedia.org/wiki/First-class_citizen) you have to keep this in mind. So a simple "Hello world" function will look like this:
+This means that we can't rely on any state that the object had at the time of scheduling its function because it won't be recreated. This is why I wrote that Hangfire enables to schedule *functions*. Because in C# functions aren't [first class citizens](https://en.wikipedia.org/wiki/First-class_citizen), but they are tied to a object instance you have to be more careful. To give an example of how a "Hello world" job looks in storage:
 
 ```json
 {  
@@ -82,7 +82,5 @@ This means that we can't rely on any object state that the object had at the tim
    "Arguments":"[\"\\\"Hello, world!\\\"\"]"
 }
 ```
-Based on this info Hangfire will recreate the object and execue the function. This also brings us to a small performance tip to keep in mind: 
-**keep Your parameters small, and be sure to know how they will be serialized** 
-
-In the next post I will cover another funcion from this class - `ContinueWith`.
+Based on this info Hangfire will recreate the object and execute the function. This also brings us to a small performance tip to keep in mind: 
+**keep your parameters small, and be sure to know how they will be serialized** 

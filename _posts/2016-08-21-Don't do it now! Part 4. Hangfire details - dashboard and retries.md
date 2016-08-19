@@ -66,6 +66,10 @@ A similar story as with requeuing. It can be done from the UI, or with the API:
 
 No surprises here. The API is very similar as `Requeue`.
 This would seem to end the topic of `Delete`, but one very important question should pop into Your mind:
-> Just how does Hangfire delete a job?
+> Just how does Hangfire delete a job? 
 
+And to be more precise: 
 
+> What does Hangfire mean by delete when talking about an executing job.
+
+This question becomes even more valid when we look at [IJobCancellationToken in the documentation](http://docs.hangfire.io/en/latest/background-methods/using-cancellation-tokens.html) 

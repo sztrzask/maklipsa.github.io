@@ -5,7 +5,7 @@ description: "A more deeper dive into Hangfire scheduling API"
 modified: 2016-08-17
 tags: [.NET, Hangfire, architecture, job scheduling]
 image:
-  feature: data/2016-08-17-Don't do it now! Part 3. Hangfire details - jobs/logo.jpg
+  feature: data/2016-08-17-Don't-do-it-now!Part-3.Hangfire-details-jobs/logo.jpg
 ---
 
 This is the third part of a series discussing job scheduling and Hangfire details:

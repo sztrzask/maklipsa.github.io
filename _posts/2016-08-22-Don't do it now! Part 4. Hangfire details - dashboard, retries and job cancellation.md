@@ -38,6 +38,7 @@ And this brings us to the main motives of this post:
 - auto retries
 - the ability to requeue a job
 - the ability to delete a job
+- job cancellation
 
 ## Auto retry
 This one is easy. Hangfire will auto retry every job that failed (timeouted or thrown an exception) configurable [amount of times](http://docs.hangfire.io/en/latest/background-processing/dealing-with-exceptions.html) (10 by default). Each retry is an equivalent to normal enqueuing, so it lands at the end of the queue.
@@ -55,7 +56,7 @@ This can be done in several ways:
 ```
 Remember the unique job id returned by schedule methods from [previous post](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/)? This is one of the places where it becomes useful. The overload has an additional parameter, `fromState` which is a fail switch. Job will be deleted only if it is in this exact state.
 
-## Delete a job. Job cancellation
+## Delete a job
 A similar story to requeuing. It can be done from the UI or with the API:
 
 ```csharp

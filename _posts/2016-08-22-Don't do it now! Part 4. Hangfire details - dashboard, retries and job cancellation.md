@@ -86,16 +86,16 @@ Cancellation can be triggered by two events (and both of the handle it different
 		
 	The rest of the cancellation logic is done in `ThrowIfCancellationRequested` in `ServerJobCancellationToken`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/ServerJobCancellationToken.cs))
  
-    ```csharp
-    	public void ThrowIfCancellationRequested()
-    	{
-    	    _shutdownToken.ThrowIfCancellationRequested();
-    	
-    	    if (IsJobAborted())
-    	    {
-    	        throw new JobAbortedException();
-    	    }
-    	}
-    ```
+	    ```csharp
+	    	public void ThrowIfCancellationRequested()
+	    	{
+	    	    _shutdownToken.ThrowIfCancellationRequested();
+	    	
+	    	    if (IsJobAborted())
+	    	    {
+	    	        throw new JobAbortedException();
+	    	    }
+	    	}
+	    ```
 
     The first line is checking the `CancellationToken` mentioned in server shut down case. The second gets the job state from the database and checks if there were any state changes indicating whether it should be cancelled (like changing the state by calling `Delete`). If yes, `JobAbortedException`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/Server/JobAbortedException.cs)) exception is being thrown. This exception is handled in a very similar way as `OperationCanceledException` (from which it inherits) and also will be recognised as a indication of finishing due to issued cancellation.

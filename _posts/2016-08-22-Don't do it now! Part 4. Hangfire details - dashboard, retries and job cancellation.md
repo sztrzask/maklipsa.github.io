@@ -5,7 +5,7 @@ description: ""
 modified: 2016-08-17
 tags: [.NET, Hangfire, architecture, job scheduling]
 image:
-  feature: 
+  feature: data/2016-08-22-Don't-do-it-now!-Part-4.Hangfire-details-dashboard,retries-and-job-cancellation/logo.png
 ---
 
 This is the fourth part of a series discussing job scheduling and Hangfire details:

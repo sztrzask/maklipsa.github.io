@@ -74,6 +74,8 @@ This question becomes even more interesting when:
 - we see that Hangfire is using [`System.Threading.CancellationToken`](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken).
 - we take into account that `Delate` may be called from a **different machine** than currently executing the job.
 
+## Job cancellation
+
 Cancellation can be triggered by two events (and both of the handle it differently):
 
 **1. Server shut down** 

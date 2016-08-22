@@ -76,26 +76,27 @@ This question becomes even more interesting when:
 
 Cancellation can be triggered by two events (and both of the handle it differently):
 
-- **Server shut down** 
+**1. Server shut down** 
 
-	When `BackgroundJobServer`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/Server/BackgroundProcessingServer.cs)), which is responsible for job execution, is being shut down, it stops processing new messages and triggers [`Cancel`](https://msdn.microsoft.com/en-us/library/dd321955(v=vs.110).aspx) on its [`CancellationTokenSource`](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtokensource%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396). This token is used by the `Worker`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/Server/Worker.cs))  class to create the `ServerJobCancellationToken` ([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/ServerJobCancellationToken.cs)) instance that will be injected into the method if it has a parameter of type `IJobCancellationToken`. Calling `ThrowIfCancellationRequested` on it, checks the token and throws [`OperationCanceledException`](https://msdn.microsoft.com/en-us/library/system.operationcanceledexception(v=vs.110).aspx). This exception is recognised as finishing due to issued cancellation. This way the server can gently close currently processing jobs.
+When `BackgroundJobServer`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/Server/BackgroundProcessingServer.cs)), which is responsible for job execution, is being shut down, it stops processing new messages and triggers [`Cancel`](https://msdn.microsoft.com/en-us/library/dd321955(v=vs.110).aspx) on its [`CancellationTokenSource`](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtokensource%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396). This token is used by the `Worker`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/Server/Worker.cs))  class to create the `ServerJobCancellationToken` ([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/ServerJobCancellationToken.cs)) instance that will be injected into the method if it has a parameter of type `IJobCancellationToken`. Calling `ThrowIfCancellationRequested` on it, checks the token and throws [`OperationCanceledException`](https://msdn.microsoft.com/en-us/library/system.operationcanceledexception(v=vs.110).aspx). This exception is recognised as finishing due to issued cancellation. This way the server can gently close currently processing jobs.
 
-- **Job deletetion (job cancellation)**
+**2. Job deletetion (job cancellation)**
 
-	`Delete` method uses the `IBackgroundJobStateChanger` ([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/States/IBackgroundJobStateChanger.cs)), implemented by `BackgroundJobStateChanger`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/States/BackgroundJobStateChanger.cs)), to change the state of the job to `Deleted` and write it to storage. On this its responsibility finishes.
-		
-	The rest of the cancellation logic is done in `ThrowIfCancellationRequested` in `ServerJobCancellationToken`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/ServerJobCancellationToken.cs))
+`Delete` method uses the `IBackgroundJobStateChanger` ([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/States/IBackgroundJobStateChanger.cs)), implemented by `BackgroundJobStateChanger`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/States/BackgroundJobStateChanger.cs)), to change the state of the job to `Deleted` and write it to storage. On this its responsibility finishes.
+	
+The rest of the cancellation logic is done in `ThrowIfCancellationRequested` in `ServerJobCancellationToken`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/ServerJobCancellationToken.cs))
+
  
-	    ```csharp
-	    	public void ThrowIfCancellationRequested()
-	    	{
-	    	    _shutdownToken.ThrowIfCancellationRequested();
-	    	
-	    	    if (IsJobAborted())
-	    	    {
-	    	        throw new JobAbortedException();
-	    	    }
-	    	}
-	    ```
+```csharp
+	public void ThrowIfCancellationRequested()
+	{
+	    _shutdownToken.ThrowIfCancellationRequested();
+	
+	    if (IsJobAborted())
+	    {
+	        throw new JobAbortedException();
+	    }
+	}
+```
 
-    The first line is checking the `CancellationToken` mentioned in server shut down case. The second gets the job state from the database and checks if there were any state changes indicating whether it should be cancelled (like changing the state by calling `Delete`). If yes, `JobAbortedException`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/Server/JobAbortedException.cs)) exception is being thrown. This exception is handled in a very similar way as `OperationCanceledException` (from which it inherits) and also will be recognised as a indication of finishing due to issued cancellation.
+The first line is checking the `CancellationToken` mentioned in server shut down case. The second gets the job state from the database and checks if there were any state changes indicating whether it should be cancelled (like changing the state by calling `Delete`). If yes, `JobAbortedException`([github](https://github.com/HangfireIO/Hangfire/blob/master/src/Hangfire.Core/Server/JobAbortedException.cs)) exception is being thrown. This exception is handled in a very similar way as `OperationCanceledException` (from which it inherits) and also will be recognised as a indication of finishing due to issued cancellation.

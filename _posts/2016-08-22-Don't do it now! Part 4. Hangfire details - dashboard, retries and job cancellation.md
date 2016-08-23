@@ -13,7 +13,7 @@ This is the fourth part of a series discussing job scheduling and Hangfire detai
 - [part 1 - Why schedule and procrastinate jobs?](/Don't-do-it)
 - [part 2 - Overview of Hangfie](/Don't-do-it-now!-Part-2.-Background-tasks,-job-queuing-and-scheduling-with-Hangfire/)
 - [part 3 - Scheduling and Queuing jobs in Hangfire](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/)
-- [part 4 - Retries and dashboard](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/)
+- [part 4 - Dashboard, retries and job cancellation](/Don't-do-it-now!-Part-4.-Hangfire-details-dashboard,-retries-and-job-cancellation/)
 
 This part will cover few small topics:
 

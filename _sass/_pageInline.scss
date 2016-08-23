@@ -64,7 +64,14 @@ body {
 }
 .header-title-index{
 	height: 400px;
+	a {
+		color: white;
+	}
+	a:visited {
+		color: white;
+	}
 }
+
 .header-title-post {
 	position:absolute;
 	top:0px;

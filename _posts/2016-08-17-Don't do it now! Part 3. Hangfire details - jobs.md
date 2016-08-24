@@ -70,9 +70,11 @@ Yes. Again the code can be found in [`Hangfire.SqlServer.SqlServerStorage.Create
 
 ### Can I rely on object state?
 No. Only things being serialized are:
+
 - object type
 - called method
 - passed parameters
+
 This means that we can't rely on any state that the object had at the time of scheduling its function because it won't be recreated. This is why I wrote that Hangfire enables to schedule *functions*. Because in C# functions aren't [first class citizens](https://en.wikipedia.org/wiki/First-class_citizen), but they are tied to a object instance you have to be more careful. To give an example of how a "Hello world" job looks in storage:
 
 ```json

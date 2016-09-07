@@ -14,7 +14,8 @@ This is a fifth part of a series:
 - [part 2 - Overview of Hangfie](/Don't-do-it-now!-Part-2.-Background-tasks,-job-queuing-and-scheduling-with-Hangfire/)
 - [part 3 - Scheduling and Queuing jobs in Hangfire](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/)
 - [part 4 - Dashboard, retries and job cancellation](/Don't-do-it-now!-Part-4.-Hangfire-details-dashboard,-retries-and-job-cancellation/)
-- [part 5 - Job continuation with ContinueWith]()
+- [part 5 - Job continuation with ContinueWith](/Don't-do-it-now!-Part-5.-Hangfire-job-continuation,-ContinueWith/)
+- [part 6 - Recurring jobs and cron expressions](/Don't-do-it-now!-Part-6.-Hangfire-recurring-jobs/)
 
 [Part 3](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/) covered almost all functions in `BackgroundJob` class except for `ContinueWith` functions family. So here we go :)
 

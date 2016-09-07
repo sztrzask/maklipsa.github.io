@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Don't do it now! Part 4. Hangfire details - dashboard, retries and job cancellation 
-description: ""
+description: "A deep dive into Hangfire retries and job cancellation"
 modified: 2016-08-17
 tags: [.NET, Hangfire, architecture, job scheduling]
 image:

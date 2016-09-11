@@ -10,13 +10,13 @@ module.exports = function(grunt) {
         'Gruntfile.js',
         '!assets/js/*.js',
         '!assets/js/plugins/*.js',
-        '!assets/js/scripts.min.js'
+        '!assets/js/scripts.20161011.js'
       ]
     },
     uglify: {
       dist: {
         files: {
-          'assets/js/scripts.min.js': [
+          'assets/js/scripts.20161011.js': [
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
           ]

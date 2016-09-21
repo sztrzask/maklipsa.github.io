@@ -34,7 +34,7 @@ Now that I have your attentions let's get back to what really happened. Since it
 
 In this case we wanted to get the dump right now, so the command line looked like this:
 
-```cmd
+``` shell
 procdump.exe 25944 c:\temp\ -ma
 ```  
 

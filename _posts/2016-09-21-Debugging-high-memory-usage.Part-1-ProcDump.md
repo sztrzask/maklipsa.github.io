@@ -50,14 +50,14 @@ To decompose:
 
 If you get this error:
 
-```cmd
+``` cmd
 Error opening w3wp.exe (25944):
 Error 0x00000005 (5): Access is denied.
 ```
 
 That is because it has to be run with administrator privileges like any debugger. The normal output should look like this:
 
-```cmd
+``` cmd
 ProcDump v8.0 - Writes process dump files
 Copyright (C) 2009-2016 Mark Russinovich
 Sysinternals - www.sysinternals.com

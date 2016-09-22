@@ -6,7 +6,7 @@ description: "List of event I had pleasure speaking at"
 
 I believe that sharing knowledge is a key activity keeping the community live and active. That is why I present what I have learned on conferences and user groups.
 
-# 23.07.2016 - Graphs, Neo4j in practice - given at Warsaw .NET User Group[[meetup](http://www.meetup.com/WG-NET/events/231937626/)] [[slides](indexoutofrange.com/presentations/PracticalNeo4j/index.html)]
+# 23.07.2016 - Graphs, Neo4j in practice - given at Warsaw .NET User Group[[meetup](http://www.meetup.com/WG-NET/events/231937626/)] [[slides](indexoutofrange.com/presentations/PracticalNeo4j/index.html)][[youtube](https://www.youtube.com/watch?v=3n1fVvW-oW8)]
    Deep dive into Neo4j. This talk is an effect of preparing to use Neo4j in my pet project - [cookit.pl](http://cookit.pl). It covers a wide range of topics starting from the principles of modeling a graph domain, some tricks and solutions to common problems. Then talked about syntax and most useful functions of Neo4j query language Cypher. An addition to this is the next part - profiling and optimization covering how Cypher works, how to profile it and what practices to avoid. I also talk about different modes in which Neo4j can be run (stand alone and embedded) and benefits and limitations resulting from it. Continuing the performance theme, I talked about different types of indexes used in Neo4j, their limitations, APIs,usages and practices. 
    The last section covers administrative and maintenance capabilities from Neo4j itself and from JVM.      
 

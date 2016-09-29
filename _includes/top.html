@@ -1,3 +1,9 @@
+  <div class="header-title header-title-post">
+		<div class="header-title-wrap header-title-index">
+		  <h1><a href="/" >{{ site.title }}</a></h1>
+		  <h2></h2>
+		</div><!-- /.header-title-wrap -->
+  </div><!-- /.entry-image -->
   <div class="gradient">
     <div style="background:#000000" ></div>
     <div style="background:#1C0000" ></div>
@@ -18,10 +24,48 @@
     <div style="background:#FFE200" ></div>
     <div style="background:#FFFF00" ></div>
   </div>
+  <nav id="horizontal-menu" class="horizontal-menu" role="navigation" >
+    <ul>
+      <li><a href="{{ site.url }}/">Home</a></li>
+      <li><a href="{{ site.url }}/about/">About</a></li>
+      <li><a href="{{ site.url }}/posts/">Posts</a></li>
+      <li><a href="{{ site.url }}/tags/">Tags</a></li>
+      <li class="space" ><a href="{{ site.url }}"></a></li>
+      <li class="space" ><a href="{{ site.url }}"></a></li>
+      <li class="space" ><a href="{{ site.url }}"></a></li>
+      <li class="socialMedia" >
+        {% if site.owner.email %}
+					<a href="mailto:{{ site.owner.email }}"><i class="fa fa-fw fa-envelope"></i></a>
+				{% endif %}
+				{% if site.owner.twitter %}
+					<a href="https://twitter.com/{{ site.owner.twitter }}"><i class="fa fa-fw fa-twitter"></i></a>
+				{% endif %}
+				{% if site.owner.facebook %}
+					<a href="https://facebook.com/{{ site.owner.facebook }}"><i class="fa fa-fw fa-facebook"></i></a>
+				{% endif %}
+				{% if site.owner.google_plus %}
+					<a href="https://google.com/{{ site.owner.google_plus }}"><i class="fa fa-fw fa-google-plus"></i></a>
+				{% endif %}
+				{% if site.owner.linkedin %}
+					<a href="https://linkedin.com/in/{{ site.owner.linkedin }}"><i class="fa fa-fw fa-linkedin"></i></a>
+				{% endif %}
+				{% if site.owner.github %}
+					<a href="https://github.com/{{ site.owner.github }}"><i class="fa fa-fw fa-github"></i></a>
+				{% endif %}
+				{% if site.owner.stackexchange %}
+					<a href="{{ site.owner.stackexchange }}"><i class="fa fa-fw fa-stack-exchange"></i></a>
+				{% endif %}
+				{% if site.owner.instagram %}
+					<a href="https://instagram.com/{{ site.owner.instagram }}"><i class="fa fa-fw fa-instagram"></i></a>
+				{% endif %}
+				{% if site.owner.flickr %}
+					<a href="https://www.flickr.com/photos/{{ site.owner.flickr }}"><i class="fa fa-fw fa-flickr"></i></a>
+				{% endif %}
+				{% if site.owner.tumblr %}
+					<a href="http://{{ site.owner.tumblr }}.tumblr.com"><i class="fa fa-fw fa-tumblr"></i></a>
+				{% endif %}
+          <a href="http://{{ site.url}}/feed.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </li>
+    </ul>
+  </nav>  
     <!-- <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }}"> -->
-  <div class="header-title header-title-post">
-		<div class="header-title-wrap header-title-index">
-		  <h1><a href="/" >{{ site.title }}</a></h1>
-		  <h2></h2>
-		</div><!-- /.header-title-wrap -->
-  </div><!-- /.entry-image -->

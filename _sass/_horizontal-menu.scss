@@ -19,7 +19,7 @@ nav {
 	padding-right: 0px;
     & li {
 			flex: 1 1 100%;
-			display: block;
+			display: inherit;
 			flex-grow: 1;
   			text-align: center;
 			a {
@@ -33,6 +33,7 @@ nav {
 				color: #fff;
 				outline: none;
 				cursor: pointer;
+				width: 100%;
 
 				&:visited{
 					color: #fff;

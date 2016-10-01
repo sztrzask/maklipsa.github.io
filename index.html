@@ -29,8 +29,10 @@ comments: false
     {% endif %}
   </header>
   <div class="entry-content">
-    {{ post.content }}
-  </div><!-- /.entry-content -->
+    {{ post.excerpt }}
+    <a style="font-style: italic;" href="{{ site.url }}{{ post.url }}" title="Continue reading">Continue reading...</a>
+  </div>
+  <!-- /.entry-content -->
 </article><!-- /.hentry -->
 {% endfor %}
 

@@ -15,6 +15,7 @@ So, what is responsible for what?
 
 - **The website** - besides the obvious of serving the [cookit.pl](https://cookit.pl), it also hosts the admin panel and Hangfire dashboard. This part is almost read-only. Even the admin panel - all it does is schedule a Hangfire job and that's it.<br/> 
 That idea stuck with me since reading a blog post about how [reddit is architectured](http://highscalability.com/blog/2010/5/17/7-lessons-learned-while-building-reddit-to-270-million-page.html). And by the way it is a must read blog for anyone interested in how the big guys design their systems.
+<!--MORE-->
 
 - **Windows service** In two words: [Hangfire service](http://docs.hangfire.io/en/latest/background-processing/processing-jobs-in-windows-service.html).
 	  

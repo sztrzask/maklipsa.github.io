@@ -8,6 +8,7 @@ tags: [talk, graph databases, Neo4j]
 
 This describes the content of a [zip package](/data/why-dragons-need-graphs.zip) containing demo files from my talk **Why dragons need graphs**.
 There are two folders containing a create script and some query scripts showing basic, and more advanced syntax of Neo4j Cypher.
+<!--MORE-->
 
 ### Dragons
 Demoes basic syntax of Cypher.

@@ -10,6 +10,7 @@ This is what you can see on the left on the recipe page like [this](https://cook
 
 For the sake of clarity and manageability it's scheduled as separate Hangfire jobs. Because cookit is running 5 workers, so similarities are calculated for 5 websites concurrently.<br/>
 The process uses [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity), so it allocates a huge list at start and calculates similarities. A very CPU heavy operation.
+<!--MORE-->
 
 So some time after triggering all recipes recalculation I saw this in Hangfire console.
 ![](/data/GC-can-kill-You-Practical-GC-performance-counters-in-NET/HangfieConsole.png)

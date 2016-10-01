@@ -13,6 +13,7 @@ This is a rectification for the [previous post about the cost of garbage collect
 Like [Konrad](http://blog.kokosa.net/) pointed out in [his comment](http://disq.us/p/1a0iccx) not all objects were in generation 0 as I assumed. This is partly connected to the fact that .NET, seeing rapid need for memory in `Setup`, will try to collect some of them, calling garbage collection, but I make the matters worse by calling `GC.Collect` in the end. So making sure that objects created during `Setup` will be in generation 2 (in my defence it was left over after a bit different take on this problem).
 
 This is the proper code (it also was committed to the [github repo](https://github.com/maklipsa/CSharpPerfExperiments)):
+<!--MORE-->
 
 ```csharp
 using System;

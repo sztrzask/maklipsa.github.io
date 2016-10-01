@@ -22,6 +22,7 @@ Parts [3](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/), [4](/Don't-do-it-no
 ## Recurring job
 Before we go into the API, let's take a look what is a recurring job in Hangfire.
 Recurring job is a timer that enqueues a job at specific time intervals defined with a cron expression. What is important is, that it does not execute the job. Only enqueues an ordinary Hangfire job. This implementation is very elegant, but it also means that if the queue is full the job will have to wait for its turn. So there is no guarantee about the time it will actually execute.
+<!--MORE-->
 
 ## Cron expressions
 I've mentioned cron expression few times, but what exactly are they? Cron expressions are a way to express time occurrence, like *"every Monday at 8"*, or *"second Thursday of the month at 5:30"*. How do they look? A few examples:

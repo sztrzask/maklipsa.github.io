@@ -19,6 +19,7 @@ This is the third part of a series discussing job scheduling and Hangfire detail
 
 This part will focus on the basic scheduling API of Hangfire.
 The easiest way to create a fire and forget job is by using the class`Hangfire.BackgroundJob` and its minimalistic  (and this is a complement) API of static functions:
+<!--MORE-->
 
 ## Enqueue
 As the name suggests it is **the** method for enqueuing jobs. It comes in different overrides:

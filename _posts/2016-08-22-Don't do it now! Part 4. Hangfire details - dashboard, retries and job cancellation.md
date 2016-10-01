@@ -23,6 +23,7 @@ This part will cover few small topics:
 - retries 
 - more technical part of the `Hangfire.BackgroundJob` class API
 - job cancellation
+<!--MORE-->
 
 ## Dashboard
 Let's start with the administrative dashboard because it gives a good background for the rest of the post.

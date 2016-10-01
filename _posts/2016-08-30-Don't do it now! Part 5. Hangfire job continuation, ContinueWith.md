@@ -21,6 +21,7 @@ This is a fifth part of a series:
 
 The fact that it has the same name as a `System.Threading.Tasks.Task` function is not without a coincidence, or at least I hope so. This method allows chaining jobs where one will be enqueued when the previous finishes. To repeat - the job won't be executed, but enqueued. So it will go at the end of the queue.
 So lets look at the function and overrides signature:
+<!--MORE-->
 
 ```csharp
 static string ContinueWith(string parentId, Expression<Action> methodCall);

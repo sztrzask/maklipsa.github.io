@@ -11,6 +11,7 @@ image:
 Diagnosing high memory usage can be tricky, here is the second part of how I found what was hogging to much memory in our system.
 In the [previous post](/Debugging-high-memory-usage.Part-1-ProcDump/) I've wrote how to create a memory dump and how many possibilities of catching just the right moment for it ProcDump has. 
 When trying to analyze memory leaks, or high memory usage (not necessary meaning a leak) we have a few ways to approach it:
+<!--MORE-->
 
 ### Attach a debugger
 
@@ -73,7 +74,7 @@ So let's get back to the first screen and see just how many `Document` entities 
 
 ![](/data/2016-09-30-Debugging-high-memory-usage.Part-2-dot-net-memory-profiler/MemProfiler_step05.png)
 
-Yup. Over 301 thousand root entities in one NHibernate session. Just to be sure let's look at the `CloseSettledDocuments` functions code:
+Yup. Over 301 thousand root entities in one NHibernate session. Just to be sure let's look at the `CloseSettledDocuments` function:
 
 ```csharp
     public void CloseSettledDocuments()

@@ -10,6 +10,7 @@ image:
 Last week I had the opportunity to attend [Graph Connect Europe](http://graphconnect.com/). Many great sessions, but one thing topped them all - [Neo4j 3.0 is out](http://neo4j.com/release-notes/neo4j-3-0-0/)!
 
 And as with previous major release (it introduced [Cypher](http://neo4j.com/developer/cypher-query-language/)) there are many bug fixes, tweaks, speed improvements, but here are my personal favorites:
+<!--MORE-->
 
 - **Stored procedures**.... Yeah I know I've lost you there. But those aren't yours father's stored procedures. Neo4j now enables to call any JVM custom function from Cypher. To start with, they published a [repo with 99 procedures called apoc](https://github.com/neo4j-contrib/neo4j-apoc-procedures) (and if 'apoc' sounds familiar, yes it's a Matrix reference). It doesn't make any sense to describe all of them since they are all quite well described in the GitHub repo, but just to point out the more awesome ones:
 	- [**Meta Graph**](https://github.com/neo4j-contrib/neo4j-apoc-procedures#meta-graph) - to be exact `apoc.meta.graph`. This procedure analyzes the whole graph and creates a meta-graph showing what node types have what relations with each other. For me a great one for exploring an unknown Neo4j database, or just to check if we didn't screw up any relations. 

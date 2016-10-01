@@ -12,6 +12,7 @@ In the [previous post I've written about new features in Neo4j](http://indexouto
 One of the new game changing functions were stored procedures. But, as I experienced, getting them to run on a Windows / .NET environment wasn't that easy, and I was seeing "**There is no procedure with the name** ..." more often then I wished for.
 So here is a short how to. Hope to save you some googling.
 
+<!--MORE-->
 
 1. **JDK**
 

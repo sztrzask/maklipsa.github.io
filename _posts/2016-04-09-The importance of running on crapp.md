@@ -12,6 +12,7 @@ As a pet project, I’m running [cookit.pl](http://cookit.pl) - a search engine 
 I will be writing some more about the software side and all the problems I've encountered, but because [StackExchange published it's hardware setup](http://nickcraver.com/blog/2016/02/17/stack-overflow-the-architecture-2016-edition/) I also felt in need to share what is my hardware.
 
 Let’s start with…
+<!--MORE-->
 
 **Application services:**
 

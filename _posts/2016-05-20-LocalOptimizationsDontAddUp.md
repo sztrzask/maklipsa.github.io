@@ -11,6 +11,7 @@ One of the main processes in [cookit](http://cookit.pl "cookit.pl") is dealing w
 But to the point.
 
 Every web page goes through a process involving [html parsing](https://htmlagilitypack.codeplex.com/), [stemming](https://en.wikipedia.org/wiki/Stemming), parsing, and [n-gram token matching](https://en.wikipedia.org/wiki/N-gram). Then it's saved to Sql Server and after transformation to Solr. So a lot of string manipulation, math calculations and from time to time mostly 0-gen GC.
+<!--MORE-->
 
 In the most pessimistic case this process has to be re-run for every cached website for every page.
 And to give you a sense of how much data this is, here is the properties window for the folder containing the cached html files:

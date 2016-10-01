@@ -5,7 +5,7 @@ description: "A look how Hangfire enables to chain jobs with ContinueWith"
 modified: 2016-08-30
 tags: [.NET, Hangfire, architecture]
 image:
-  feature: data/2016-08-30-Don't-do-it-now!Part-5.Hangfire-job-continuation,-ContinueWith/logo.jpg
+  feature: data/2016-08-30-Dont-do-it-now!Part-5.Hangfire-job-continuation,-ContinueWith/logo.jpg
 ---
 
 This is a fifth part of a series:

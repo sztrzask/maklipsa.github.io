@@ -5,7 +5,7 @@ description: "A deep dive into Hangfire retries and job cancellation"
 modified: 2016-08-17
 tags: [.NET, Hangfire, architecture, job scheduling]
 image:
-  feature: data/2016-08-22-Don't-do-it-now!-Part-4.Hangfire-details-dashboard,retries-and-job-cancellation/logo.png
+  feature: data/2016-08-22-Dont-do-it-now!-Part-4.Hangfire-details-dashboard,retries-and-job-cancellation/logo.png
 ---
 
 This is the fourth part of a series discussing job scheduling and Hangfire details:
@@ -28,13 +28,13 @@ This part will cover few small topics:
 ## Dashboard
 Let's start with the administrative dashboard because it gives a good background for the rest of the post.
 It greets us with more or less this view:
-![dashboard Main](/data/2016-08-22-Don't-do-it-now!-Part-4.Hangfire-details-dashboard,retries-and-job-cancellation/dashboard_main.png)
+![dashboard Main](/data/2016-08-22-Dont-do-it-now!-Part-4.Hangfire-details-dashboard,retries-and-job-cancellation/dashboard_main.png)
 This is the main view of what the server is doing, and how well (are the jobs failing)
 The more interesting part is the next view:
-![dashboard Main](/data/2016-08-22-Don't-do-it-now!-Part-4.Hangfire-details-dashboard,retries-and-job-cancellation/dashboard_jobs.png)
+![dashboard Main](/data/2016-08-22-Dont-do-it-now!-Part-4.Hangfire-details-dashboard,retries-and-job-cancellation/dashboard_jobs.png)
 There's a bit more detail about jobs in all states. They are self explanatory, maybe except the awaiting, but I will cover this in the next post.
 We can go as deep as the state of the specific job, which will look like this:
-![dashboard Main](/data/2016-08-22-Don't-do-it-now!-Part-4.Hangfire-details-dashboard,retries-and-job-cancellation/dashboard_failedJob.png)
+![dashboard Main](/data/2016-08-22-Dont-do-it-now!-Part-4.Hangfire-details-dashboard,retries-and-job-cancellation/dashboard_failedJob.png)
 
 And this brings us to the main motives of this post:
 

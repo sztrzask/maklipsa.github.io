@@ -5,7 +5,7 @@ description: "A look into cron expressions and how Hangfire handles recurring jo
 modified: 2016-09-07
 tags: [.NET, Hangfire, architecture, cron]
 image:
-  feature: data/2016-09-07-Don't-do-it-now!Part-6.recurring_jobs_and_cron_expressions/logo.jpg
+  feature: data/2016-09-07-Dont-do-it-now!Part-6.recurring_jobs_and_cron_expressions/logo.jpg
 ---
 
 This is a sixth part of a series:

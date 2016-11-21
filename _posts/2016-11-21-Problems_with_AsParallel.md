@@ -76,7 +76,7 @@ private static void MeasureTime(Func<int> a)
 }
 ```
 
-This is a trivial example (a more real live one was published recently by Ayende [here](https://ayende.com/blog/176035/making-code-faster-the-obvious-costs), [here](https://ayende.com/blog/176036/making-code-faster-starting-from-scratch), [here](https://ayende.com/blog/176037/making-code-faster-going-down-the-i-o-chute) and [here](https://ayende.com/blog/176037/making-code-faster-going-down-the-i-o-chute)), but stay with me. 
+This is a trivial example (a more real life example was published recently by Ayende [here](https://ayende.com/blog/176035/making-code-faster-the-obvious-costs), [here](https://ayende.com/blog/176036/making-code-faster-starting-from-scratch), [here](https://ayende.com/blog/176037/making-code-faster-going-down-the-i-o-chute) and [here](https://ayende.com/blog/176037/making-code-faster-going-down-the-i-o-chute)), but stay with me. 
 In this case, the difference between single threaded and parallel execution is as follows:
 
 ```console
@@ -84,9 +84,9 @@ Single threaded: 570
 AsParallel: 138
 ```
 
-This is more than **4-time speed up** with only 1 line and no additional code changes. Looks like all the promises were kept.  
+This is more than **4-times speed up** with only 1 line and no additional code changes. Looks like all the promises were kept.  
 
-But sometines things don't go that good.
+But sometimes things don't go that good.
 
 ## AsParallel on a to small set
 
@@ -97,15 +97,15 @@ Single threaded: 4
 AsParallel: 15
 ```
 
-And yes. Those numbers are tiny. But if you have them in every web request, or a small frequently called function it cumulates. 
-If talking about small functions they have a habit of being used in other functions, thus creating bigger blocks. Those blocks tend to be ... parallelized. So let's see what happens then.
+And yes. Those numbers are tiny. But if you have it in every web request or a small that's frequently called function it cumulates and affects overall performance. 
+When talking about small functions they have a habit of being used in other functions, thus creating bigger blocks. Those blocks tend to be ... parallelized. So let's see what happens then.
 
 ## Nested AsParallel   
 
 It is more or less the same code as above, but now we have:
 
- - ``CalcInSingleAsParallel`` that calculates the prime using ``AsParallel`` (same as above)'
- - we split the list into chunks and then on them in parallel call ``CalcInSingleAsParallel``. This is done in ``CalcInTwoNestedAsParallel``.
+ - ``CalcInSingleAsParallel`` that calculates the primes using ``AsParallel`` (same as above)'
+ - ``CalcInTwoNestedAsParallel`` splits a list into chunks and returns in parallel calls ``CalcInSingleAsParallel``
 
 > One thing to note about ``CalcInTwoNestedAsParallel`` is that it splits the list into chunks when being invoked, but returns an ``IEnumerable``. This trick defers the calculation of the prime until ``Count`` is being called. This way ``MeasureTime`` only measures the prime calculating part.
   
@@ -196,7 +196,7 @@ For 100 chunks containing 10 000 elements it took: 361
 For 1000 chunks containing 1 000 elements it took: 228
 ```
 
-We have a **~7.6 times difference** between the best and the words run, and **~12.5 times difference** when compared to a single ``AsParallel``! 
+We have a **~7.6 times difference** between the best and the worst run, and **~12.5 times difference** when compared to a single ``AsParallel``! 
 It gets even worse when we nest it into another ``AsParallel`` (while maintaining the same total amount of calculations being done):
 
 ```console
@@ -219,13 +219,18 @@ This is the dotTrace result for all of the above:
 No nesting, single ``AsParallel``:
 ![single AsParallel](/data/2016-11-21-Problems_with_AsParallel/NoNesting.png)
 
-One nesting (so two ``AsParallel``), 10 segments:
+One nesting (so two ``AsParallel``), 10 chunks:
 ![two nested AsParallel](/data/2016-11-21-Problems_with_AsParallel/OneNesting_10.png)
 
 Two nestings (so three ``AsParallel``), 10*10 chunks:
 ![three nested AsParallel](/data/2016-11-21-Problems_with_AsParallel/TwoNesting_10.png)
 
-With this the answer becomes obvious. The cost is hidden in switching and managing threads. TPL's task scheduler  is creating threads and tries to distribute work among them using tasks. The same time the operating system is switching between them trying to give each a slice of processors time. All this managing is responsible for 22 times increase in time needed. 
+So what is happening in those applications?
+
+The first thread is the main thread of the application. The long delay before spawning more threads is the start-up of the application and list creation.
+Next threads start to show up. This is because of the call to ``AsParallel``. It triggers TPL's [``TaskScheduler``](https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskscheduler(v=vs.110).aspx) which tries to create just the right amount of threads to minimize [context switching](https://en.wikipedia.org/wiki/Context_switch) between them and, at the same time, parallelize as much as possible by assigning tasks to thread and if needed creating more threads.
+ 
+So why do we have such huge difference in execution times? Then we compare the images, the answer what is wrong becomes obvious. The cost is hidden in switching and managing threads. TPL's task scheduler is creating new threads and assigning tasks to them because it thinks adding more will help (a single operation is short). At the same time, the operating system is switching between threads, trying to give each a slice of processors time thus reducing the time real computation is being done. Those two managers are interfering each other leading to almost no work being done and in the end a 22 times increase in time needed for the work to finish. 
 
 > This shows that micro-managing is not a good thing. In programming or in the real world ;)
 

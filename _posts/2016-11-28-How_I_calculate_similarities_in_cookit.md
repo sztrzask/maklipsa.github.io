@@ -119,7 +119,7 @@ Luckily math has figured this long time ago:) There are many algorithms that can
 
 To explain how it works let's assume that our vectors are two-dimensional (it is like saying that every dish can be made from a combination of only two ingredients). Then we can draw them like this (image taken from Wikipedia):
 
-![two dimentional dot product](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dot_Product.svg/220px-Dot_Product.svg.png)
+![two dimensional dot product](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dot_Product.svg/220px-Dot_Product.svg.png)
 
 So what it does, is projects one vector onto another (the cosine part takes care of it). This gives it's length relative to the other vector. Relative values are nice but useless. Why? Comparing similarity of A and B to similarity of A and C would be comparing the length of A projected onto B and A projected onto C. Divisors are not the same, thus the comparison has no sense. One way to deal with it is to normalize the value to one range (most common is from zero to one). This is simple. Just divide the shorter vector, or projection, by the length of the longer, projection. <br/>
 As [ComicStrip](http://www.commitstrip.com/) says:<br/>

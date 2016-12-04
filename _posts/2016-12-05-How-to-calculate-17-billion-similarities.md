@@ -24,13 +24,13 @@ In the [previous post](/How_I_calculate_similarities_in_cookit/) I've decided to
 ```csharp
 public float Similarity(Vector a, Vector b)
 {
-	float accumulator=0;
-	for (int i = 0; i < a.Length; i++)
-	{
-	    accumulator += b[i]*a[i];
-	}
-	var denom = Length(a)*Length(b); //convertion to absolute 
-	return accumulator/denom;         //convertion to absolute    
+    float accumulator=0;
+    for (int i = 0; i < a.Length; i++)
+    {
+        accumulator += b[i]*a[i];
+    }
+    var denom = Length(a)*Length(b); //convertion to absolute 
+    return accumulator/denom;         //convertion to absolute    
 }    
 ```
 
@@ -63,15 +63,15 @@ And if I will want to calculate the similarities for all recipes I will have to 
 ((182184 * 2936)^2) /2 = 143 054 845 647 833 100 floating point multiplications
 ```
 
-Is it much? Yes. Is it a lot for a modern processors? [IT Hare](http://ithare.com/infographics-operation-costs-in-cpu-clock-cycles/) had a good article about the cost of each operation in the CPU. 
-One note before we go further. Those calculations will be more for fun then actual time estimates. Even as IT Hate points out, trying to calculate the actual execution time in modern CPUs is hard enough to be pointless. But here we go: 
+Is it much? Yes. Is it a lot for modern processors? [IT Hare](http://ithare.com/infographics-operation-costs-in-cpu-clock-cycles/) had a good article about the cost of each operation in the CPU. 
+One note before we go further. Those calculations will be more for fun than actual time estimates. Even as IT Hate points out, trying to calculate the actual execution time in modern CPUs is hard enough to be pointless. But here we go: 
 
 ```
-143 054 845 647 833 100 * 5 (number of cycles for floating point operations) / 2 130 000 000 (this is what 2,13 Ghz translates to - 2,13 billion operations per second)
+143 054 845 647 833 100 * 5 (number of cycles for floating point operations) / 2 130 000 000 (this is what 2,13 GHz translates to - 2,13 billion operations per second)
 This gives us ~ 335809496 seconds ~ 93280 hours ~ 3886 days  
 ```
 
-Once again it is more for fun then anything else, but it appears that, citing [Mark Watney](https://en.wikipedia.org/wiki/The_Martian_(Weir_novel))
+Once again it is more for fun than anything else, but it appears that, citing [Mark Watney](https://en.wikipedia.org/wiki/The_Martian_(Weir_novel))
  
 > I will have to science the sh** out of it [[youtube](https://www.youtube.com/watch?v=d6lYeTWdYLw)]
 
@@ -137,7 +137,7 @@ This shows that most of the time went into native code meaning in my case multip
 
 ### Using domain knowledge for optimization
 
-I know that vectors are very [sparse](https://en.wikipedia.org/wiki/Sparse_array). In average one recipe has ~150 non-zero values in a almost 2.2k long array. I am wasting time multiplying zero. Let's remove them.
+I know that vectors are very [sparse](https://en.wikipedia.org/wiki/Sparse_array). In average one recipe has ~150 non-zero values in an almost 2.2k long array. I am wasting time multiplying zero. Let's remove them.
 
 ### Use a dictionary
 

@@ -92,7 +92,7 @@ The first part is constant regardless how many similarities I will have to calcu
 The second part is directly proportional to the number of recipes for which I will calculate similarities.
 
 The last part missing for assessing the time of calculation for all recipes is the proportion of those two operations. So let's fire up the profiler ([dotTrace](https://www.jetbrains.com/profiler/) by choice) in sampling mode:
-![](/data/2016-12-05-How-to-calculate-17-billion-similarities/profiler01.png)
+![](/data/2016-12-05-How-to-calculate-17-billion-similarities/Profiler01.png)
 
 Well, bummer to put it lightly. Almost all time went into calculating the dot product (named here Cos). From this I know that I can calculate the total time as a linear function without making to big of an error:
 
@@ -127,11 +127,11 @@ This is a **34% improvement**. Nice :)
 
 So case closed? No. I believe I can do better. To have an idea let's have a look with a profiler:
 
-![](/data/2016-12-05-How-to-calculate-17-billion-similarities/profiler02.png)
+![](/data/2016-12-05-How-to-calculate-17-billion-similarities/Profiler02.png)
 
 There did all the time go? Let's have a look at another view:
 
-![](/data/2016-12-05-How-to-calculate-17-billion-similarities/profiler03.png)
+![](/data/2016-12-05-How-to-calculate-17-billion-similarities/Profiler03.png)
 
 This shows that most of the time went into native code meaning in my case multiplying floats and iterating over the array. This means that this idea is a dead end. Let's change the angle and use domain knowledge to optimize a bit more.
 

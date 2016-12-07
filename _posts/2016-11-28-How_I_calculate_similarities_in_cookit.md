@@ -45,7 +45,7 @@ I can take the advantage of the fact that all ingredients in cookit are organize
 
 `Spices -> solid spices -> mineral spices -> salt -> sea salt`
 
-We can this knowledge to work and put all the parents and children into the vector as owned ingredients. The problem is, I then lose the significance of the actual ingredient used (meaning that `sea salt` for this recipe is ideal, and `salt` is just OK). The best way would be to use weights on how accurate the ingredient is for this recipe. So my vector will look like this:
+We can use this knowledge to work and put all the parents and children into the vector as owned ingredients. The problem is, I then lose the significance of the actual ingredient used (meaning that `sea salt` for this recipe is ideal, and `salt` is just OK). The best way would be to use weights on how accurate the ingredient is for this recipe. So my vector will look like this:
 
 |---
 | | Spices | Solid spices | Mineral spices | Salt | Sea salt

@@ -77,24 +77,24 @@ Once again it is more for fun than anything else, but it appears that, citing [M
 
 ## Assessing total time
 
-To get a more real scale how long will it take I've decided to do a test run on a small subset of recipes. Recipes are selected by selecting websites they are from, so my subset ended up being an unround 2199 recipes. Then I've made 3 test runs ([I've learned the hard way that one test run doesn't mean anything](http://indexoutofrange.com/LocalOptimizationsDontAddUp/)) and in average it took **1530 seconds**.
+To get a more real assessment how long will it take I've decided to do a test run on a small subset of recipes. Recipes are selected by selecting websites they are from, so my subset ended up being an unround 2199 recipes. Then I've made 3 test runs ([I've learned the hard way that one test run doesn't mean anything](http://indexoutofrange.com/LocalOptimizationsDontAddUp/)) and in average of **1530 seconds**.
 
-Now how to go from time of the subset to the time needed for all recipes? I have to know I can't use just this time to assess the total execution time because it consists of two parts:
+Now how to go from time of the subset to the time needed for all recipes? I can't use it to assess the total execution time because it consists of two parts:
 
 - calculating ingredient vector for all recipes. 
 - finding similar recipes for only 2199 one of them. The similarity is found by calculating one vector by all the others. So in this case I've done  
-    
+
 ```
 182184*2199 = 400 622 616 vector multiplications
 ```
 
-The first part is constant regardless how many similarities I will have to calculate.
+The first part is constant regardless how many similarities I will have to calculate.<br/>
 The second part is directly proportional to the number of recipes for which I will calculate similarities.
 
-The last part missing for assessing the time of calculation for all recipes is the proportion of those two operations. So let's fire up the profiler ([dotTrace](https://www.jetbrains.com/profiler/) by choice) in sampling mode:
+The last missing piece for assessing the time of calculation for all recipes is the proportion of those two operations. So let's fire up the profiler ([dotTrace](https://www.jetbrains.com/profiler/) by choice) in sampling mode:
 ![](/data/2016-12-05-How-to-calculate-17-billion-similarities/Profiler01.png)
 
-Well, bummer to put it lightly. Almost all time went into calculating the dot product (named here Cos). From this I know that I can calculate the total time as a linear function without making to big of an error:
+Well, bummer to put it lightly. Almost all time went into calculating the dot product (named here Similarity). From this I know that I can calculate the total time as a linear function from number of recipes without making to big of an error:
 
 ```    
 (1530 / 2199) * 182184 ~ 34 hours
@@ -116,7 +116,7 @@ So the next step will be:
 
 Following this mantra I removed the ingredients that are not used in any recipe. 
 
-This reduced the length of the vector to 1709 and the sample time be a whopping 562 seconds to 968 second.
+This reduced the length of the vector to 1709 and the sample time be a whopping 562 seconds to 968 seconds.
 With some simple math:
 
 ```console    
@@ -137,11 +137,11 @@ This shows that most of the time went into native code meaning in my case multip
 
 ### Using domain knowledge for optimization
 
-I know that vectors are very [sparse](https://en.wikipedia.org/wiki/Sparse_array). In average one recipe has ~150 non-zero values in an almost 2.2k long array. I am wasting time multiplying zero. Let's remove them.
+I know that vectors are very [sparse](https://en.wikipedia.org/wiki/Sparse_array). In average one recipe has ~150 non-zero values in an almost 2.2k long array. This means I am wasting time multiplying zero. Let's remove them.
 
 ### Use a dictionary
 
-Instead of using an array I will use a dictionary. The idea behind this take is:
+Instead of using an array I will use a dictionary. The idea behind this take is this:
 
 - it will allow me to store only those ingredients that the recipe has. This way the vector will shrink by an order of magnitude and as a side effect I will also shrink memory usage (although not that much since dictionary in .NET is a memory heavy structure)
 - since I shrunk the vector I don't need to enumerate over all the ingredients, but only over those from one of the vectors
@@ -164,7 +164,7 @@ public float Similarity(IDictionary<int,float> otherVector)
     return num/denom;
 }
 ```
-With this change the calculation took 484 seconds. Scalling it to the full dataset I get:
+With this change the calculation took 484 seconds. Scaling it to the full data set I get:
 
 ```console    
 (484 / 2199) * 182184 ~ 11 hours (starting from 34 hours)

@@ -8,7 +8,7 @@ image:
   feature: data/2016-12-05-How-to-calculate-17-billion-similarities/logo.jpg
 ---
 
-The [previous post](/How_I_calculate_similarities_in_cookit/) described the methodology I've used to calculate similarities between recipes in [cookit](http://cookit.pl). If You haven't read it I'll give it 4 minutes because it will make understanding this post easier. Go one, I'll wait.
+The [previous post](/How_I_calculate_similarities_in_cookit/) described the methodology I've used to calculate similarities between recipes in [cookit](http://cookit.pl). If you haven't read it I'll give it 4 minutes because it will make understanding this post easier. Go one, I'll wait.
  
 It ended on a happy note and everything seemed to be downhill from there on. It was until I tried to run it. It took long. Very long. How long? I don't know because I've canceled it after about one hour. Going with a famous quote (probably from Einstein, but there [are some ambiguities in this subject](https://www.quora.com/Did-Einstein-really-define-insanity-as-doing-the-same-thing-over-and-over-again-and-expecting-different-results)) 
 
@@ -44,7 +44,7 @@ public float Length(Vector a){
 
 ## Complexity
 
-To give You some scale. Cookit currently has:
+To give you some scale. Cookit currently has:
 
 - 182 184 recipes 
 - 2936 ingredients

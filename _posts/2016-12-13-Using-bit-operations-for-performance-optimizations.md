@@ -9,85 +9,27 @@ image:
 ---
 
 [Last time](/How-to-calculate-17-billion-similarities/) I've showed how I've went from 34 hours to 11. 
-This time we go faster.
+This time we go faster. To go faster I have to do less. 
+
+The problem with the current implementation of `Similarity` is that it iterates over one vector and checks if that ingredient exists in the second one. Since those vectors are sparse the chance of a miss is big. This means that I am loosing computational power on iterating and calling `TryGetValue`. 
+
+How to iterate only over the mutual owned ones and do it fast? 
 <!--MORE-->
 
-## Code independent from the input
+## Bit masks
 
-In the [previous post](/How-to-calculate-17-billion-similarities/) I've forgot to mention one very important optimization. It was one of elements that allowed me to go [from 1530 to 484 seconds](/How-to-calculate-17-billion-similarities/) in the sample run. 
+The fastest and least memory consuming way is to use a `int` or a `long` and set their bits individually. There is one problem with this. I need a mask for 1800 values, so my number would have to be 1800 bit... 
+But before I go further why not use an array of bools? The memory overhead would be minimal (~1MB), but the cost of iterating would be significant. Don't trust me? Keep on reading :)
 
-Let's look once more at the code:
+### .NET's BitArray
 
-```csharp
-public float Similarity(IDictionary<int,float> otherVector)
-{
-    var num = this
-        .Sum(ingredient =>
-        {
-            float value = 0;
-            if (otherVector.TryGetValue(ingredient.Key, out value))
-                return ingredient.Value*value;
-            return 0;
-        });
-
-    var denom = Lengh()*otherVector.Length();
-    return num/denom;
-}
-```
-and Length looking like this:
-
-```csharp
-public float Length(Vector a){    
-    return (float)Math.Sqrt(a.Sum(value => value*value));
-}
-```
-Sometimes looking at the code gives better results then running it through the profiler.<br/>
-`Similarity` will be called for every pair of recipes, so one fragment of the code above will be executed multiple times even though its result isn't dependant on the input parameters. Can you spot it?  
-
-
-It's the `Length`. It will be called
-
-```console
-(182184*182184)/2 = 16 595 504 928 times 
-```  
-
-Changing it's code to this:
-
-```csharp
-public float Length()
-{
-    if (_wasIngredientWeightsChanged)
-    {
-        _len = (float) Math.Sqrt(_ingredientWeightsInternal.Values.Sum(value => value*value));
-        _wasIngredientWeightsChanged = false;
-    }
-    return _len;
-}
-```
-
-Allowed me to go from 968 seconds to 745 seconds for the sample. Scaling it to all recipes gives:
-
-```console    
-(745 / 2199) * 182184 ~ 17 hours (starting from 34 hours)
-```
-
-Ok now for the more tricky part.
- 
-### Calculating a bit mask
-
-The problem with the currently implementation of `Similarity` is that it iterates over one vector and checks if that ingredient exists in the second one. Since those vectors are sparse the chance of a miss is big. This means that I am loosing computational power on iterating and calling `TryGetValue`. 
-
-How to iterate only over the mutual ones and do it fast? I could use an array of boolean values. While memory overhead is minimal (less than 1MB - bool uses [4 bytes in .NET](http://stackoverflow.com/questions/2308034/primitive-boolean-size-in-c-sharp)), the cost of iterating would be significant.
-
-### BitArray
-
-Luckyly .NET has `BitArray` class, so lets give it a try:
+Luckily .NET has `BitArray` class and it implements the `AND` operation, so lets give it a try:
 
 ```csharp
 public float Similarity(IngredientWeightsVector otherVector)
 {
-    var andMask = _ingredientMask.And(otherVector.IngredientMask);
-    var nonZeros = GetNonZeroIndexes(andMask);
+    var andMask = _ingredientMask.And(otherVector.IngredientMask);//find only the commonly found ingredients 
+    var nonZeros = GetNonZeroIndexes(andMask); // get the indexes of the ingredients
     float num = nonZeros.Sum(t => otherVector.IngredientWeights[t]*IngredientWeights[t]);
     var denom = Length()*otherVector.Length();
     return num/denom;
@@ -107,11 +49,12 @@ private List<int> GetNonZeroIndexes(BitArray ba)
 }
 ```
 
-Lets walk through what is happening here. I calculate the `AND` between the masks of both vectors. This gives me the mask of ingredients present in both recipes. Then, since I need the weights for those ingredients, I iterate over the mask and find indexes (`GetNonZeroIndexes` takes care of it). with them I can get the weights from both recipe vectors. Having those weights I can finally calculate the [dot product](http://indexoutofrange.com/How_I_calculate_similarities_in_cookit/).
+Lets walk through what is happening here.<br/>
+I calculate the `AND` between the masks of both vectors. This gives me the mask of ingredients present in both recipes. Then, since I need the weights for those ingredients, I iterate over the mask and find indexes (`GetNonZeroIndexes` takes care of it). With them I can get the weights from both recipes vectors. Having those weights I can finally calculate the [dot product](http://indexoutofrange.com/How_I_calculate_similarities_in_cookit/).
 
 The code is ready, so let's fire it up!
 
-Sadly I had to terminate it when it passed the point when it became clear that it will be slower than the first [implementation](/How_I_calculate_similarities_in_cookit). So let's fire up the profiler:
+I won't give you the numbers because I've decided to terminate it when it passed the point when it became clear that it will be way slower than the first [implementation](/How_I_calculate_similarities_in_cookit). So let's fire up the profiler and see what is happening:
 
 ![](/data/2016-12-13-Using-bit-masks-for-high-performance-calculations/Profiler1.png)
 

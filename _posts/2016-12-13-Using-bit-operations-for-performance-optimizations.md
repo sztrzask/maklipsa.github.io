@@ -1,29 +1,38 @@
 ---
 layout: post
-title: Using bit masks for high performance calculatons 
+title: Using bit masks for high-performance calculations 
 description: "A continuation of a series of how to get from 34 hours to about one"
 modified: 2016-11-28
-tags: [.NET, cookit, performance, math, similarity]
+tags: [.NET, cookit, performance, similarity, bit operations, bit array, Loop unwinding]
 image:
   feature: data/2016-12-13-Using-bit-masks-for-high-performance-calculations/logo.jpg
 ---
-
-[Last time](/How-to-calculate-17-billion-similarities/) I've showed how I've went from 34 hours to 11. 
+ 
+[Last time](/How-to-calculate-17-billion-similarities/) I've shown how I've gone from 34 hours to 11. 
 This time we go faster. To go faster I have to do less. 
 
-The problem with the current implementation of `Similarity` is that it iterates over one vector and checks if that ingredient exists in the second one. Since those vectors are sparse the chance of a miss is big. This means that I am loosing computational power on iterating and calling `TryGetValue`. 
+The current implementation of `Similarity` iterates over one vector and checks if that ingredient exists in the second one. Since those vectors are sparse the chance of a miss is big. This means that I am losing computational power on iterating and calling `TryGetValue`. 
 
-How to iterate only over the mutual owned ones and do it fast? 
+How to iterate only over the mutually owned ones and do it fast? 
 <!--MORE-->
+
+## Saga
+
+Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing it grew to few post. Here are all of them:
+
+- [How I calculate similarities in cookit?](/How_I_calculate_similarities_in_cookit)
+- [How to calculate 17 billion similarities](/How-to-calculate-17-billion-similarities)
+- [Independent code in performance optimizations](/Independent-code-in-performance-optimizations)
+- [Using bit masks for high performance calculatons](/Using-bit-operations-for-performance-optimizations)
 
 ## Bit masks
 
-The fastest and least memory consuming way is to use a `int` or a `long` and set their bits individually. There is one problem with this. I need a mask for 1800 values, so my number would have to be 1800 bit... 
+The fastest and least memory consuming way is to use an `int` or a `long` and set their bits individually. There is one problem with this. I need a mask for 1800 values, so my number would have to be 1800 bit... 
 But before I go further why not use an array of bools? The memory overhead would be minimal (~1MB), but the cost of iterating would be significant. Don't trust me? Keep on reading :)
 
 ### .NET's BitArray
 
-Luckily .NET has `BitArray` class and it implements the `AND` operation, so lets give it a try:
+Luckily .NET has `BitArray` class and it implements the `AND` operation, so let's give it a try:
 
 ```csharp
 public float Similarity(IngredientWeightsVector otherVector)
@@ -50,20 +59,20 @@ private List<int> GetNonZeroIndexes(BitArray ba)
 ```
 
 Lets walk through what is happening here.<br/>
-I calculate the `AND` between the masks of both vectors. This gives me the mask of ingredients present in both recipes. Then, since I need the weights for those ingredients, I iterate over the mask and find indexes (`GetNonZeroIndexes` takes care of it). With them I can get the weights from both recipes vectors. Having those weights I can finally calculate the [dot product](http://indexoutofrange.com/How_I_calculate_similarities_in_cookit/).
+I calculate the `AND` between the masks of both vectors. This gives me the mask of ingredients present in both recipes. Then, since I need the weights for those ingredients, I iterate over the mask and find indexes (`GetNonZeroIndexes` takes care of it). With them, I can get the weights from both recipes vectors. Having those weights I can finally calculate the [dot product](http://indexoutofrange.com/How_I_calculate_similarities_in_cookit/).
 
 The code is ready, so let's fire it up!
 
-I won't give you the numbers because I've decided to terminate it when it passed the point when it became clear that it will be way slower than the first [implementation](/How_I_calculate_similarities_in_cookit). So let's fire up the profiler and see what is happening:
+Sadly I won't give you the numbers because I've decided to terminate the calculation when it passed the point when it became clear that it will be way slower than the first [implementation](/How_I_calculate_similarities_in_cookit). So let's fire up the profiler and see what is happening:
 
 ![](/data/2016-12-13-Using-bit-masks-for-high-performance-calculations/Profiler1.png)
 
 As I saw earlier when optimizing this problem - iteration is not something free :( <br/>
-Maybe it's `foreach` fault and a simple `for` will be ok? Let's check:
+Maybe it's `foreach` fault and a simple `for` will be OK? Let's check:
 
 ![](/data/2016-12-13-Using-bit-masks-for-high-performance-calculations/Profiler2.png)
 
-So is this a dead end? Before taking this decision lets look at the code of `BitArray` and the code of the `Get` method:
+`Get` is the function called on the indexer. So is this a dead end? Before taking this decision lets look at the code of `Get` in the `BitArray`:
 
 ```csharp
 public bool Get(int index)
@@ -78,9 +87,9 @@ public bool Get(int index)
 }
 ```
 
-What I can improve there?
+What can I improve there?
 
-- remove the check.
+- remove the ifs at the start, because I like my performance unchecked ;)
 - `BitArray` is using array of `int` as storage and I think using a `long` be a bit faster
 
 
@@ -96,19 +105,19 @@ using System.Runtime.CompilerServices;
 
 namespace Cookit.Utils.Lib.CSharp.RecipeSimilaritiesCalculator
 {
-    public class BitVectorMask
+    public class MyBitArray
     {
         private readonly long[] _array;
         public int Length;
 
-        public BitVectorMask(int size)
+        public MyBitArray(int size)
         {
             Length = size;
             var numberOfLongs = (int) Math.Ceiling(((float) size)/64);
             _array = new long[numberOfLongs];
         }
 
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void CalcIndex(int index, out int longIndex, out long masc)
         {
             longIndex = GetLongIndex(index);
@@ -173,22 +182,21 @@ namespace Cookit.Utils.Lib.CSharp.RecipeSimilaritiesCalculator
 }
 ```
 
-Test run for the sample took 2509 sec, so full run will take:
+Test run for the sample took 2509 sec, so the full run will take:
 
 ```console    
 (2509 / 2199) * 182184 ~ 57,7 hours (starting from 34 hours)
 ``` 
 
-So I am getting slower :| 
-Why was it so slow? DotTrace will tell the truth:
+So I am getting slower :| Why was it so slow? Hopefully, dotTrace will tell the truth:
 
 ![](/data/2016-12-13-Using-bit-masks-for-high-performance-calculations/Profiler3.png)
 
-If we look at the profiler result `GetNonZeroIndexes` is the most expensive function, but there is almost nothing to blame. Time is hidden in native functions such as iterating, multiplication and soo on. You get the ida. And I am doing a lot of them there. How to simplyfy
+If we look at the profiler result `GetNonZeroIndexes` is the most expensive function, but there is almost nothing in it to blame. The time is hidden in native functions such as iterating, multiplication and soo on, and I am doing a lot of them here. How to simplify?
 
 ## Loop unwinding
 
-The concept is: Why waste time on looping when I can unwind the code. Is it taht of a difference? Let's see: 
+The concept is: Why to waste time on looping when I can unwind the code. Will it make that of a difference? Let's see: 
 
 ```csharp
 public IList<int> GetNonZeroIndexes()
@@ -196,17 +204,17 @@ public IList<int> GetNonZeroIndexes()
     List<int> ret= new List<int>();
     for (var i = 0; i < _array.Length; i++)
     {
-        if (_array[i] != 0L)
+        if (_array[i] != 0L)// this one check saves me 64 ones
         {
             if (IsBitSet(_array[i], 0)) ret.Add(i * 64 + 0);
             if (IsBitSet(_array[i], 1)) ret.Add(i * 64 + 1);
             if (IsBitSet(_array[i], 2)) ret.Add(i * 64 + 2);
             if (IsBitSet(_array[i], 3)) ret.Add(i * 64 + 3);
- 			.
-			.
-			//You get the idea
-			.
-			.
+             .
+            .
+            //You get the idea
+            .
+            .
             if (IsBitSet(_array[i], 61)) ret.Add(i * 64 + 61);
             if (IsBitSet(_array[i], 62)) ret.Add(i * 64 + 62);
             if (IsBitSet(_array[i], 63)) ret.Add(i * 64 + 63);
@@ -265,7 +273,7 @@ and a `if` in the `Similarity` function:
 public float Similarity(IngredientWeightsVector otherVector)
 {
     var andMask = _ingredientMask.And(otherVector._ingredientMask);
-	if (andMask.IsZero())//this was added
+    if (andMask.IsZero())//this was added
         return 0;
     float num = 0;
     var nonZeros = andMask.GetNonZeroIndexes();
@@ -285,4 +293,4 @@ This gives:
 (334 / 2199) * 182184 ~ 7,6 hours (starting from 34 hours)
 ```
 
-
+Can it still be improved significantly or am I looking at marginal gains here? This problem can still astound you, but this will be unveiled next week. 

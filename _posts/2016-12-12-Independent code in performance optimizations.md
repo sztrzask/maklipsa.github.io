@@ -17,6 +17,15 @@ Last time I've forgot to mention one very important optimization. It was one of 
 
 <!--MORE-->
 
+## Saga
+
+Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing it grew to few post. Here are all of them:
+
+- [How I calculate similarities in cookit?](/How_I_calculate_similarities_in_cookit)
+- [How to calculate 17 billion similarities](/How-to-calculate-17-billion-similarities)
+- [Independent code in performance optimizations](/Independent-code-in-performance-optimizations)
+- [Using bit masks for high performance calculatons](/Using-bit-operations-for-performance-optimizations)
+
 Let's look once more at the code:
 
 ```csharp

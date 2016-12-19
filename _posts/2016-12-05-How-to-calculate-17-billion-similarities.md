@@ -16,6 +16,7 @@ It ended on a happy note and everything seemed to be downhill from there on. It 
 
 I've decided to, once again, use math to assess how long the calculation will take.   
 <!--MORE-->
+
 ## Saga
 
 Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing it grew to few post. Here are all of them:

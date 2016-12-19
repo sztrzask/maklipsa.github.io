@@ -3,7 +3,7 @@ layout: post
 title: How to calculate 17 billion similarities
 description: "This post examines performance optimizations made to go from 34-hour process to an 11 hour one"
 modified: 2016-12-05
-tags: [.NET, cookit, performance, math]
+tags: [.NET, cookit, performance, math, similarity]
 image:
   feature: data/2016-12-05-How-to-calculate-17-billion-similarities/logo.jpg
 ---

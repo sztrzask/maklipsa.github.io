@@ -115,7 +115,7 @@ I generate this code in Excel and after generating all the if statemenent the pr
 
 
 See it?<br/>
-I've hit Excel (and Google docs for that matter) precision and in the 52th power of 2, it was rounded in a strange way. So instead of getting `1 125 899 906 842 624` I've got `1 125 899 906 842 620` :|
+I've hit Excel (and Google docs for that matter) precision and in the 52th power of 2, it was rounded in a strange way. So instead of getting `1 125 899 906 842 624` I've got `1 125 899 906 842 620` :| There goes two hours lost on debugging the applications.
 
 ## Results 
 

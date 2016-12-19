@@ -10,7 +10,7 @@ image:
 
 This post was inspired by a [discussion on Reddit](https://www.reddit.com/r/programming/comments/5i2x5r/using_bit_masks_for_highperformance_calculations/) that followed my [previous post](http://indexoutofrange.com/Using-bit-operations-for-performance-optimizations/)
 
-In this post, I will cover a suggestion by `BelowAverageITGuy` that cut down the total execution time by almost one hour.
+In this post, I will cover a [suggestion](https://www.reddit.com/r/programming/comments/5i2x5r/using_bit_masks_for_highperformance_calculations/db5ujwc/) by [BelowAverageITGuy](https://www.reddit.com/user/BelowAverageITGuy) that cut down the total execution time by almost one hour.
 <!--MORE-->
 
 ## Saga

@@ -294,4 +294,9 @@ This gives:
 (334 / 2199) * 182184 ~ 7,6 hours (starting from 34 hours)
 ```
 
-Can it still be improved significantly or am I looking at marginal gains here? This problem can still astound you, but this will be unveiled next week. 
+Can it still be improved significantly or am I looking at marginal gains here? This problem can still astound you, but this will be unveiled next week.
+
+
+### Update
+
+This post [sprung a very interesting conversation on Reddit](https://www.reddit.com/r/programming/comments/5i2x5r/using_bit_masks_for_highperformance_calculations/) with 104 comments as of writing this update.

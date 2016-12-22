@@ -14,12 +14,6 @@ He proposed to use one of the oldest trick in performance book - [divide and con
 
 <!--MORE-->
 
-
-This post was inspired by a [discussion on Reddit](https://www.reddit.com/r/programming/comments/5i2x5r/using_bit_masks_for_highperformance_calculations/) that followed my [previous post](http://indexoutofrange.com/Using-bit-operations-for-performance-optimizations/)
-
-In this post, I will cover a [suggestion](https://www.reddit.com/r/programming/comments/5i2x5r/using_bit_masks_for_highperformance_calculations/db5ujwc/) by [BelowAverageITGuy](https://www.reddit.com/user/BelowAverageITGuy) that cut down the total execution time by almost one hour.
-<!--MORE-->
-
 ## Saga
 
 Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing it grew to few post. Here are all of them:
@@ -107,7 +101,7 @@ public IList<int> GetNonZeroIndexes()
 }
 ```    
 
-Why is this code faster? If my array contains only one set bit I will do **only from 6 to 9 comparisons** compared to 65 previosly. Don't believe me? I can prove it mathematicly!
+Why will this code be faster? If my array contains only one set bit I will do **only from 6 to 9 comparisons** compared to 64 previosly. Don't believe me? I can prove it mathematicly!
 
 ### Complexity
 
@@ -130,31 +124,56 @@ But I've written that I have to do at least six checks. This is because I have t
 
 ## Performance results
 
-How did it affect performance? The [last best sample run](/Making-bits-faster/) took 297 seconds. This takes 248 seconds. This translates to:
+How did it affect performance? The [last best sample run](/Making-bits-faster/) took **297 seconds**. This takes 283 seconds. This translates to:
 
 ```console    
 (283 / 2199) * 182184 ~ 6,5 hours (starting from 34 hours, and 6,8 in the best run)
 ```
 
-This way I've managed to be faster by **another hour** in total run.
+So I am doing even an order of magnitude less operations then before and all I get is 15 seconds? Maybe if I go to leaf size of 2 it will be better? I will be doing less so it should be faster? Even more let's plot how execution time is dependant on leaf size
 
-### Smaller is better
+### Leaf size vs time
 
-But how much does dividing impact performance?
-
-Here are the results:
+Below is a table comparing leaf size to execution time. 
 
 |---
 | Size of the chunk | Execution time |
-|:-|--------------------:|
+|:-|:-|
+|64| 297 seconds|
 |32| 277 seconds|
 |16| 296 seconds|
-|8| 293 seconds| 
-|4| 283 seconds|
-|2| 297 seconds|
+|8 | 293 seconds| 
+|4 | 283 seconds|
+|2 | 297 seconds|
+
+![](/data/2016-12-20-Dividing-a-bit-in-two-for-performance/LeafSizevsTime.png)
+
+## Making sense of it all
+
+Why did my execution time not go down as expected? Couple reasons:
+
+## Things changed
+
+I've started from 968 seconds for the test run, and most of this time was spend in `Similarity`. Now if I look at the profiler:
+![](/data/2016-12-20-Dividing-a-bit-in-two-for-performance/Profiler.png)
+
+`Similarity` is still using the most CPU, but it is not the `GetNonZeroIndexes`. I'm just slowly getting closer and closer to the minimum execution time.
+
+> A word of a warning. Don't thread them as absolutes. Profiling ads an overhead and it is not always equal, so some methods will take longer under profiling. Even the proportions can be disturbed.
+
+## Why leaf size of 2 is slower than leaf size of 4?
+
+Current processors are not linear. They execute instruction in advance hoping that they will guess it, and when it will be needed it will be ready. And when they are right it is very fast. When it is a miss performance suffers. It is called [branch prediction](https://en.wikipedia.org/wiki/Branch_predictor). 
+
+This situation leads to the fact that [sorting and then processing the array may be faster then just processing](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array).
+
+Because the vector
+
 
 <style>
 table{
     width:300px !important;
 }
 </style>
+
+

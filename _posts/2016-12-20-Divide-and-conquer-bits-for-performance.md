@@ -9,7 +9,6 @@ image:
 ---
 
 This post is description of a very interesting optimization proposed by Nicholas Frechette in the comments under the [previous post](/Making-bits-faster/).
-
 He proposed to use one of the oldest trick in performance book - [divide and conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms). 
 
 <!--MORE-->
@@ -60,7 +59,22 @@ How can this get better?
 
 ## Divide and conquer
 
-The above approach is a brute force approach. Why? I am checking for every bit if it is set. This is waistfull since most of them are not set (remember those are [sparse arrays](/Using-bit-operations-for-performance-optimizations)). The better approach would be to test multiple bits at once. How? Bit masks - as always :)
+
+### Theory
+The above approach is a brute force approach. Why? I am iterating over the long and checking for every bit if it is set. This is waistfull since most of them are not set (remember those are [sparse arrays](/Using-bit-operations-for-performance-optimizations)). The better approach would be to test multiple bits at once. How? Bit masks - as always :)
+
+Using bit masks I could check the first 32 bits if any bit is set by doing an `AND` operation like this:
+
+```console
+0000000011111111 <- masc
+0001100110001001 <- value
+
+0000000110001001 <- after AND
+```
+
+If any bits in this range are set the result will be greater than zero. Looks great? It will look even better because this algorithm is basiclly a [binary search tree](https://en.wikipedia.org/wiki/Binary_tree)  with a fully balanced tree (equal number of nodes on the left and right). This is nice since I can easilly calculate the number of operations needed to check if a bit is set 
+
+
 
 I could replace `GetNonZeroIndexes` with this code:
 

@@ -1,21 +1,21 @@
 ---
 layout: post
 title: Dividing a bit in two for performance
-description: "Bit operations are fast, but they can still be made faster"
-modified: 2016-12-20
+description: "A tale how applying the oldest performance optimization techniques really affects performance"
+modified: 2016-12-22
 tags: [.NET, cookit, performance, similarity, bit operations]
 image:
-  feature: data/2016-12-20-Dividing-a-bit-in-two-for-performance/logo.jpg
+  feature: data/2016-12-22-Dividing-a-bit-in-two-for-performance/logo.jpg
 ---
 
-This post is description of a very interesting optimization proposed by Nicholas Frechette in the comments under the [previous post](/Making-bits-faster/).
-He proposed to use one of the oldest trick in performance book - [divide and conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms). 
+This post is an analysis of a very interesting optimization proposed by Nicholas Frechette in the comments under the [previous post](/Making-bits-faster/).
+He proposed to use one of the oldest tricks in performance cookbook - [divide and conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms). Well, it did not turn out as I expected.
 
 <!--MORE-->
 
 ## Saga
 
-Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing it grew to few post. Here are all of them:
+Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing. This thread grew to a few post. Here are all of them:
 
 - [How I calculate similarities in cookit?](/How_I_calculate_similarities_in_cookit)
 - [How to calculate 17 billion similarities](/How-to-calculate-17-billion-similarities)
@@ -59,11 +59,10 @@ How can this get better?
 
 ## Divide and conquer
 
-
 ### Theory
-The above approach is a brute force approach. Why? I am iterating over the long and checking for every bit if it is set. This is waistfull since most of them are not set (remember those are [sparse arrays](/Using-bit-operations-for-performance-optimizations)). The better approach would be to test multiple bits at once. How? Bit masks - as always :)
+The above approach is a brute force approach. Why? I am iterating over the long and checking for every bit if it is set. This is wasteful since most of them are not set (remember those are [sparse arrays](/Using-bit-operations-for-performance-optimizations)). The better approach would be to test multiple bits at once. How? Bit masks - as always :)
 
-Using bit masks I could check the first 32 bits if any bit is set by doing an `AND` operation like this:
+Using bit masks and the `AND` operation I could check the first 32 bits (from 64 that `ulong` has):
 
 ```console
 0000000011111111 <- masc
@@ -72,9 +71,9 @@ Using bit masks I could check the first 32 bits if any bit is set by doing an `A
 0000000110001001 <- after AND
 ```
 
-If any bits in this range are set the result will be greater than zero. Looks great? It will look even better because this algorithm is basiclly a [binary search tree](https://en.wikipedia.org/wiki/Binary_tree)  with a fully balanced tree (equal number of nodes on the left and right). This is nice since I can easilly calculate the number of operations needed to check if a bit is set 
+If any bit in this range is set then the result will be greater than zero. Simple as that.<br/> 
 
-
+### Implementation
 
 I could replace `GetNonZeroIndexes` with this code:
 
@@ -101,10 +100,10 @@ public IList<int> GetNonZeroIndexes()
                             if ((a & 8UL) != 0UL) ret.Add(i*64 + 3);
                         }
                         if ((a & BitVectorMaskConsts._4_8) > 0){
-						.
-						.
-						.
-						.
+                        .
+                        .
+                        .
+                        .
 
                     }
                 }
@@ -113,54 +112,39 @@ public IList<int> GetNonZeroIndexes()
     }
     return ret;
 }
-```    
-
-Why will this code be faster? If my array contains only one set bit I will do **only from 6 to 9 comparisons** compared to 64 previosly. Don't believe me? I can prove it mathematicly!
+```
 
 ### Complexity
 
-What divide and conquer is doing is simulating a [binary tree](https://en.wikipedia.org/wiki/Binary_tree) consisting of:
+What divide and conquer is doing is simulating a [binary tree](https://en.wikipedia.org/wiki/Binary_tree) consisting of 64 nodes.
 
-```console
-64/4 = 16 elements
-
-where:
-- 64 - number of elements
-- 4 - at this size I am no longer dividing
-```
-
-Since my tree is fully balanced (equal number of nodes on the left and right) its max depth is equal to `log n`. With `n` equal to 16 this gives me depth equal to 4. 
-
-But I've written that I have to do at least six checks. This is because I have to do two extra ones:
-
-- check if any bit is set (first check if the number is a zero)
-- from one to four checks to iterate over specific bits. This step can be reduced by one. Do You know how?
+Since my tree is fully balanced (equal number of nodes on the left and right) its max depth is equal to `log n`. With `n` equal to a number of leafs in the tree. I am doing a brute force iteration over the last 4 elements so my number of leafs is 64/4 = 16. This means that I'll be doing **from 5 to 9 checks** in the worst case. Looks promising.
 
 ## Performance results
 
-How did it affect performance? The [last best sample run](/Making-bits-faster/) took **297 seconds**. This takes 283 seconds. This translates to:
+How did it affect performance? The [last best sample run](/Making-bits-faster/) took **297 seconds**. With divide and conquer it takes **283 seconds**. This translates to:
 
 ```console    
 (283 / 2199) * 182184 ~ 6,5 hours (starting from 34 hours, and 6,8 in the best run)
 ```
 
-So I am doing even an order of magnitude less operations then before and all I get is 15 seconds? Maybe if I go to leaf size of 2 it will be better? I will be doing less so it should be faster? Even more let's plot how execution time is dependant on leaf size
+So I am doing even an order of magnitude fewer operations than before and all I get is 15 seconds? Maybe if I go to leaf size of 2 it will be better? I will be doing less so it should be faster? Even more, let's plot how execution time is dependent on leaf size
 
-### Leaf size vs time
+### Leaf size vs. time
 
-Below is a table comparing leaf size to execution time. 
+Below is a table comparing leaf size to execution time (they are an average of 3 runs). 
 
 |---
-| Size of the chunk | Execution time |
-|:-|:-|
-|64| 297 seconds|
-|32| 277 seconds|
-|16| 296 seconds|
-|8 | 293 seconds| 
-|4 | 283 seconds|
-|2 | 297 seconds|
+| Size of the chunk | Execution time | St.dev|
+|:-|:-|:-|
+|64| 299 seconds|2.3
+|32| 277 seconds|3.5
+|16| 296 seconds|3.5
+|8 | 293 seconds|2.3
+|4 | 283 seconds|6.5
+|2 | 297 seconds|4.3
 
-![](/data/2016-12-20-Dividing-a-bit-in-two-for-performance/LeafSizevsTime.png)
+![](/data/2016-12-22-Dividing-a-bit-in-two-for-performance/LeafSizevsTime.png)
 
 ## Making sense of it all
 
@@ -169,20 +153,17 @@ Why did my execution time not go down as expected? Couple reasons:
 ## Things changed
 
 I've started from 968 seconds for the test run, and most of this time was spend in `Similarity`. Now if I look at the profiler:
-![](/data/2016-12-20-Dividing-a-bit-in-two-for-performance/Profiler.png)
+![](/data/2016-12-22-Dividing-a-bit-in-two-for-performance/Profiler.png)
 
-`Similarity` is still using the most CPU, but it is not the `GetNonZeroIndexes`. I'm just slowly getting closer and closer to the minimum execution time.
-
-> A word of a warning. Don't thread them as absolutes. Profiling ads an overhead and it is not always equal, so some methods will take longer under profiling. Even the proportions can be disturbed.
+`Similarity` is still using the most CPU, but it is not the `GetNonZeroIndexes` that is the hogger. I'm just slowly getting closer and closer to the minimum execution time.
 
 ## Why leaf size of 2 is slower than leaf size of 4?
 
-Current processors are not linear. They execute instruction in advance hoping that they will guess it, and when it will be needed it will be ready. And when they are right it is very fast. When it is a miss performance suffers. It is called [branch prediction](https://en.wikipedia.org/wiki/Branch_predictor). 
+Execution in current processors in not linear. They execute instructions in advance hoping that they will guess the flow. When they are right it is very fast, when it is a miss performance suffers greatly. It is called [branch prediction](https://en.wikipedia.org/wiki/Branch_predictor). 
 
-This situation leads to the fact that [sorting and then processing the array may be faster then just processing](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array).
+This leads to the fact that [sorting and then processing the array may be faster than just processing](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array).
 
-Because the vector
-
+My guess is that two and four leaf implementation suffers mostly from that.  
 
 <style>
 table{

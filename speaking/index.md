@@ -6,7 +6,7 @@ description: "List of events I had pleasure of speaking at"
 
 I believe that sharing knowledge is a key activity keeping the community live and active. That is why I present what I have learned on conferences and user groups.
 
-## Talks:
+## Talks (future and past):
 - 04-05.02.2017 - **Graph databases - why and how** - [EN]FOSDEM [conference page](https://fosdem.org/2017/schedule/event/graph_intro_graph_databases/)
 - 26.01.2017 - **Graph databases - why and how** - rg-dev
 - 24.01.2017 - **Graph databases - why and how** - [EN]BOB 2017 Konferenz [conference page](http://bobkonf.de/2017/warda.html)
@@ -19,9 +19,8 @@ I believe that sharing knowledge is a key activity keeping the community live an
 - 11.04.2016 - **Graph databases - why and how** - 4Developers conference[[youtube](https://www.youtube.com/watch?v=ISKC25G1HCY)]
 - 20.08.2015 - <a name="whyDragonsNeedGraphs"></a> **Why dragons need graphs** - Warsaw .NET User Group [[meetup](http://www.meetup.com/WG-NET/events/224309541/)][[youtube](https://www.youtube.com/watch?v=Bo6uOQ-P25w)]
 - 05.06.2015 - **How I stopped worrying and learned to love parallel processing** [[group page](http://www.wg.net.pl/aktualnosci/zaproszeniena86spotkaniewgnet)] [[youtube](https://www.youtube.com/watch?v=PL4pkv6YAxg)]
- 
-## Abstracts:
 
+## Abstracts:
 
 ### Neo4j in practice - everything that is left when the hype is over
 

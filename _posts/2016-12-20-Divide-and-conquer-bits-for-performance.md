@@ -68,7 +68,7 @@ Using bit masks and the `AND` operation I could check the first 32 bits (from 64
 0000000011111111 <- masc
 0001100110001001 <- value
 
-0000000110001001 <- after AND
+0000000010001001 <- after AND
 ```
 
 If any bit in this range is set then the result will be greater than zero. Simple as that.<br/> 

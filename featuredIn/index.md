@@ -15,6 +15,7 @@ One of the strongest incentives to keeping on blogging is to have a post feature
  
 ## Week in .NET
 
+- [The week in .NET – On .NET with Steve Smith, Jint, Blue Effect](https://blogs.msdn.microsoft.com/dotnet/2016/12/28/the-week-in-net-on-net-with-steve-smith-jint/)
 - [The week in .NET – .NET Core triage on On .NET, ShareX](https://blogs.msdn.microsoft.com/dotnet/2016/12/20/the-week-in-net-net-core-triage-on-on-net-sharex/)
 - [The Year in .NET – Visual Studio 2017 RC and .NET Core updated, On .NET with Stephen Cleary and Luis Valencia, Ulterius, Inferno, Bastion, LoGeek Night](https://blogs.msdn.microsoft.com/dotnet/2016/12/13/the-year-in-net-visual-studio-2017-rc-and-net-core-updated-on-net-with-stephen-cleary-and-luis-valencia-ulterius-inferno-bastion-logeek-night/)
 - [The week in .NET – On .NET on MyGet – FlexViewer – I Expect You To Die](https://blogs.msdn.microsoft.com/dotnet/2016/12/06/the-week-in-net-on-net-on-myget-flexviewer-i-expect-you-to-die/)

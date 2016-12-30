@@ -6,7 +6,7 @@ description: "Places where posts from this blog were featured in."
 
 One of the strongest incentives to keeping on blogging is to have a post featured on a high reputation website. So here is the list of my incentives:
 
-## The Morning Brew
+## ![](http://blog.cwa.me.uk/wp-content/themes/Hackedcoffeespot2/img/cup4.jpg)The Morning Brew
 
 - [The Morning Brew #2253](http://blog.cwa.me.uk/2016/12/30/the-morning-brew-2253/)
 - [The Morning Brew #2250](http://blog.cwa.me.uk/2016/12/23/the-morning-brew-2250/)

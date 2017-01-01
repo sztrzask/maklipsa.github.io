@@ -161,7 +161,7 @@ I've started from 968 seconds for the test run, and most of this time was spend 
 
 Execution in current processors in not linear. They execute instructions in advance hoping that they will guess the flow. When they are right it is very fast, when it is a miss performance suffers greatly. It is called [branch prediction](https://en.wikipedia.org/wiki/Branch_predictor). 
 
-This leads to the fact that [sorting and then processing the array may be faster than just processing](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array).
+This situation leads to the fact that [sorting and then processing the array may be faster then just processing](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array), or [calculating the minimum of two numbers is faster using bit operations then using if](http://aakinshin.net/en/blog/dotnet/perfex-min/).
 
 My guess is that two and four leaf implementation suffers mostly from that.  
 

@@ -8,7 +8,7 @@ image:
   feature: data/2016-12-22-Dividing-a-bit-in-two-for-performance/logo.jpg
 ---
 
-This post is an analysis of a very interesting optimization proposed by Nicholas Frechette in the comments under the [previous post](/Making-bits-faster/).
+This post is an analysis of a very interesting optimization proposed by Nicholas Frechette in the comments under the [previous post](/Making-bits-faster/) and t0rakka [on Reddit](https://www.reddit.com/r/programming/comments/5i2x5r/using_bit_masks_for_highperformance_calculations/db55nz6/).
 He proposed to use one of the oldest tricks in performance cookbook - [divide and conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms). Well, it did not turn out as I expected.
 
 <!--MORE-->

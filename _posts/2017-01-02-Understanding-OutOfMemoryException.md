@@ -74,6 +74,7 @@ After clicking run I saw this:
 Unhandled Exception: OutOfMemoryException.
 ``` 
 and soon after, this:
+
 ![Your computer is low on memory.png](/data/2017-01-02-Understanding-OutOfMemoryException/your-computer-is-low-on-memory.png)
 
 So without terminating the application I fired up Task Manager and saw this:
@@ -141,7 +142,7 @@ The last one needs a it more clarification:
 This is the situation when where is no continuous block of free memory of requested size, but the sum of free memory is bigger than requested. Because one ASCI art says more than 1000 words here it is:
 
 ```console
-Our memory
+Our memory:
 |oo_o_ooo__o_o_o|
 where:
 - o - allocated

@@ -149,7 +149,7 @@ where:
 - _ - free
 ``` 
 In this situation, although we have 6 slots of free memory we can't allocate a 3 slot object. 
-How is .NET different from the OS in this subject? .NET can change the physical address of the object in the [compaction phase of the garbage collection](https://msdn.microsoft.com/en-us/library/ee787088(v=vs.110).aspx) as long as it is pinned using [`fixed`](https://msdn.microsoft.com/en-us/library/f58wzh21.aspx).
+How is .NET different from the OS in this subject? .NET can change the physical address of the object in the [compaction phase of the garbage collection](https://msdn.microsoft.com/en-us/library/ee787088(v=vs.110).aspx) as long as it is not pinned using [`fixed`](https://msdn.microsoft.com/en-us/library/f58wzh21.aspx).
 
 So .NET Framework is over allocating, and then Windows is also over allocating and this ends up in the system running out of memory and crashing my application? This means that the framework AND the operating system is broken?
 

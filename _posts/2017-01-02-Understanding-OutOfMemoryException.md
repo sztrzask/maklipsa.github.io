@@ -56,7 +56,7 @@ public static Dictionary<int, List<RecipeSimilarityLight>> calculateSimilarityMa
         var recipeId = allRecipes[i];
         for (int j = 0; j < resultMatrix[i].Length; j++)
         {
-            var secondRecipeId = allRecipes[i];
+            var secondRecipeId = allRecipes[j];
             var similarity = resultMatrix[i][j];
             addSimilarityIfGoodEnough(dict[recipeId], recipeId, secondRecipeId, similarity);
         }

@@ -20,7 +20,7 @@ I believe that sharing knowledge is a key activity keeping the community live an
 - 20.08.2015 - <a name="whyDragonsNeedGraphs"></a> **Why dragons need graphs** - Warsaw .NET User Group [[meetup](http://www.meetup.com/WG-NET/events/224309541/)][[youtube](https://www.youtube.com/watch?v=Bo6uOQ-P25w)]
 - 05.06.2015 - **How I stopped worrying and learned to love parallel processing** [[group page](http://www.wg.net.pl/aktualnosci/zaproszeniena86spotkaniewgnet)] [[youtube](https://www.youtube.com/watch?v=PL4pkv6YAxg)]
 
-## My talks:
+## My CFPs:
 
 <p class="container">
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Introduction-to-graph-databases/logo.png') no-repeat scroll center center; background-size: cover;">

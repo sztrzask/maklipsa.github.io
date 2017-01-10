@@ -23,16 +23,16 @@ I believe that sharing knowledge is a key activity keeping the community live an
 ## My CFPs:
 
 <p class="container">
-    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Introduction-to-graph-databases/logo.png') no-repeat scroll center center; background-size: cover;">
-        <span>An introduction to graph databases</span>
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Introduction-to-graph-databases/logo.png') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Introduction-to-graph-databases" >
+        <span>Introduction to graph databases</span>
     </a>
-    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/How-I-stopped-worrying-and-learned-to-love-parallel-processing/logo.jpg') no-repeat scroll center center; background-size: cover;">
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/How-I-stopped-worrying-and-learned-to-love-parallel-processing/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/How-I-stopped-worrying-and-learned-to-love-parallel-processing" >
         <span>How I stopped worrying and learned to love parallel processing</span>
     </a>
-    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Neo4j-in-practice-everything-that-is-left-when-the-hype-is-over/logo.jpg') no-repeat scroll center center; background-size: cover;">
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Neo4j-in-practice-everything-that-is-left-when-the-hype-is-over/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Neo4j-in-practice-everything-that-is-left-when-the-hype-is-over" >
         <span>Neo4j in practice - everything that is left when the hype is over</span>
     </a>
-    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/You-are-using-the-wrong-database!/logo.jpg') no-repeat scroll center center; background-size: cover;">
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/You-are-using-the-wrong-database!/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/You-are-using-the-wrong-database!/" >
         <span>You are using the wrong database!</span>
     </a>
 </p>

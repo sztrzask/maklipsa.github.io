@@ -2,14 +2,14 @@
 layout: page
 title: How I stopped worrying and learned to love parallel processing
 description: "Description of my talk - How I stopped worrying and learned to love parallel processing"
-tags: [performance, .net, microsoft tpl dataflow, tpl, optimizations, data processing, parallelism]
+tags: [performance, .net, Microsoft TPL DataFlow, TPL, optimizations, data processing, parallelism]
 image:
   feature: speaking/cfp/How-I-stopped-worrying-and-learned-to-love-parallel-processing/logo.jpg
 ---
 
 ## Short abstract
 
-How to process 1 TB of data on an Intel i3 with 8 GB of RAM and do it fast? How to organize and parallelize big data processing workflows in .NET? How to control CPU and memory usage easily?
+How to process 1 TB of data do it fast using just enough resources? How to organize and parallelize big data processing workflows in .NET? How to control CPU and memory usage easily?
 
 ## Description
 

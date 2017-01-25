@@ -23,6 +23,9 @@ I believe that sharing knowledge is a key activity keeping the community live an
 ## My CFPs:
 
 <p class="container">
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/5-years-45-developers-one-project-time-for-a-recap/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/5-years-45-developers-one-project-time-for-a-recap" >
+        <span>45 developers, 5 years, one ERP system. Time for a recap</span>
+    </a>
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Introduction-to-graph-databases/logo.png') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Introduction-to-graph-databases" >
         <span>Introduction to graph databases</span>
     </a>

@@ -13,4 +13,11 @@ There is a lot you can do with 45 developers over five years. We build a distrib
 
 ## Description
 
-This is a story of building a big distributed, web-based, modular ERP system from scratch. First, we will look at the high-level architecture of the system, database servers, and teams. Then we go a bit deeper and discuss how we manage synchronous and asynchronous communication, modularity and data replication. Then I will explain why we created a custom DSL for view creation and how this allows us to change non-functional requirements without affecting the business code. Going deeper takes us into how we modeled such concepts as multi-language text and multi-currency amounts. Now You know how it looks like. Now it's time for a recap. Why did we not use Angular? What are the pain points? What are we changing? What was the key to not failing? How some things can't be done right from the start, and just need time? And the most important: If done again what would we change and what would we leave as it is?
+This is a story of building a big distributed, web-based, modular ERP system from scratch. First, we will look at the high-level architecture of the system, database servers, and teams. Then we go a bit deeper and discuss how we manage synchronous and asynchronous communication, modularity and data replication. Then I will explain why we created a custom DSL for view creation and how this allows us to change non-functional requirements without affecting the business code. Going deeper takes us into how we modeled such concepts as multi-language text and multi-currency amounts. Next part will be a recap:
+
+- Why did we not use Angular? 
+- What are the pain points? 
+- What are we changing? 
+- What was the key to not failing? 
+- How some things can't be done right from the start, and just need time? 
+- And the most important: If done again what would we change and what would we leave as it is?

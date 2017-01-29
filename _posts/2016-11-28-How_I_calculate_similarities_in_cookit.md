@@ -28,6 +28,8 @@ Before I go further here are some link to the previous posts on the problem of c
 - [Independent code in performance optimizations](/Independent-code-in-performance-optimizations)
 - [Using bit masks for high performance calculatons](/Using-bit-operations-for-performance-optimizations)
 - [Making bits faster](/Making-bits-faster)
+- [Dividing a bit in two for performance](/Divide-and-conquer-bits-for-performance)
+- [Understanding OutOfMemoryException](/Understanding-OutOfMemoryException)
  
 But before turning to those problems, lets first answer this question: 
 

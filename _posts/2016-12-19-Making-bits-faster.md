@@ -21,7 +21,9 @@ Before I go further here are some link to the previous posts on the problem of c
 - [How to calculate 17 billion similarities](/How-to-calculate-17-billion-similarities)
 - [Independent code in performance optimizations](/Independent-code-in-performance-optimizations)
 - [Using bit masks for high performance calculatons](/Using-bit-operations-for-performance-optimizations)
-- [Making bits faster](/Making-bits-faster/)
+- [Making bits faster](/Making-bits-faster)
+- [Dividing a bit in two for performance](/Divide-and-conquer-bits-for-performance)
+- [Understanding OutOfMemoryException](/Understanding-OutOfMemoryException)
 
 ## Recap 
 

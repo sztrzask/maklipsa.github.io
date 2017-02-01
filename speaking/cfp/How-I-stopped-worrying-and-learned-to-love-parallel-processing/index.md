@@ -9,7 +9,7 @@ image:
 
 ## Short abstract
 
-How to process 1 TB of data, do it fast using just enough resources? How to organize and parallelize big data processing workflows in .NET? How to control CPU and memory usage easily? 
+How to process 1 TB of data, do it fast using just enough resources? How to organize and parallelize big data processing workflows in .NET? How to control CPU and memory usage easily? <br/>
 This talk is a story, told using code, of how I've managed to go from big data processing problem to data processing. 
 
 ## Description

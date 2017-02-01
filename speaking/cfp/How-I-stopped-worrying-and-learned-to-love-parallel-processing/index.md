@@ -9,7 +9,8 @@ image:
 
 ## Short abstract
 
-How to process 1 TB of data do it fast using just enough resources? How to organize and parallelize big data processing workflows in .NET? How to control CPU and memory usage easily?
+How to process 1 TB of data, do it fast using just enough resources? How to organize and parallelize big data processing workflows in .NET? How to control CPU and memory usage easily? 
+This talk is a story, told using code, of how I've managed to go from big data processing problem to data processing. 
 
 ## Description
 
@@ -27,4 +28,4 @@ This talk will show:
 - how to handle parallelization in big data processing workflows
 - how to structure block of the process
 - how Microsoft TPL Dataflow helps in such situations
-This will be based on two years of experience and troubleshooting this implementation in a production environment.
+This will be based on two years of experience and troubleshoot this implementation in a production environment.

@@ -105,8 +105,17 @@ New Relic is a power horse for monitoring and reporting.
 
 New Relic is a power horse when it goes for features. It has almost everything, from APM (Application Performance Metrics) to log aggregation. It is a very interesting product since it is done in a way that will be readable to non technical people. You automaticly get notifications for apdex index violations, and the UI is more like google analytics than Azure Application Insights (next)
 
+The main dashboard:
+
 ![NewRelic panel](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/newRelic_panel.png)
+
+I was quite impressed with how good NewRelic inspects what went into each request. This is the Request monitoring page:
 ![NewRelic request details](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/newRelic_requestDetails.png)
+
+Another thing that is a nice feature is the Geo view. It shows how page speed differs for different geo locations. And as You can see I have a problem with Russia (have no idea why):
+
+![NewRelic request details](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/newRelic_geoPanel.png)  
+
 All what is needed is installation of a NewRelic Agent on the server. Dependencies detection and metering works out of the box, and it is the easiest tool to setup. Even browser monitoring doesn't require any additional code.
 
 **The good**

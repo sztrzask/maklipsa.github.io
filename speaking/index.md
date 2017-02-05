@@ -46,6 +46,9 @@ I believe that sharing knowledge is a key activity keeping the community live an
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/workshops/The-size-of-data-is-not-the-problem-its-how-to-process-it/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/workshops/The-size-of-data-is-not-the-problem-its-how-to-process-it" >
         <span>The size of data is not the problem it's how to process it</span>
     </a>
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/workshops/APM-and-centralized-logging-with-Application-Insights/logo.png') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/workshops/APM-and-centralized-logging-with-Application-Insights" >
+        <span>APM and centralized logging with Application Insights</span>
+    </a>
 </p>
 
 <style>

@@ -44,7 +44,7 @@ I believe that sharing knowledge is a key activity keeping the community live an
 # Workshops:
 <p class="container">
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/workshops/The-size-of-data-is-not-the-problem-its-how-to-process-it/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/workshops/The-size-of-data-is-not-the-problem-its-how-to-process-it" >
-        <span>The size of data is not the problem its how to process it</span>
+        <span>The size of data is not the problem it's how to process it</span>
     </a>
 </p>
 

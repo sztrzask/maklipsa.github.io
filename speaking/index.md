@@ -7,9 +7,9 @@ description: "List of events I had pleasure of speaking at"
 I believe that sharing knowledge is a key activity keeping the community live and active. That is why I present what I have learned on conferences and user groups.
 
 ## Talks (future and past):
-- 04-05.02.2017 - **Graph databases - why and how** - [EN]FOSDEM [conference page](https://fosdem.org/2017/schedule/event/graph_intro_graph_databases/)
+- 24.02.2017 - **Graph databases - why and how** - [EN]BOB 2017 Konferenz [conference page](http://bobkonf.de/2017/warda.html)
+- 04-05.02.2017 - **Graph databases - why and how** - [EN]FOSDEM [conference page](https://fosdem.org/2017/schedule/event/graph_intro_graph_databases/) [[video](http://mirror.as35701.net/video.fosdem.org/2017/H.2214/graph_intro_graph_databases.mp4)]
 - 26.01.2017 - **Graph databases - why and how** - rg-dev
-- 24.01.2017 - **Graph databases - why and how** - [EN]BOB 2017 Konferenz [conference page](http://bobkonf.de/2017/warda.html)
 - 30.11.2016 - **Graph databases - why and how** - Dev@LDZ - [meetup](https://www.meetup.com/dev-LDZ/events/235332452/)
 - 14.11.2016 - **Graph databases - why and how** - PyWaw - [meetup](https://www.meetup.com/PyWaw-Python-Warsaw-User-Group/events/234937571/)
 - 08.11.2016 - **Graph databases - why and how** - Dev@ZG - [meetup](https://www.meetup.com/DEV-ZG/events/234737689/)

@@ -2,7 +2,7 @@
 layout: page
 title: APM and centralized logging with Application Insights
 description: "Description of my talk -  APM and centralized logging with Application Insights"
-tags: [APM, centralized logging, performance, monitoring, Azure, Microsoft, workshop]
+tags: [APM, centralized logging, performance, monitoring, Azure, Microsoft]
 image:
   feature: speaking/cfp/APM-and-centralized-logging-with-Application-Insights/logo.png
 ---

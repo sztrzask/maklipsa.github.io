@@ -11,6 +11,8 @@ image:
 While I'm working on the next angle on [how to speed up calculating similarities]() I started investigating how to get better telemetry from [cookit](http://cookit.pl). Getting telemetry is easy - making sense of it is the hard part. This also brought another pain point of current setup - logging and monitoring.
 Since cookit is my pet, non profit project it was time to do something.
 
+<!--MORE-->
+
 ### The current state
 
 The current setup is based on:
@@ -142,24 +144,35 @@ All what is needed is installation of a NewRelic Agent on the server. Dependenci
 
 ### Application Insights
 
-Microsoft is investing heavily in it's Azure cloud. And it has a lot of PAS applications to show. 
-Microsofts Azure is, or has, became a place where almost any need can be fulfilled.
-I've heard about Microsoft's solution because of it's query language for logs  
+Microsoft is investing heavily in it's Azure cloud and it can be seen from number of features they are rolling out every three months. They are investing more in the PaaS model and Application Insights fits quite good in this enviroment.
+Azure feels a lot more developer orientated platform than NewRelic. It can bee easily seen that they thought more about query capabilities (AND, OR operators) than in how to get the visualizations super nice.
+
+My customized main dashboard:
+![Azure dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/azure_panel.png)
+
+And the request details:
+![Azure dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/azure_requestDetails.png)
+As you can see all dependencies were detected neetly.
+
+There is also one thing that strongly shows that Application Insights is targeted at IT specialists. By clicking Analyze in the top bar we can see the query behind every diagram, change it and use it for a custom report. Language used is very similar to, or is, F# this means we have piping and support for data manipulation functions. As person using F# I must say "good move" :)
+![Azure dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/azure_querryEditor.png)
 
 **The good**
 
 - out of the box monitoring of sever and browser (needs adding Google Analytics like script) 
-- auto detected HTTP requests to Solr and SQL Server queries
+- auto detected HTTP requests and ADO queries (SQL queries)
 - 1 GB a month free
 - has data limits
 - has sampling
-- search allows to navigate to any windows (it is really helpful because it has a lot of features and subscreans)
+- very good search feature that searches in products and instances. This is more important than one might think because the number of screens is massive. Even only in the Application Insights module.  
+- customizable dashboard for every Azure offering (every panel can be moved to the main dashboard)
+- the top bar has connected features. Like when you open the pricing windows it contains a to the data limit window. 
 
 **The bad**
 
-- detection of application map did not work that great with Oracle database
-- UI is sometimes a bit slugish
-- 
+- detection of application map did not work that great with Oracle database (this may be a configuration issue, I haven't had time to investigate)
+- UI can get sluggish some times.
+- UI sometimes refuses to open a window. A reload helps. 
 
 ![Raygun](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/raygun.png){: .logo}
 

@@ -6,10 +6,10 @@ description: "List of events I had pleasure of speaking at"
 
 I believe that sharing knowledge is a key activity keeping the community live and active. That is why I present what I have learned on conferences and user groups.
 
-## Talks (future and past):
+# Talks (future and past):
 - 24.02.2017 - **Graph databases - why and how** - [EN]BOB 2017 Konferenz [conference page](http://bobkonf.de/2017/warda.html)
 - 04-05.02.2017 - **Graph databases - why and how** - [EN]FOSDEM [conference page](https://fosdem.org/2017/schedule/event/graph_intro_graph_databases/) [[video](http://mirror.as35701.net/video.fosdem.org/2017/H.2214/graph_intro_graph_databases.mp4)]
-- 26.01.2017 - **Graph databases - why and how** - rg-dev
+- 26.01.2017 - **Graph databases - why and how** - rg-dev [meetup](https://www.meetup.com/rg-dev/events/236341099/)
 - 30.11.2016 - **Graph databases - why and how** - Dev@LDZ - [meetup](https://www.meetup.com/dev-LDZ/events/235332452/)
 - 14.11.2016 - **Graph databases - why and how** - PyWaw - [meetup](https://www.meetup.com/PyWaw-Python-Warsaw-User-Group/events/234937571/)
 - 08.11.2016 - **Graph databases - why and how** - Dev@ZG - [meetup](https://www.meetup.com/DEV-ZG/events/234737689/)
@@ -20,7 +20,7 @@ I believe that sharing knowledge is a key activity keeping the community live an
 - 20.08.2015 - <a name="whyDragonsNeedGraphs"></a> **Why dragons need graphs** - Warsaw .NET User Group [[meetup](http://www.meetup.com/WG-NET/events/224309541/)][[youtube](https://www.youtube.com/watch?v=Bo6uOQ-P25w)]
 - 05.06.2015 - **How I stopped worrying and learned to love parallel processing** [[group page](http://www.wg.net.pl/aktualnosci/zaproszeniena86spotkaniewgnet)] [[youtube](https://www.youtube.com/watch?v=PL4pkv6YAxg)]
 
-## My talks:
+# Talks:
 
 <p class="container">
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/5-years-45-developers-one-project-time-for-a-recap/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/5-years-45-developers-one-project-time-for-a-recap" >
@@ -40,7 +40,8 @@ I believe that sharing knowledge is a key activity keeping the community live an
     </a>
 </p>
 
-## My workshops:
+
+# Workshops:
 <p class="container">
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/workshops/The-size-of-data-is-not-the-problem-its-how-to-process-it/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/workshops/The-size-of-data-is-not-the-problem-its-how-to-process-it" >
         <span>The size of data is not the problem its how to process it</span>

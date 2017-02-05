@@ -5,6 +5,7 @@ description: "Description of my talk - Neo4j in practice - everything that is le
 tags: [architecture, database, graph database, Neo4j]
 image:
   feature: speaking/cfp/Neo4j-in-practice-everything-that-is-left-when-the-hype-is-over/logo.jpg
+  credit: The Matrix - Warner Bros. Pictures
 ---
 
 ## Short abstract

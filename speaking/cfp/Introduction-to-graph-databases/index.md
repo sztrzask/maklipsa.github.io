@@ -5,6 +5,8 @@ description: "Description of my talk - Introduction to graph databases"
 tags: [graph, graph database, Neo4j]
 image:
   feature: speaking/cfp/Introduction-to-graph-databases/logo.png
+  credit: Gilad Lotan
+  creditlink: https://medium.com/i-data/israel-gaza-war-data-a54969aeb23e
 ---
 
 ## Short abstract

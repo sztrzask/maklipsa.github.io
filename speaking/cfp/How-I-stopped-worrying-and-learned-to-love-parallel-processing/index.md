@@ -5,6 +5,7 @@ description: "Description of my talk - How I stopped worrying and learned to lov
 tags: [performance, .net, Microsoft TPL DataFlow, TPL, optimizations, data processing, parallelism]
 image:
   feature: speaking/cfp/How-I-stopped-worrying-and-learned-to-love-parallel-processing/logo.jpg
+  credit: Dr. Strangelove - Warner Bros
 ---
 
 ## Short abstract

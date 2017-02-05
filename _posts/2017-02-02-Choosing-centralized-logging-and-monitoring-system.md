@@ -68,10 +68,9 @@ Another plus for using it is that you probably have it already and are looking a
 
 **The bad**
 - working with custom events is not that great
-- no collecting of system performance counters (can be easily written, but still a minus)
+- no collection of system performance counters (can be easily written, but still a minus)
 - no log aggregation
 - no alerting
-
 
 ![ELK Stack + Graphite/Graphana](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/elk.png){: .logo}
 
@@ -131,7 +130,8 @@ All what is needed is installation of a NewRelic Agent on the server. Dependenci
 **The bad**
 
 - only paid version, and without all features enabled. Some are available only after contact from the sales department.
-- every part is seperatly paid. 
+- every part is seperatly paid 
+- at registration(demo) requiers phone number,company name, company size and role.
 
 ![Retrace](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/retrace.png){: .logo}
 
@@ -159,7 +159,8 @@ There is also one thing that strongly shows that Application Insights is targete
 
 **The good**
 
-- out of the box monitoring of sever and browser (needs adding Google Analytics like script) 
+- out of the box monitoring of sever and browser (needs adding Google Analytics like script)
+- can be added without access to the code. This does not allow full capabilities (dependency tracking and pref monitoring is available), but most of them. 
 - auto detected HTTP requests and ADO queries (SQL queries)
 - 1 GB a month free
 - has data limits
@@ -178,7 +179,21 @@ There is also one thing that strongly shows that Application Insights is targete
 
 ### Raygun
 
+I've decided to checked Raygun mostly because [Scot Hanselmans](), [Troy Hunts]() and [Dot Net Rocks]() recomendations.
+Raygun, similary to NewRelic, hides multiple services under it's name. In this case it's **Pulse** and **Crash Report**.
+Pulse is available for: Android, iOS, maxOS, JavaScript, WordPress, Xamarin.Android and Xamarin.iOS. No .NET here so I will not be exploring this path.
+**Crash report** supports 27 options with most languages and platform covered(Ruby, Node, PHP, .NET, Go, ColdFusion and mobile).
+ 
+**The good**
 
+- the logo reminds me of an old game *Earthworm Jim*, oh the memories...:)
+- very carefully designed UI.
+- easy to setup (nuget package + web config changes) 
+
+**The bad**
+
+- at registration(demo) requiers phone number,company name, company size and role.
+  
 <style>
 div.entry-content .logo{
 	height:150px;
@@ -186,3 +201,47 @@ div.entry-content .logo{
 </style>
 
 
+# Summary
+
+|---
+| Service                |Google Analytics    |ELK + Graphite/Graphana|NewRelic|Retrace|Application Insights|Raygun 
+|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
+|**Logging**	     	 |
+|Centralized logging     |N 				  |Y					  |Y	   | 	   |Y			 	    |
+|Log querying            |N 				  |Y					  |S	   |	   |S				    |
+|Custom log reports      |Y 				  |Y			    	  |S  	   |	   |S			  	    |
+|:---------------------- |:-------------------|:----------------------|:-------|:------|:-------------------|:-----
+|**APM**				 |
+|Server side performance |Can be implemented  |Y					  |S	   |	   |Y				    |
+|Browser side performance|Y 				  |N (sprawdzić czy nie ma czegoś gotowego)|		  |		  |					   |
+|Enviroment performance  |Can be implemented  |Can be implemented	  |S	   |	   |Y					|
+|Custom metrics          |Can be implemented  |Y					  |S	   |  	   |Y					|
+|Alerts                  |N 				  |Y					  |Y	   |	   |Y					|
+|Real time view          |Y 				  |Y					  |S	   |  	   |Y					|
+|Custom perf. reports    |Y 				  |Y					  |S	   |	   |S					|
+|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
+|**Making life easier**  |
+|Mobile access           |Y 				  |N					  |S	   |	   |Works**			    |
+|OAuth                   |Y 				  |N					  |N	   |	   |N					|
+|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
+|**Features**            |
+|Application map         |N 				  |N					  |Y	   |	   |Y					|
+|Price                   |Free* 			  | 					  |		   |       |Free***				|
+
+Legend:
+
+- Can be implemented - 
+- \* - Google Analytics is free up to SPRAWDZIĆ
+- ** - Azure portal is usable on mobile, but not great
+- *** - Application Insights are free up to GB per month, and there is a data cap and data sampling option. So it is possible to stay in the free tier.
+ 
+
+## My choioce
+
+I will admit I was blown away but what Application Insights offers. I like that it is targeted to developers although is still very accesible.
+It is also one of the few options that are free, or cheep enough for me to pay from my own wallet (I'm paying ~320 $ a year for my server, so paying the same for a monitoring tool is out of the question). 
+What are the things missing in Azure that would make me super happy?:
+
+- Login with Google (this is the most popular OAuth account in the web)
+- faster UI. I don't get the SPA idea in the portal. It is great when moving in scope of one module, but I would not mind a reload when going from the dashboard to AI
+- more stable UI. Some windows open full screen, some open as a blade (internal Azure name)   

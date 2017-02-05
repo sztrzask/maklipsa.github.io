@@ -42,6 +42,7 @@ layout: compress
             <div class="entry-content {% if page.image.feature %}entry-content-image{% endif %}">
                 {% if page.image.feature %}
                 <div class="entry-image-index" style="background:url('{{ site.url }}/{{ page.image.feature }}') no-repeat scroll center center; background-size: cover;">
+                {% if page.image.credit %}<div class="image-credit">Image source: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
                 </div>
                 {% endif %} {{ content }}
                 <footer class="entry-meta">

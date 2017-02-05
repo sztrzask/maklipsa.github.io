@@ -38,10 +38,15 @@ I believe that sharing knowledge is a key activity keeping the community live an
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/You-are-using-the-wrong-database!/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/You-are-using-the-wrong-database!/" >
         <span>You are using the wrong database!</span>
     </a>
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/APM-and-centralized-logging-with-Application-Insights/logo.png') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/APM-and-centralized-logging-with-Application-Insights/" >
+        <span>APM and centralized logging with Application Insights</span>
+    </a>
 </p>
 
 
+
 # Workshops:
+
 <p class="container">
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/workshops/The-size-of-data-is-not-the-problem-its-how-to-process-it/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/workshops/The-size-of-data-is-not-the-problem-its-how-to-process-it" >
         <span>The size of data is not the problem it's how to process it</span>
@@ -62,6 +67,12 @@ I believe that sharing knowledge is a key activity keeping the community live an
 	   background: rgb(0, 0, 0); /* fallback color */
 	   background: rgba(0, 0, 0, 0.7);
 	   padding: 10px; 
+       position: absolute;
+	   bottom: 0px;
+	}
+	.container a{
+		margin-top: -1px;
+		margin-bottom: 0px;
 	}
 	.cfp{
 		display:block;

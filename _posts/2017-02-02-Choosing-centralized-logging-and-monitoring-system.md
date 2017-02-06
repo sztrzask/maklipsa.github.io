@@ -72,6 +72,8 @@ Another plus for using it is that you probably have it already and are looking a
 - no log aggregation
 - no alerting
 
+
+
 ![ELK Stack + Graphite/Graphana](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/elk.png){: .logo}
 
 ### ELK Stack + Graphite/Graphana
@@ -119,6 +121,10 @@ Another thing that is a nice feature is the Geo view. It shows how page speed di
 
 All what is needed is installation of a NewRelic Agent on the server. Dependencies detection and metering works out of the box, and it is the easiest tool to setup. Even browser monitoring doesn't require any additional code.
 
+One last thing, and it may be subjective. I have the impression that after installing NewRelic agent on the server it slowed a bit. It may be due to the fact that Application Insights is also running on it, or that my machine is just slow as it is.
+
+To sum up - NewRelic is a powerfull beast.
+
 **The good**
 
 - out of the box monitoring of .NET,Ruby, Node.js, PHP, Java, Python and Go applications
@@ -131,7 +137,9 @@ All what is needed is installation of a NewRelic Agent on the server. Dependenci
 
 - only paid version, and without all features enabled. Some are available only after contact from the sales department.
 - every part is seperatly paid 
-- at registration(demo) requiers phone number,company name, company size and role.
+- at registration(demo) requiers phone number,company name, company size and role
+- uninstalling requiers a rebot
+- pricy
 
 ![Retrace](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/retrace.png){: .logo}
 
@@ -208,40 +216,50 @@ div.entry-content .logo{
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
 |**Logging**	     	 |
 |Centralized logging     |N 				  |Y					  |Y	   | 	   |Y			 	    |
-|Log querying            |N 				  |Y					  |S	   |	   |S				    |
-|Custom log reports      |Y 				  |Y			    	  |S  	   |	   |S			  	    |
+|Log querying            |N 				  |Y					  |S	   |	   |Y				    |
+|Custom log reports      |Y 				  |Y			    	  |S  	   |	   |Y			  	    |
+|Browser error collection|N 				  |Can be implemented*^4 |Y  	   |	   |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)			  	    |
 |:---------------------- |:-------------------|:----------------------|:-------|:------|:-------------------|:-----
 |**APM**				 |
-|Server side performance |Can be implemented  |Y					  |S	   |	   |Y				    |
-|Browser side performance|Y 				  |N (sprawdzić czy nie ma czegoś gotowego)|		  |		  |					   |
-|Enviroment performance  |Can be implemented  |Can be implemented	  |S	   |	   |Y					|
-|Custom metrics          |Can be implemented  |Y					  |S	   |  	   |Y					|
+|Server side performance |Can be implemented  |Y					  |Y	   |	   |Y				    |
+|Browser side performance|Y 				  |Can be implemented*^4  |Y       |       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)                    |
+|Environment performance |Can be implemented  |3rd party tools*^5	  |Y	   |	   |Y					|
+|Custom metrics          |Can be implemented  |Y					  |Y	   |  	   |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)					|
 |Alerts                  |N 				  |Y					  |Y	   |	   |Y					|
-|Real time view          |Y 				  |Y					  |S	   |  	   |Y					|
-|Custom perf. reports    |Y 				  |Y					  |S	   |	   |S					|
+|Real time view          |Y 				  |Y					  |Y	   |  	   |Y					|
+|Custom perf. reports    |Y 				  |Y					  |[N](https://docs.newrelic.com/docs/apm/reports)	   |	   |S					|
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
 |**Making life easier**  |
-|Mobile access           |Y 				  |N					  |S	   |	   |Works**			    |
+|Mobile access           |Y 				  |3rd party\*^6		  |Y (dedicated app)|	   |Works\*^2			|
 |OAuth                   |Y 				  |N					  |N	   |	   |N					|
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
 |**Features**            |
 |Application map         |N 				  |N					  |Y	   |	   |Y					|
-|Price                   |Free* 			  | 					  |		   |       |Free***				|
+|Price                   |Free* 			  | 					  |150$\*8 |       |Free***				|
 
 Legend:
 
 - Can be implemented - 
-- \* - Google Analytics is free up to SPRAWDZIĆ
-- ** - Azure portal is usable on mobile, but not great
+- \* - Google Analytics is free up to 200,000 per user per day. [Full quotas](https://developers.google.com/analytics/devguides/collection/analyticsjs/limits-quotas)
+- *^2 - Azure portal is usable on mobile, but not great
 - *** - Application Insights are free up to GB per month, and there is a data cap and data sampling option. So it is possible to stay in the free tier.
- 
+- *^4 - You have to implement the browser side and the proxy 
+- *^5 - There are 3rd party tool available, although quality varies. 
+- *^6 - there is An Android app [Graphitoid](https://play.google.com/store/apps/details?id=com.tnc.android.graphite&hl=en) for watching Graphite (did not try it). Kibana seems [not to work on mobile](https://discuss.elastic.co/t/kibana-charts-dashboards-not-rendering-on-mobile/48614)
+- *^7 - Application Insights has three types of events: event (something happened), metric (something took x amount of time) and dependency (if auto detection didn't see this one. Can also log time)
+- *^8 - NewRelics pricing is not that straight forward. It is based on an type of a machine instance and hours it will run. This is the cheapest option I could find.
 
 ## My choioce
 
-I will admit I was blown away but what Application Insights offers. I like that it is targeted to developers although is still very accesible.
-It is also one of the few options that are free, or cheep enough for me to pay from my own wallet (I'm paying ~320 $ a year for my server, so paying the same for a monitoring tool is out of the question). 
-What are the things missing in Azure that would make me super happy?:
+Remember I am looking for a tool that will be used in my side project. This means I will be spending my own money, and I don't like to spend to much of it. Dislike for over spending is one of the main reasons [I am running on crapp]() (it costs me ~320$ a year). So price will be important.
 
-- Login with Google (this is the most popular OAuth account in the web)
-- faster UI. I don't get the SPA idea in the portal. It is great when moving in scope of one module, but I would not mind a reload when going from the dashboard to AI
-- more stable UI. Some windows open full screen, some open as a blade (internal Azure name)   
+This said I will admit I was blown away but what Application Insights offers. I like that it is targeted to developers although is still very accesible. Since it is the only options that are free, or cheep enough for me to pay from my own wallet this is the service I will be using. I admit, there are some things that would make me smile:
+
+- **Login with Google.** This is the most popular OAuth account in the web and would make my life a bit easier.
+- **Faster UI.** I don't get the SPA idea in the portal. It is great when moving in scope of one module, but I would not mind a reload when going from the dashboard to AI
+- **More stable UI.** Some windows open full screen, some open as a blade (internal Azure name)
+
+The second place goes to NewRelic. It is expensive and not exactly what I am looking forward, but if I had to report performance to non technical people this would be the service I choose. It is easy, nice looking (this is more important than You think) and yet manages to deliver just enough information to get a glimpse what is happening. 
+ 
+Next entry configuring Application Insights and it's architecture.
+

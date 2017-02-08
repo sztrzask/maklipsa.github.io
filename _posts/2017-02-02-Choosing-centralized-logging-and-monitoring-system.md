@@ -207,6 +207,30 @@ Raygun is deffinetly not a tool I was looking for, but it has it's place still. 
 - it is only a log aggregating mechanism
 - the filtering has very little fields and only Que
   
+
+# DataDog
+
+I've heard earlier about DataDog, but never checked it before. It looked good, but soon everything started going down hill (see the **The bad** section). 
+
+It became clear quite fast that Datadog is targeted to administrators and guys having the big picture on servers that they have, not the application view I am looking for.
+
+**The good**
+- it can integrate ad monitor huge number of systems (the only tool that could monitor Solr)
+- when I finally managed to find a dashboard it looked really good.
+- very customizable dashboard. Reminds me strongly of Graphene
+- it has infrastructure map
+- has a free (with limited features) version up to 5 hosts.
+
+**The bad**
+
+- agent installation is strange.You run the command in the cmd and nothing happenes. Add to it that the agent takes a few minutes to install and You end up googling why it is not working....
+- agent after installation does the bare minimum. It's functionallity can be extended by adding integrations on the website. This is the good part. What is not so nice is that You have to change the agent config manually on the server and change the server settings. This means a more configuration and no clean uninstall :(
+- the configuration file (which You have to edit manually) is tab sensitive (??!!)
+- no log aggregation
+- to add an integration You have to: save the config file (edited in the agent), enable the monitoring and restart the agent.
+- it took me way longer than I would wish for to get the sql and IIS monitoring to work
+
+
 <style>
 div.entry-content .logo{
 	height:150px;
@@ -220,27 +244,27 @@ div.entry-content .logo{
 | Service                |Google Analytics    |ELK + Graphite/Graphana|NewRelic|Retrace|Application Insights|Raygun|Data dog
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----|
 |**Logging**	     	 |
-|Centralized logging     |N 				  |Y					  |Y	   | 	   |Y			 	    |Y	   |
-|Log querying            |N 				  |Y					  |S	   |	   |Y				    |N*^10 |
-|Custom log reports      |Y 				  |Y			    	  |S  	   |	   |Y			  	    |N     |
-|Browser error collection|N 				  |Can be implemented*^4 |Y  	   |	   |[Y](https://docs.microsoft.com/en-us/|azure/application-insights/app-insights-javascript)			  	    |
+|Centralized logging     |N 				  |Y					  |Y	   | 	   |Y			 	    |Y	   |N
+|Log querying            |N 				  |Y					  |S	   |	   |Y				    |N*^10 |N
+|Custom log reports      |Y 				  |Y			    	  |S  	   |	   |Y			  	    |N     |N
+|Browser error collection|N 				  |Can be implemented*^4 |Y  	   |	   |[Y](https://docs.microsoft.com/en-us/|azure/application-insights/app-insights-javascript)|N
 |:---------------------- |:-------------------|:----------------------|:-------|:------|:-------------------|:-----|
 |**APM**				 |
-|Server side performance |Can be implemented  |Y					  |Y	   |	   |Y				    |N	   |
-|Browser side performance|Y 				  |Can be implemented*^4  |Y       |       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)                    |
-|Environment performance |Can be implemented  |3rd party tools*^5	  |Y	   |	   |Y					|N
-|Custom metrics          |Can be implemented  |Y					  |Y	   |  	   |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)					|
-|Alerts                  |N 				  |Y					  |Y	   |	   |Y					|N
-|Real time view          |Y 				  |Y					  |Y	   |  	   |Y					|N
-|Custom perf. reports    |Y 				  |Y					  |[N](https://docs.newrelic.com/docs/apm/reports)	   |	   |S|
+|Server side performance |Can be implemented  |Y					  |Y	   |	   |Y				    |N	   |Y
+|Browser side performance|Y 				  |Can be implemented*^4  |Y       |       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N
+|Environment performance |Can be implemented  |3rd party tools*^5	  |Y	   |	   |Y					|N	   |N
+|Custom metrics          |Can be implemented  |Y					  |Y	   |  	   |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)|Y*^11|
+|Alerts                  |N 				  |Y					  |Y	   |	   |Y					|N	   |Y
+|Real time view          |Y 				  |Y					  |Y	   |  	   |Y					|N	   |Y
+|Custom perf. reports    |Y 				  |Y					  |[N](https://docs.newrelic.com/docs/apm/reports)||S|N|[Y](https://www.datadoghq.com/blog/learn-from-your-alerts-with-the-weekly-monitor-trend-report/)
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
 |**Making life easier**  |
-|Mobile access           |Y 				  |3rd party\*^6		  |Y (dedicated app)|Works\*^2			|Y
-|OAuth                   |Y 				  |N					  |N	   |	   |N					|Y	    |
+|Mobile access           |Y 				  |3rd party\*^6		  |Y (dedicated app)|Works\*^2			|Y	    |S
+|OAuth                   |Y 				  |N					  |N	   |	   |N					|Y	    |N
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:------|
 |**Features**            |
-|Application map         |N 				  |N					  |Y	   |	   |Y					|N	    |
-|Price                   |Free* 			  | 					  |150$\*^8|       |Free*^3				|[588](https://raygun.com/pricing#crashreporting)	    |[18*^9](https://www.site24x7.com/site24x7-pricing.html)
+|Application map         |N 				  |N					  |Y	   |	   |Y					|N	    |N*^12
+|Price                   |Free* 			  | 					  |150$\*^8|       |Free*^3				|[588](https://raygun.com/pricing#crashreporting)|[18*^9](https://www.site24x7.com/site24x7-pricing.html)|[Free](https://www.datadoghq.com/pricing/)*^13
 
 Legend:
 
@@ -254,7 +278,10 @@ Legend:
 - *^7 - Application Insights has three types of events: event (something happened), metric (something took x amount of time) and dependency (if auto detection didn't see this one. Can also log time)
 - *^8 - NewRelics pricing is not that straight forward. It is based on an type of a machine instance and hours it will run. This is the cheapest option I could find.
 - *^9 - website + infrastructure monitoring
-- *^10 - it supports basic queries, but doesn't allow filtering on error text, so for me it is a no
+- *^10 - it supports basic queries, but doesn't allow filtering on error text, so for me it is a no.
+- *^11 - if You log this metric as a performance counter Datadog can read it.
+- *^12 - there is infrastructure map.
+- *^13 - the free version doesn't include alerts :|
 
 ## My choioce
 

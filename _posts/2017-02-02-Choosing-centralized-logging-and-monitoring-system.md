@@ -191,16 +191,21 @@ I've decided to checked Raygun mostly because [Scot Hanselmans](), [Troy Hunts](
 Raygun, similary to NewRelic, hides multiple services under it's name. In this case it's **Pulse** and **Crash Report**.
 Pulse is available for: Android, iOS, maxOS, JavaScript, WordPress, Xamarin.Android and Xamarin.iOS. No .NET here so I will not be exploring this path.
 **Crash report** supports 27 options with most languages and platform covered(Ruby, Node, PHP, .NET, Go, ColdFusion and mobile).
+Raygun is deffinetly not a tool I was looking for, but it has it's place still. It will notify You when an error occures and gives the possibility to mark it as fixed, but not deployed to prod. This will halt notifications of this type of errors. I see a value in this service.
  
 **The good**
 
 - the logo reminds me of an old game *Earthworm Jim*, oh the memories...:)
 - very carefully designed UI.
 - easy to setup (nuget package + web config changes) 
-
+- checking an error as fixed works quite good
+- the filtering won't let You filter on an non existing value
+-   
 **The bad**
 
 - at registration(demo) requiers phone number,company name, company size and role.
+- it is only a log aggregating mechanism
+- the filtering has very little fields and only Que
   
 <style>
 div.entry-content .logo{
@@ -212,30 +217,30 @@ div.entry-content .logo{
 # Summary
 
 |---
-| Service                |Google Analytics    |ELK + Graphite/Graphana|NewRelic|Retrace|Application Insights|Raygun 
-|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
+| Service                |Google Analytics    |ELK + Graphite/Graphana|NewRelic|Retrace|Application Insights|Raygun|Data dog
+|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----|
 |**Logging**	     	 |
-|Centralized logging     |N 				  |Y					  |Y	   | 	   |Y			 	    |
-|Log querying            |N 				  |Y					  |S	   |	   |Y				    |
-|Custom log reports      |Y 				  |Y			    	  |S  	   |	   |Y			  	    |
-|Browser error collection|N 				  |Can be implemented*^4 |Y  	   |	   |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)			  	    |
-|:---------------------- |:-------------------|:----------------------|:-------|:------|:-------------------|:-----
+|Centralized logging     |N 				  |Y					  |Y	   | 	   |Y			 	    |Y	   |
+|Log querying            |N 				  |Y					  |S	   |	   |Y				    |N*^10 |
+|Custom log reports      |Y 				  |Y			    	  |S  	   |	   |Y			  	    |N     |
+|Browser error collection|N 				  |Can be implemented*^4 |Y  	   |	   |[Y](https://docs.microsoft.com/en-us/|azure/application-insights/app-insights-javascript)			  	    |
+|:---------------------- |:-------------------|:----------------------|:-------|:------|:-------------------|:-----|
 |**APM**				 |
-|Server side performance |Can be implemented  |Y					  |Y	   |	   |Y				    |
+|Server side performance |Can be implemented  |Y					  |Y	   |	   |Y				    |N	   |
 |Browser side performance|Y 				  |Can be implemented*^4  |Y       |       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)                    |
-|Environment performance |Can be implemented  |3rd party tools*^5	  |Y	   |	   |Y					|
+|Environment performance |Can be implemented  |3rd party tools*^5	  |Y	   |	   |Y					|N
 |Custom metrics          |Can be implemented  |Y					  |Y	   |  	   |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)					|
-|Alerts                  |N 				  |Y					  |Y	   |	   |Y					|
-|Real time view          |Y 				  |Y					  |Y	   |  	   |Y					|
-|Custom perf. reports    |Y 				  |Y					  |[N](https://docs.newrelic.com/docs/apm/reports)	   |	   |S					|
+|Alerts                  |N 				  |Y					  |Y	   |	   |Y					|N
+|Real time view          |Y 				  |Y					  |Y	   |  	   |Y					|N
+|Custom perf. reports    |Y 				  |Y					  |[N](https://docs.newrelic.com/docs/apm/reports)	   |	   |S|
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
 |**Making life easier**  |
-|Mobile access           |Y 				  |3rd party\*^6		  |Y (dedicated app)|	   |Works\*^2			|
-|OAuth                   |Y 				  |N					  |N	   |	   |N					|
-|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
+|Mobile access           |Y 				  |3rd party\*^6		  |Y (dedicated app)|Works\*^2			|Y
+|OAuth                   |Y 				  |N					  |N	   |	   |N					|Y	    |
+|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:------|
 |**Features**            |
-|Application map         |N 				  |N					  |Y	   |	   |Y					|
-|Price                   |Free* 			  | 					  |150$\*8 |       |Free***				|
+|Application map         |N 				  |N					  |Y	   |	   |Y					|N	    |
+|Price                   |Free* 			  | 					  |150$\*^8|       |Free*^3				|[588](https://raygun.com/pricing#crashreporting)	    |[18*^9](https://www.site24x7.com/site24x7-pricing.html)
 
 Legend:
 
@@ -248,6 +253,8 @@ Legend:
 - *^6 - there is An Android app [Graphitoid](https://play.google.com/store/apps/details?id=com.tnc.android.graphite&hl=en) for watching Graphite (did not try it). Kibana seems [not to work on mobile](https://discuss.elastic.co/t/kibana-charts-dashboards-not-rendering-on-mobile/48614)
 - *^7 - Application Insights has three types of events: event (something happened), metric (something took x amount of time) and dependency (if auto detection didn't see this one. Can also log time)
 - *^8 - NewRelics pricing is not that straight forward. It is based on an type of a machine instance and hours it will run. This is the cheapest option I could find.
+- *^9 - website + infrastructure monitoring
+- *^10 - it supports basic queries, but doesn't allow filtering on error text, so for me it is a no
 
 ## My choioce
 

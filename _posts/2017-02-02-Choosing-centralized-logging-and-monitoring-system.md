@@ -144,9 +144,19 @@ To sum up - NewRelic is a powerfull beast.
 ![Retrace](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/retrace.png){: .logo}
 
 ### Retrace
-**The good**
 
+Is a product from the same guys (and girls) that develop [Prefix](https://stackify.com/prefix/), a quite good local profiler (I personally prefer MiniProfiler, but it is because I always have it in my projects).
+
+
+**The good**
+- for registration only Name, Surname and email is requiered &#128077;. Unfortunetly after email verification they want the rest &#128078;
+- what is being collected by the agent is controlled from the website. So after installing the agent on the server no additional work is required.
+- nice attention to details - when installing the nLog adopter we are promped for the key.   
+ 
 **The bad**
+
+- after verification they want a whole lot of info
+- I'm not a fan of a dark theme (yes, this is a personal comparison, so it is a valid point)
 
 ![Application Insights](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/ApplicationInsights.png){: .logo}
 
@@ -208,14 +218,18 @@ Raygun is deffinetly not a tool I was looking for, but it has it's place still. 
 - the filtering has very little fields and only Que
   
 
+![Application Insights](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Datadog.png){: .logo}
+
 # DataDog
 
 I've heard earlier about DataDog, but never checked it before. It looked good, but soon everything started going down hill (see the **The bad** section). 
 
 It became clear quite fast that Datadog is targeted to administrators and guys having the big picture on servers that they have, not the application view I am looking for.
 
+![DataDog dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Datadog_panel.png)
+
 **The good**
-- it can integrate ad monitor huge number of systems (the only tool that could monitor Solr)
+- it can integrate ad monitor huge number of systems (the only tool that could monitor Solr and Docker containers)
 - when I finally managed to find a dashboard it looked really good.
 - very customizable dashboard. Reminds me strongly of Graphene
 - it has infrastructure map
@@ -247,24 +261,24 @@ div.entry-content .logo{
 |Centralized logging     |N 				  |Y					  |Y	   | 	   |Y			 	    |Y	   |N
 |Log querying            |N 				  |Y					  |S	   |	   |Y				    |N*^10 |N
 |Custom log reports      |Y 				  |Y			    	  |S  	   |	   |Y			  	    |N     |N
-|Browser error collection|N 				  |Can be implemented*^4 |Y  	   |	   |[Y](https://docs.microsoft.com/en-us/|azure/application-insights/app-insights-javascript)|N
+|Browser error collection|N 				  |Can be implemented*^4 |Y  	   |	   |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N
 |:---------------------- |:-------------------|:----------------------|:-------|:------|:-------------------|:-----|
 |**APM**				 |
 |Server side performance |Can be implemented  |Y					  |Y	   |	   |Y				    |N	   |Y
 |Browser side performance|Y 				  |Can be implemented*^4  |Y       |       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N
-|Environment performance |Can be implemented  |3rd party tools*^5	  |Y	   |	   |Y					|N	   |N
-|Custom metrics          |Can be implemented  |Y					  |Y	   |  	   |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)|Y*^11|
+|Environment performance |Can be implemented  |3rd party tools *^5    |Y	   |	   |Y					|N	   |N
+|Custom metrics          |Can be implemented  |Y					  |Y	   |  	   |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)|Y *^11|
 |Alerts                  |N 				  |Y					  |Y	   |	   |Y					|N	   |Y
 |Real time view          |Y 				  |Y					  |Y	   |  	   |Y					|N	   |Y
 |Custom perf. reports    |Y 				  |Y					  |[N](https://docs.newrelic.com/docs/apm/reports)||S|N|[Y](https://www.datadoghq.com/blog/learn-from-your-alerts-with-the-weekly-monitor-trend-report/)
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----
 |**Making life easier**  |
-|Mobile access           |Y 				  |3rd party\*^6		  |Y (dedicated app)|Works\*^2			|Y	    |S
+|Mobile access           |Y 				  |3rd party&#42;^6		  |Y (dedicated app) ||Works &#42;^2	|Y	    |S
 |OAuth                   |Y 				  |N					  |N	   |	   |N					|Y	    |N
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:------|
 |**Features**            |
 |Application map         |N 				  |N					  |Y	   |	   |Y					|N	    |N*^12
-|Price                   |Free* 			  | 					  |150$\*^8|       |Free*^3				|[588](https://raygun.com/pricing#crashreporting)|[18*^9](https://www.site24x7.com/site24x7-pricing.html)|[Free](https://www.datadoghq.com/pricing/)*^13
+|Price                   |Free&#42;			  | 					  |150$&#42;^8|    |Free&#42;^3			|[588$](https://raygun.com/pricing#crashreporting)|[Free*^13](https://www.datadoghq.com/pricing/)
 
 Legend:
 
@@ -280,8 +294,8 @@ Legend:
 - *^9 - website + infrastructure monitoring
 - *^10 - it supports basic queries, but doesn't allow filtering on error text, so for me it is a no.
 - *^11 - if You log this metric as a performance counter Datadog can read it.
-- *^12 - there is infrastructure map.
-- *^13 - the free version doesn't include alerts :|
+- *^12 - there is infrastructure map
+- *^13 - the free version doesn't include alerts.
 
 ## My choioce
 

@@ -9,10 +9,14 @@ I believe that sharing knowledge is a key activity keeping the community live an
 # Talks (future and past):
 2017
 
-- 24.02.2017 - **Graph databases - why and how** - [EN]BOB 2017 Konferenz [conference page](http://bobkonf.de/2017/warda.html)
+- 26.06.2017 - **You are using the wrong database!** - [EN]DWX 2017
+- 27.06.2017 - **Introduction to graph databases** - [EN]DWX 2017
+- 04.03.2017 - **Introduction to graph databases** - Kariera IT Gdańsk
+- 02.03.2017 - **Introduction to graph databases** - [EN]Voxxed Days Bristol
+- 24.02.2017 - **Introduction to graph databases** - [EN]BOB 2017 Konferenz [conference page](http://bobkonf.de/2017/warda.html)
 - 07.02.2017 - **How I stopped worrying and learned to love parallel processing** - DEV@ZG [meetup](https://www.meetup.com/DEV-ZG/events/237148381/)
-- 04-05.02.2017 - **Graph databases - why and how** - [EN]FOSDEM [conference page](https://fosdem.org/2017/schedule/event/graph_intro_graph_databases/) [[video](http://mirror.as35701.net/video.fosdem.org/2017/H.2214/graph_intro_graph_databases.mp4)]
-- 26.01.2017 - **Graph databases - why and how** - rg-dev [meetup](https://www.meetup.com/rg-dev/events/236341099/)
+- 04.02.2017 - **Introduction to graph databases** - [EN]FOSDEM [conference page](https://fosdem.org/2017/schedule/event/graph_intro_graph_databases/) [[video](http://mirror.as35701.net/video.fosdem.org/2017/H.2214/graph_intro_graph_databases.mp4)]
+- 26.01.2017 - **Introduction to graph databases** - rg-dev [meetup](https://www.meetup.com/rg-de/events/236341099/)
 
 2016
 

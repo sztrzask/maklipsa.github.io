@@ -5,7 +5,7 @@ description: "Searching through logs and remoting to a machine to check it's loa
 modified: 2017-01-30
 tags: [.NET, cookit, performance, azure, application insights, Retrace, Stackify Retrace, New Relic, APM, centralized logging, Google Analytics, Datadog, ELK, Elastic, Logstash, Grafana, Raygun ]
 image:
-  feature: data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/logo.jpg
+  feature: data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/logo.jpg
 ---
 
 While I'm working on the next angle on [how to speed up calculating similarities]() I started investigating how to get better telemetry from [cookit](http://cookit.pl). Getting telemetry is easy - making sense of it is the hard part. This also brought another pain point of current setup - logging and monitoring.
@@ -66,7 +66,7 @@ So what I wanted to achieve (in order of importance):
 # <a name="The_showdown"></a>The showdown [Google Analytics](#Google_Analytics) vs. [ELK +Graphite/Grafana](#ELK) vs. [NewRelic](#NewRelic) vs. [Retrace](#Retrace) vs. [Application Insights](#Application_Insights) vs. [Raygun](#Raygun) vs. [Datadog](#Datadog):
 
 <a name="Google_Analytics"></a>
-![Google Analytics](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/google-analytics_01.png){: .logo}
+![Google Analytics](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/google-analytics_01.png){: .logo}
 
 ## Google Analytics
 
@@ -94,7 +94,7 @@ Another plus for using it is that I have it already and are looking at it from t
 <br/>
 
 <a name="ELK"></a>
-![ELK Stack + Graphite/Graphana](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/elk.png){: .logo}
+![ELK Stack + Graphite/Graphana](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/elk.png){: .logo}
 
 ## ELK Stack + Graphite/Graphana
 
@@ -102,10 +102,10 @@ ELK stack with Graphite and Grafana is the market standard for monitoring and ce
 Viewing on mobile devices is possible, but far from being great, and this won't change anytime soon judging from [this Github issue](https://github.com/elastic/kibana/issues/2563). 
 
 Grafana panel:
-![Grafana panel](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Grafana_panel.png)
+![Grafana panel](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/Grafana_panel.png)
 
 Kibana panel:
-![Kibana panel](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Kibana_panel.png)
+![Kibana panel](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/Kibana_panel.png)
 
 **The good**
 
@@ -127,21 +127,21 @@ Kibana panel:
 <br/>
 
 <a name="New_Relic"></a>
-![New Relic](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/newRelic.svg){: .logo} 
+![New Relic](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/newRelic.svg){: .logo} 
 
 ## New Relic
 
 [New Relic](http://newrelic.com) is a power horse when it comes to features. It has almost everything, from APM (Application Performance Management) to log aggregation. It is a very interesting product since it is done in a way that will be readable to nontechnical people. It automatically sets up notifications for [apdex index](https://en.wikipedia.org/wiki/Apdex) violations, the UI is orientated into showing the main [KPI](https://en.wikipedia.org/wiki/Performance_indicator) for performance (like Google Analytics), not tech details like for example Azure Application Insights (next)
 
 The main dashboard:
-![NewRelic panel](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/newRelic_panel.png)
+![NewRelic panel](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/newRelic_panel.png)
 
 I was quite impressed with how good New Relic inspects what went into each request. This is the Request monitoring page:
-![NewRelic request details](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/newRelic_requestDetails.png)
+![NewRelic request details](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/newRelic_requestDetails.png)
 
 Another thing that is a nice feature, and very unique, is the Geo View. 
 It shows how page speed differs for different geo locations. And as You can see I have a problem with Russia (I have no idea why):
-![NewRelic request details](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/newRelic_geoPanel.png)
+![NewRelic request details](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/newRelic_geoPanel.png)
 
 Installation is the easiest of all reviewed. All that is needed is to install the NewRelic Agent on the server. Dependencies detection, metering, even browser performance tracking works out of the box.
 
@@ -171,17 +171,17 @@ To sum up - New Relic is a powerful beast with the looks that a manager can unde
 <br/>
 
 <a name="Retrace"></a>
-![Retrace](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/retrace.png){: .logo}
+![Retrace](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/retrace.png){: .logo}
 
 ## Retrace (Stackify)
 
 [Retrace](https://stackify.com/retrace/) is a product from the same [guys (and girls)](https://stackify.com/about/) that developed [Prefix](https://stackify.com/prefix/) - a good local profiler. I must say I was impressed by the features and polish that this product has. The UI may not show it fully, but it is not that far away from the big players. In some features, it's even way ahead. 
 
 Retrace panel:
-![Retrace panel](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Retrace_panel.png)
+![Retrace panel](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/Retrace_panel.png)
 
 Retrace APM+ panel (from a demo application they provide. I was not able to get it working on my project):
-![Retrace APM+ panel](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Retrace_APM.png)
+![Retrace APM+ panel](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/Retrace_APM.png)
 
 **The good**
 
@@ -204,7 +204,7 @@ Retrace APM+ panel (from a demo application they provide. I was not able to get 
 <br/>
 
 <a name="Application_Insights"></a>
-![Application Insights](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/ApplicationInsights.png){: .logo}
+![Application Insights](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/ApplicationInsights.png){: .logo}
 
 ## Application Insights
 
@@ -212,14 +212,14 @@ Microsoft is investing heavily in its Azure cloud and it can be seen from the nu
 Application Insights feels a lot more developer orientated platform than New Relic. It can bee easily seen that they thought more about query capabilities (AND, OR operators), inner request details, features than in how to get the visualizations super nice.
 
 My customized main dashboard:
-![Azure dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/azure_panel.png)
+![Azure dashboard](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/azure_panel.png)
 
 And the request details:
-![Azure dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/azure_requestDetails.png)
+![Azure dashboard](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/azure_requestDetails.png)
 As you can see all dependencies were detected neatly.
 
 There is also one thing that strongly shows that Application Insights is targeted at IT specialists. By clicking Analyze in the top bar we can see the query behind every diagram, change it and use it for a custom report. The language used is very similar to F#. This means we have all the functional goodies like piping and support for data manipulation functions. As a person using F#, I must say "well done Microsoft":)
-![Azure dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/azure_querryEditor.png)
+![Azure dashboard](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/azure_querryEditor.png)
 
 **The good**
 
@@ -242,7 +242,7 @@ There is also one thing that strongly shows that Application Insights is targete
 <br/>
 
 <a name="Raygun"></a>
-![Raygun](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/raygun.png){: .logo}
+![Raygun](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/raygun.png){: .logo}
 
 ## Raygun
 
@@ -254,7 +254,7 @@ After playing with it a bit I can say that Raygun is not a tool I was looking fo
 How it works is that it will notify You when an error occurs and gives the possibility to mark it as fixed, but not deployed to prod. This will halt notifications of this type of errors. A simple feature, but a quite valuable one then managing production health and prioritizing bug fixes.
 
 Raygun panel:
-![Raygun dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Raygun_panel.png)
+![Raygun dashboard](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/Raygun_panel.png)
 
 **The good**
 
@@ -273,14 +273,14 @@ Raygun panel:
 <br/>  
 
 <a name="Datadog"></a>
-![Application Insights](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Datadog.png){: .logo}
+![Application Insights](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/Datadog.png){: .logo}
 
 ## Datadog
 
 I've heard earlier about [Datadog](https://www.Datadoghq.com), but never checked it before. The first impression was very good, but soon everything started going downhill (see the **The bad** section).
 It became clear quite fast that Datadog is targeted to administrators and people that need to have a big picture of servers and services that they have. This is a higher view than the application view I am looking for.
 
-![Datadog dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Datadog_panel.png)
+![Datadog dashboard](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/Datadog_panel.png)
 
 **The good**
 - it can integrate with a huge number of systems (the only tool that could monitor Solr and Docker containers)
@@ -301,33 +301,33 @@ It became clear quite fast that Datadog is targeted to administrators and people
 # <a name="Comparison_table"></a> Comparison table
 
 |---
-| Service                |Google Analytics    |ELK + Graphite/Graphana|NewRelic|Retrace|Application Insights|Raygun|Data dog
-|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----|
+| Service                |Google Analytics    |ELK + Graphite/Graphana|NewRelic|Retrace|Application Insights|Raygun  |Data dog
+|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-------|
 |**Logging**             |
-|Centralized logging     |N                   |Y                      |Y       |Y      |Y                    |Y     |N
-|Log querying            |N                   |Y                      |S       |Y      |Y                    |N*^10 |N
-|Custom log reports      |Y                   |Y                      |S       |Y      |Y                    |N     |N
+|Centralized logging     |N                   |Y                      |Y       |Y      |Y                    |Y      |N
+|Log querying            |N                   |Y                      |S       |Y      |Y                    |N*^10  |N
+|Custom log reports      |Y                   |Y                      |S       |Y      |Y                    |N      |N
 |Browser error collection|N                   |CbI*^4                 |Y       |N      |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N
-|:---------------------- |:-------------------|:----------------------|:-------|:------|:-------------------|:------|
-|                        |                    |                       |        |       |                    |       |
+|:---------------------- |:-------------------|:----------------------|:-------|:------|:--------------------|:------|
+|                        |                    |                       |        |       |                     |       |
 |**APM**                 |
-|Server side performance |CbI                 |Y                      |Y       |Y       |Y                    |N       |Y
+|Server side performance |CbI                 |Y                      |Y       |Y       |Y                   |N      |Y
 |Browser side performance|Y                   |CbI *^4                |Y       |N       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N
-|Environment performance |CbI                 |3rd party tools *^5    |Y       |Y       |Y                    |N       |N
+|Environment performance |CbI                 |3rd party tools *^5    |Y       |Y       |Y                   |N      |N
 |Custom metrics          |CbI                 |Y                      |Y       |[Y](http://support.stackify.com/hc/en-us/articles/205419705-Custom-Metrics-Overview)         |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)|Y *^11|
-|Alerts                  |N                   |Y                      |Y       |Y       |Y                    |N       |Y
-|Real time view          |Y                   |Y                      |Y       |Y       |Y                    |N       |Y
+|Alerts                  |N                   |Y                      |Y       |Y       |Y                   |N      |Y
+|Real time view          |Y                   |Y                      |Y       |Y       |Y                   |N      |Y
 |Custom perf. reports    |Y                   |Y                      |[N](https://docs.newrelic.com/docs/apm/reports)||S|N|[Y](https://www.Datadoghq.com/blog/learn-from-your-alerts-with-the-weekly-monitor-trend-report/)
-|Request dependencies details|N               |N                      |Y       |N      |                    |       |
-|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:------|
-|                        |                    |                       |        |       |                    |       |
+|Request dependencies details|N               |N                      |Y       |N       |Y                   |       |
+|:-----------------------|:-------------------|:----------------------|:-------|:-------|:-------------------|:------|
+|                        |                    |                       |        |        |                    |       |
 |**Making life easier**  |
-|Mobile access           |Y &#42;^14          |3rd party&#42;^6       |Y *^14  |N       |Works &#42;^2        |Y        |S
-|OAuth                   |Y                   |N                      |N       |N       |N                    |Y        |N
-|:-----------------------|:-------------------|:----------------------|:-------|:-------|:--------------------|:--------|
-|                        |                    |                       |        |        |                     |         |
+|Mobile access           |Y &#42;^14          |3rd party&#42;^6       |Y *^14  |N       |Works &#42;^2       |Y      |S
+|OAuth                   |Y                   |N                      |N       |N       |N                   |Y      |N
+|:-----------------------|:-------------------|:----------------------|:-------|:-------|:-------------------|:------|
+|                        |                    |                       |        |        |                    |       |
 |**Features**            |
-|Application map         |N                   |N                      |Y       |N       |Y                    |N        |N*^12
+|Application map         |N                   |N                      |Y       |N       |Y                   |N        |N*^12
 |Price                   |[Free with limists]((https://developers.google.com/analytics/devguides/collection/analyticsjs/limits-quotas))          |60$*^15                       |150$&#42;^8|[300$](https://stackify.com/retrace/)    |Free&#42;^3            |[588$](https://raygun.com/pricing#crashreporting)|[Free*^13](https://www.Datadoghq.com/pricing/)
 
 **Legend:**

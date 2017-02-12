@@ -13,48 +13,62 @@ Since [cookit](http://cookit.pl) is my pet, nonprofit project it was time to do 
 
 <!--MORE-->
 
-##**TL;TR;**
+# **TL;TR;**
 There is a [comparison table](#Comparison_table) at the end, and [what I've choose](#What_Ive_choose).
 
-Table of content:
-- 
-## The current state
+# Table of content:
+
+- [The current state of logging and monitoring](#The_current_state)
+- [Requierments](#Requierments)
+- [The showdown](#The_showdown)
+	- [Google Analytics](#Google_Analytics) 
+	- [ELK +Graphite/Grafana](#ELK) 
+	- [NewRelic](#NewRelic) 
+	- [Retrace](#Retrace) 
+	- [Application Insights](#Application_Insights) 
+	- [Raygun](#Raygun) 
+	- [Datadog](#Datadog)
+- [Comparison table](#Comparison_table) 
+- [What I've choose](#What_Ive_choose).
+ 
+
+# <a name="The_current_state"></a>The current state of logging and monitoring
 
 The current setup is based on:
 
-- **NLog** - used for almost all logging in the website and Windows Service. Most errors are logged into files, the critical ones are emailed to my account.
-- **Hangfire dashboard** - for checking job status and if it ended with a failure, the main exception. 
-- **Remote Desktop** - for trouble shooting, performance counters and all monitoring stuff (and I know how badly this sucks)
-
+- **NLog** - used for almost all logging in the website and in the Windows Service (You can red more about cookit architecture [here](How-is-cookit-build/)). Most errors are logged into files, the critical ones are emailed to me.
+- **Hangfire dashboard** - for checking job status and if it ended with a failure. It it crashed it only displays the main exception. 
+- **Remote Desktop** - for trouble shooting, performance counters and all monitoring stuff (trust me I know how badly RDP and monitoring placed in one sentence sounds:( ).
 
 Except for the last one the setup was more or less OK on the daily basics. But in more advanced scenarios it started lacking more and more:
 
-- email notifications are fine for being informed that something is wrong, but for the details I have to RDP and see the files and this is tolerable only on a PC. Doing this on a tablet or a phone is waisting time.
-- no performance metrics except for Hangfire dashboard.
+- email notifications are fine for being informed that something is wrong, but for the details I have to RDP and see the files and this is tolerable only on a PC. Doing this on a tablet or a phone is waisting time. Another problem is that if something goes wrong I get thousands of emails.
+- no performance metrics except for the Hangfire dashboard.
 - since [I am running cookit on crappy hardware](/The-importance-of-running-on-crapp) RDP is slow. 
-- any analytics or finding correlations had to be done manually, and this is a pain and a waste of my time.
-- no way to do a post morten why the site was slow an hour ago. If something started throwing errors 
+- any analytics or finding correlations had to be done manually. Doing it this way is a pain and a waste of my time.
+- no way to do a post morten why the site was slow an hour ago. Only form of persistent data are the NLog files. 
 
-## Objectives
+
+# <a name="Requierments"></a>Requierments 
 
 So what I wanted to achieve (in order of importance):
 
-- **Visualizations.** Yes, this is the first place. Looking at tables is the worst way to get a glimpse of what is happening. A simple chart makes huge difference.
-- **Accessible everywhere.** This means o need to RDP, or any app that has to be installed. It has to be web based.   
-- **Not running on my machine.** Any system needs some taking care of it. Check the logs once in a time, upgrade to newer version and so on. This requiers time and knowledge (knowledge can be translated into time needed to have it), and for the current moment this is not the area where I want to invest my time. 
-- **performance counters of the machine.** Knowing the stats of the application without knowing the stats of the whole machine is close to pointless when things go haywire. 
-- **Centralized logging.** I will be sending data from a website and a Windows Service. It has to be in one place.
-- **Custom events.** I want to add custom timings for each TPL Dataflow block that I am using for building data processing workflows.
+- **Visualizations.** - Yes, this is the first place. Looking at tables is the worst way to get a glimpse of what is happening. A simple chart makes huge difference.
+- **Accessible everywhere.** - This means o need to RDP, or any app that has to be installed. It has to be web based.   
+- **Not running on my machine.** - Every system needs some taking care of it. Checking the logs once in a time, upgrading to newer version and so on. This requiers time and knowledge (knowledge can be translated into time needed to have it). For the current moment this is not the area where I want to invest my time, so SaaS it is. 
+- **performance counters of the machine.** - Knowing the stats of the application without knowing the stats of the whole machine is close to pointless when things go haywire. 
+- **Centralized logging.** - No more digging through multiple NLog files. It has to be in one place.
+- **Custom events.** - I want to add custom timings for each TPL Dataflow block that I am using in data processing workflows. Also seeing aggregated timings of Hangfire jobs would be nice and would show me where to invest time in optimizations.
 - **Real time.** - when I get a report from [Pingdom](https://www.pingdom.com/) that the site is not responding I want to check what is happening right now on the machine. Hour old data in this case is no use.
 - **Alerting** - Having monitoring without alerting works only when you can have a huge monitors only for showing the dashboard. Even then it only works in movies. Alerting is a must have and a time saver.
-- **Historic data.** - The time between getting an alert and having time to look at it is almost always non zero. Having at least 8 hours (remember that sleep is a good thing?) of data is a must have. The time span may suggest it, but to be clear, it has to be written in a persistent way, because it so happens that restarts and performance problems co ocur. 
+- **Historic data.** - The time between getting an alert and having time to look at it is almost always non zero. Having at least 8 hours (remember, sleep is a good thing?) of data is a must have. 
 
-# The showdown [Google Analytics](#Google_Analytics) vs. [ELK +Graphite/Grafana](#ELK) vs. [NewRelic](#NewRelic) vs. [Retrace](#Retrace) vs. [Application Insights](#Application_Insights) vs. [Raygun](#Raygun) vs. [Datadog](#Datadog):
+# <a name="The_showdown"></a>The showdown [Google Analytics](#Google_Analytics) vs. [ELK +Graphite/Grafana](#ELK) vs. [NewRelic](#NewRelic) vs. [Retrace](#Retrace) vs. [Application Insights](#Application_Insights) vs. [Raygun](#Raygun) vs. [Datadog](#Datadog):
 
-
+<a name="Google_Analytics"></a>
 ![Google Analytics](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/google-analytics_01.png){: .logo}
 
-## <a name="Google_Analytics"></a>Google Analytics
+## Google Analytics
 
 Google Analytics is way more than SEO/SEM tool. With the support of custom client and server events, it can easily be turned into monitoring tool. 
 Another plus for using it is that you probably have it already and are looking at it from time to time.
@@ -78,11 +92,12 @@ Another plus for using it is that you probably have it already and are looking a
 - no log aggregation
 - no alerting
 <br/>
+<br/>
 
-
+<a name="ELK"></a>
 ![ELK Stack + Graphite/Graphana](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/elk.png){: .logo}
 
-## <a name="ELK"></a>ELK Stack + Graphite/Graphana
+## ELK Stack + Graphite/Graphana
 
 ELK stack with Graphite and Grafana is the market standard for monitoring and central logging. This means that it is very easy to find Docker images, help and almost everything what is needed.
 Viewing on mobile devices is possible, but far from being great, and this won't change anytime soon judging from [this Github issue](https://github.com/elastic/kibana/issues/2563). 
@@ -106,9 +121,10 @@ Viewing on mobile devices is possible, but far from being great, and this won't 
 <br/>
 <br/>
 
+<a name="New_Relic"></a>
 ![New Relic](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/newRelic.svg){: .logo} 
 
-## <a name="New_Relic"></a>New Relic
+## New Relic
 
 New Relic is a power horse when it comes to features. It has almost everything, from APM (Application Performance Management) to log aggregation. It is a very interesting product since it is done in a way that will be readable to nontechnical people. You automatically get notifications for apex index violations, and the UI is more like google analytics than Azure Application Insights (next)
 
@@ -143,16 +159,17 @@ To sum up - NewRelic is a powerful beast with the looks that a manager can under
 - every part is separately paid 
 - at registration(demo) requires the phone number, company name, company size, and role
 - uninstalling requires a machine reboot
-- pricy
+- expensive
 <br/>
 <br/>
 
-
+<a name="Retrace"></a>
 ![Retrace](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/retrace.png){: .logo}
 
-## <a name="Retrace"></a>Retrace (Stackify)
+## Retrace (Stackify)
 
-Is a product from the same guys (and girls) that develop [Prefix](https://stackify.com/prefix/), a quite good local profiler (I personally prefer MiniProfiler, but it is because I always have it in my projects).
+Is a product from the same guys (and girls) that develop [Prefix](https://stackify.com/prefix/) - a good local profiler (I personally prefer MiniProfiler, but it is because I always have it in my projects).
+I must say I was impressed by the features and polish that this product has. The UI may not show it fully, but it is not that far away from the big players. In some features it's even way ahead.
 
 Retrace panel:
 ![Retrace panel](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Retrace_panel.png)
@@ -169,6 +186,7 @@ Retrace APM+ panel (from a demo application they provide. I was not able to get 
 - fast full-text search and data analytics in logs
 - option to mark an error as "fixed" 
 - quite fast UI
+- very good email alerts. They look good and are very informative.
 
 **The bad**
 
@@ -178,10 +196,10 @@ Retrace APM+ panel (from a demo application they provide. I was not able to get 
 <br/>
 <br/>
 
-
+<a name="Application_Insights"></a>
 ![Application Insights](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/ApplicationInsights.png){: .logo}
 
-## <a name="Application_Insights"></a>Application Insights
+## Application Insights
 
 Microsoft is investing heavily in its Azure cloud and it can be seen from the number of features they are rolling out every three months. They are investing more in the PaaS model and Application Insights fits quite good in this environment.
 Application Insights feels a lot more developer orientated platform than NewRelic. It can bee easily seen that they thought more about query capabilities (AND, OR operators) than in how to get the visualizations super nice.
@@ -216,17 +234,20 @@ There is also one thing that strongly shows that Application Insights is targete
 <br/>
 <br/>
 
-
+<a name="Raygun"></a>
 ![Raygun](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/raygun.png){: .logo}
 
-## <a name="Raygun"></a>Raygun
+## Raygun
 
 I've decided to check Raygun mostly because of Scott Hanselman's(it is even featured on the website) and  [Troy Hunt's](https://www.troyhunt.com/error-logging-and-tracking-done-right/) recommendations.
 Raygun, similar to NewRelic, hides multiple services under its name. In this case, it's **Pulse** and **Crash Report**.
 Pulse is available for: Android, iOS, maxOS, JavaScript, WordPress, Xamarin.Android and Xamarin.iOS. No .NET here so I will not be exploring this path.
 **Crash report** supports 27 options with most languages and platform covered(Ruby, Node, PHP, .NET, Go, ColdFusion and mobile).
 Raygun is definitely not a tool I was looking for, but it has it's place still. It will notify You when an error occurs and gives the possibility to mark it as fixed, but not deployed to prod. This will halt notifications of this type of errors. I see a value in this service.
- 
+
+Raygun panel:
+![Raygun dashboard](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Raygun_panel.png)
+
 **The good**
 
 - the logo reminds me of an old game *Earthworm Jim*, oh the memories...:)
@@ -243,10 +264,10 @@ Raygun is definitely not a tool I was looking for, but it has it's place still. 
 <br/>
 <br/>  
 
-
+<a name="Datadog"></a>
 ![Application Insights](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Datadog.png){: .logo}
 
-## <a name="Datadog"></a>Datadog
+## Datadog
 
 I've heard earlier about [Datadog](https://www.Datadoghq.com), but never checked it before. It looked good, but soon everything started going downhill (see the **The bad** section). 
 
@@ -270,42 +291,34 @@ It became clear quite fast that Datadog is targeted to administrators and guys h
 - to add an integration You have to: save the config file (edited in the agent), enable the monitoring and restart the agent.
 - it took me way longer than I would wish for to get the SQL and IIS monitoring to work
 
-
-<style>
-div.entry-content .logo{
-    height:150px;
-} 
-</style>
-
-
 # <a name="Comparison_table"></a> Comparison table
 
 |---
 | Service                |Google Analytics    |ELK + Graphite/Graphana|NewRelic|Retrace|Application Insights|Raygun|Data dog
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----|
-|**Logging**              |
-|Centralized logging     |N                   |Y                      |Y       |Y        |Y                     |Y       |N
-|Log querying            |N                   |Y                      |S       |Y       |Y                    |N*^10 |N
-|Custom log reports      |Y                   |Y                      |S         |       |Y                      |N     |N
-|Browser error collection|N                   |CbI*^4                   |Y         |       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N
-|:---------------------- |:-------------------|:----------------------|:-------|:------|:-------------------|:-----|
-|                         |                      |                          |           |       |                    |       |
+|**Logging**             |
+|Centralized logging     |N                   |Y                      |Y       |Y      |Y                    |Y     |N
+|Log querying            |N                   |Y                      |S       |Y      |Y                    |N*^10 |N
+|Custom log reports      |Y                   |Y                      |S       |Y      |Y                    |N     |N
+|Browser error collection|N                   |CbI*^4                 |Y       |N      |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N
+|:---------------------- |:-------------------|:----------------------|:-------|:------|:-------------------|:------|
+|                        |                    |                       |        |       |                    |       |
 |**APM**                 |
-|Server side performance |CbI                  |Y                      |Y       |Y       |Y                    |N       |Y
-|Browser side performance|Y                   |CbI *^4                   |Y       |       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N
-|Environment performance |CbI                  |3rd party tools *^5    |Y       |Y       |Y                    |N       |N
-|Custom metrics          |CbI                  |Y                      |Y       |[Y](http://support.stackify.com/hc/en-us/articles/205419705-Custom-Metrics-Overview)         |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)|Y *^11|
+|Server side performance |CbI                 |Y                      |Y       |Y       |Y                    |N       |Y
+|Browser side performance|Y                   |CbI *^4                |Y       |N       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N
+|Environment performance |CbI                 |3rd party tools *^5    |Y       |Y       |Y                    |N       |N
+|Custom metrics          |CbI                 |Y                      |Y       |[Y](http://support.stackify.com/hc/en-us/articles/205419705-Custom-Metrics-Overview)         |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)|Y *^11|
 |Alerts                  |N                   |Y                      |Y       |Y       |Y                    |N       |Y
-|Real time view          |Y                   |Y                      |Y       |Y         |Y                    |N       |Y
+|Real time view          |Y                   |Y                      |Y       |Y       |Y                    |N       |Y
 |Custom perf. reports    |Y                   |Y                      |[N](https://docs.newrelic.com/docs/apm/reports)||S|N|[Y](https://www.Datadoghq.com/blog/learn-from-your-alerts-with-the-weekly-monitor-trend-report/)
-|Request dependencies details|N                  |N                      |Y       |N       |                    |       |
-|:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-----|
-|                         |                      |                          |           |       |                    |       |
-|**Making life easier**  |
-|Mobile access           |Y &#42;^14           |3rd party&#42;^6          |Y *^14  |N       |Works &#42;^2        |Y        |S
-|OAuth                   |Y                   |N                      |N       |N       |N                    |Y        |N
+|Request dependencies details|N               |N                      |Y       |N      |                    |       |
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:------|
-|                         |                      |                          |           |       |                    |        |
+|                        |                    |                       |        |       |                    |       |
+|**Making life easier**  |
+|Mobile access           |Y &#42;^14          |3rd party&#42;^6       |Y *^14  |N       |Works &#42;^2        |Y        |S
+|OAuth                   |Y                   |N                      |N       |N       |N                    |Y        |N
+|:-----------------------|:-------------------|:----------------------|:-------|:-------|:--------------------|:--------|
+|                        |                    |                       |        |        |                     |         |
 |**Features**            |
 |Application map         |N                   |N                      |Y       |N       |Y                    |N        |N*^12
 |Price                   |[Free with limists]((https://developers.google.com/analytics/devguides/collection/analyticsjs/limits-quotas))          |                       |150$&#42;^8|[300$](https://stackify.com/retrace/)    |Free&#42;^3            |[588$](https://raygun.com/pricing#crashreporting)|[Free*^13](https://www.Datadoghq.com/pricing/)
@@ -339,5 +352,10 @@ This said I will admit I have been blown away but what Application Insights offe
 
 The second place goes to NewRelic. It is expensive and not exactly what I am looking forward, but if I had to report performance to nontechnical people this would be the service I choose. It is easy, nice looking (this is more important than You think) and yet manages to deliver just enough information to get a glimpse what is happening. 
  
-Next entry configuring Application Insights and it's architecture.
+Next entry configuring of Application Insights and it's architecture.
 
+<style>
+div.entry-content .logo{
+    height:150px;
+} 
+</style>

@@ -16,6 +16,8 @@ Since [cookit](http://cookit.pl) is my pet, nonprofit project it was time to do 
 ##**TL;TR;**
 There is a [comparison table](#Comparison_table) at the end, and [what I've choose](#What_Ive_choose).
 
+Table of content:
+- 
 ## The current state
 
 The current setup is based on:
@@ -102,7 +104,7 @@ Viewing on mobile devices is possible, but far from being great, and this won't 
 - a lot of stuff to manage on my own
 - no out of the box monitoring
 <br/>
-
+<br/>
 
 ![New Relic](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/newRelic.svg){: .logo} 
 
@@ -143,6 +145,7 @@ To sum up - NewRelic is a powerful beast with the looks that a manager can under
 - uninstalling requires a machine reboot
 - pricy
 <br/>
+<br/>
 
 
 ![Retrace](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/retrace.png){: .logo}
@@ -151,6 +154,11 @@ To sum up - NewRelic is a powerful beast with the looks that a manager can under
 
 Is a product from the same guys (and girls) that develop [Prefix](https://stackify.com/prefix/), a quite good local profiler (I personally prefer MiniProfiler, but it is because I always have it in my projects).
 
+Retrace panel:
+![Retrace panel](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Retrace_panel.png)
+
+Retrace APM+ panel (from a demo application they provide. I was not able to get it working on my project):
+![Retrace APM+ panel](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/Retrace_APM.png)
 
 **The good**
 - for registration only Name, Surname and email are required &#128077;. Unfortunately, after email verification they want the rest &#128078;
@@ -166,6 +174,8 @@ Is a product from the same guys (and girls) that develop [Prefix](https://stacki
 
 - after verification, they want a whole lot of info
 - I was not able to get any APM+ statistics. Everything looked properly configured
+- Dashboard page is in beta, so it is not that features or great looking as Application Insights or NewRelics
+<br/>
 <br/>
 
 
@@ -204,6 +214,7 @@ There is also one thing that strongly shows that Application Insights is targete
 - UI can get sluggish sometimes.
 - UI sometimes refuses to open a window. A reload helps. 
 <br/>
+<br/>
 
 
 ![Raygun](/data/2017-02-02-Choosing-centralized-logging-and-monitoring-system/raygun.png){: .logo}
@@ -229,6 +240,7 @@ Raygun is definitely not a tool I was looking for, but it has it's place still. 
 - at registration(demo) requires a phone number, company name, company size, and role.
 - it is only a log aggregating mechanism
 - the filtering has very little fields and only Que
+<br/>
 <br/>  
 
 

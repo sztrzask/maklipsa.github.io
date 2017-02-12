@@ -305,44 +305,44 @@ It became clear quite fast that Datadog is targeted to administrators and people
 |:-----------------------|:-------------------|:----------------------|:-------|:------|:-------------------|:-------|
 |**Logging**             |
 |Centralized logging     |N                   |Y                      |Y       |Y      |Y                    |Y      |N
-|Log querying            |N                   |Y                      |S       |Y      |Y                    |N*^9  |N
+|Log querying            |N                   |Y                      |S       |Y      |Y                    |N*9  |N
 |Custom log reports      |Y                   |Y                      |S       |Y      |Y                    |N      |N
-|Browser error collection|N                   |CbI*^4                 |Y       |N      |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N|N
+|Browser error collection|N                   |CbI*4                  |Y       |N      |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N|N
 |:---------------------- |:-------------------|:----------------------|:-------|:------|:--------------------|:------|
 |**APM**                 |
 |Server side performance |CbI                 |Y                      |Y       |Y       |Y                   |N      |Y
-|Browser side performance|Y                   |CbI *^4                |Y       |N       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N|N
-|Environment performance |CbI                 |3rd party tools *^5    |Y       |Y       |Y                   |N      |N
-|Custom metrics          |CbI                 |Y                      |Y       |[Y](http://support.stackify.com/hc/en-us/articles/205419705-Custom-Metrics-Overview)         |[Y*^7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)|N |Y *^10|
+|Browser side performance|Y                   |CbI *4                 |Y       |N       |[Y](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript)|N|N
+|Environment performance |CbI                 |3rd party tools *5     |Y       |Y       |Y                   |N      |N
+|Custom metrics          |CbI                 |Y                      |Y       |[Y](http://support.stackify.com/hc/en-us/articles/205419705-Custom-Metrics-Overview)         |[Y*7](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-search-diagnostic-logs)|N |Y *10|
 |Alerts                  |N                   |Y                      |Y       |Y       |Y                   |N      |Y
 |Real time view          |Y                   |Y                      |Y       |Y       |Y                   |N      |Y
 |Custom perf. reports    |Y                   |Y                      |[N](https://docs.newrelic.com/docs/apm/reports)|N|S|N|[Y](https://www.Datadoghq.com/blog/learn-from-your-alerts-with-the-weekly-monitor-trend-report/)
 |Request dependencies details|N               |N                      |Y       |N       |Y                   |N      |N
 |:-----------------------|:-------------------|:----------------------|:-------|:-------|:-------------------|:------|
 |**Making life easier**  |
-|Mobile access           |Y &#42;^13          |3rd party&#42;^6       |Y *^13  |N       |Works &#42;^2       |Y      |S
+|Mobile access           |Y &#42;13           |3rd party&#42;6        |Y *13   |N       |Works &#42;2        |Y      |S
 |OAuth                   |Y                   |N                      |N       |N       |N                   |Y      |N
 |:-----------------------|:-------------------|:----------------------|:-------|:-------|:-------------------|:------|
 |**Features**            |
-|Application map         |N                   |N                      |Y       |N       |Y                   |N        |N*^11
-|Price                   |[Free with limists]((https://developers.google.com/analytics/devguides/collection/analyticsjs/limits-quotas))          |60$*^14                       |150$&#42;^8|[300$](https://stackify.com/retrace/)    |Free&#42;^3            |[588$](https://raygun.com/pricing#crashreporting)|[Free*^12](https://www.Datadoghq.com/pricing/)
+|Application map         |N                   |N                      |Y       |N       |Y                   |N        |N*11
+|Price                   |[Free with limists]((https://developers.google.com/analytics/devguides/collection/analyticsjs/limits-quotas))          |60$*14                       |150$&#42;8|[300$](https://stackify.com/retrace/)    |Free&#42;3            |[588$](https://raygun.com/pricing#crashreporting)|[Free*12](https://www.Datadoghq.com/pricing/)
 
 **Legend:**
 
 - CbI - Can be implemented 
-- *^2 - Azure portal is usable on mobile, but not a mobile first experience ;)
-- *^3 - Application Insights is [free up to 1 GB per month](https://azure.microsoft.com/en-us/pricing/details/application-insights/). There is also a data cap and data sampling option, so staying in the limit is realistic.
-- *^4 - You have to implement the browser side and the proxy 
-- *^5 - There are 3rd party tool available, although quality varies. 
-- *^6 - there is An Android app [Graphitoid](https://play.google.com/store/apps/details?id=com.tnc.android.graphite&hl=en) for watching Graphite (did not try it). Kibana seems [not to work on mobile](https://discuss.elastic.co/t/kibana-charts-dashboards-not-rendering-on-mobile/48614)
-- *^7 - Application Insights has three types of events: event (something happened), metric (something took x amount of time) and dependency (if auto detection didn't see this one. Can also log time)
-- *^8 - New Relic's pricing is not that straight forward. It is based on the type of a machine instance and hours it will run. This is the cheapest option I could find.
-- *^9 - it supports basic queries but doesn't allow filtering on error text, so for me, it is a NO.
-- *^10 - if You log this metric as a performance counter Datadog can read it.
-- *^11 - there is only an infrastructure map.
-- *^12 - the free version doesn't include alerts.
-- *^13 - dedicated app
-- *^14 - the cheapest I could find was [Digital Ocean](https://www.digitalocean.com/pricing/#droplet). Also, logz.io have a free offering up to 1GB, but no [pricing](http://logz.io/pricing/) (?)
+- *2 - Azure portal is usable on mobile, but not a mobile first experience ;)
+- *3 - Application Insights is [free up to 1 GB per month](https://azure.microsoft.com/en-us/pricing/details/application-insights/). There is also a data cap and data sampling option, so staying in the limit is realistic.
+- *4 - You have to implement the browser side and the proxy 
+- *5 - There are 3rd party tool available, although quality varies. 
+- *6 - there is An Android app [Graphitoid](https://play.google.com/store/apps/details?id=com.tnc.android.graphite&hl=en) for watching Graphite (did not try it). Kibana seems [not to work on mobile](https://discuss.elastic.co/t/kibana-charts-dashboards-not-rendering-on-mobile/48614)
+- *7 - Application Insights has three types of events: event (something happened), metric (something took x amount of time) and dependency (if auto detection didn't see this one. Can also log time)
+- *8 - New Relic's pricing is not that straight forward. It is based on the type of a machine instance and hours it will run. This is the cheapest option I could find.
+- *9 - it supports basic queries but doesn't allow filtering on error text, so for me, it is a NO.
+- *10 - if You log this metric as a performance counter Datadog can read it.
+- *11 - there is only an infrastructure map.
+- *12 - the free version doesn't include alerts.
+- *13 - dedicated app
+- *14 - Kibana and Graphite is free, bit since I don't want to install it on my server I have to fing a SaaS(hosted) offering. The cheapest I could find was [Digital Ocean](https://www.digitalocean.com/pricing/#droplet). Also, logz.io have a free offering up to 1GB, but no [pricing](http://logz.io/pricing/) (?)
 
 # <a name="What_Ive_choose" ></a>What I've choose?
 

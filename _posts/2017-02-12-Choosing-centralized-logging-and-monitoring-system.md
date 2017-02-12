@@ -2,7 +2,7 @@
 layout: post
 title: Choosing centralized logging and monitoring system
 description: "Searching through logs and remoting to a machine to check it's load is not a fun thing to do. This is why I've decided to look for a centralized logging service. And what I've chosen."
-modified: 2017-01-30
+modified: 2017-02-12
 tags: [.NET, cookit, performance, azure, application insights, Retrace, Stackify Retrace, New Relic, APM, centralized logging, Google Analytics, Datadog, ELK, Elastic, Logstash, Grafana, Raygun ]
 image:
   feature: data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/logo.jpg
@@ -348,15 +348,15 @@ It became clear quite fast that Datadog is targeted to administrators and people
 
 Remember I am looking for a tool that will be used in my side project. This means I will be spending my own money, and I don't like to spend too much of it. The dislike for overspending is one of the main reasons [I am running on crapp](/The-importance-of-running-on-crapp) (it costs me ~320$ a year). So price will be important.
 
-This said I will admit I have been blown away but what Application Insights offers and the pricing. I like that it is targeted to developers, still being very accessible. The pricing model is the best fitting for me since I can easily control if I want to pay and how much. There are still some things that would make me happier:
+This said I will admit I have been blown away but what **Application Insights** offers and the pricing. I like that it is targeted to developers, still being very accessible. The pricing model is the best fitting for me since I can easily control if I want to pay and how much. There are still some things that would make me happier:
 
 - **Login with Google.** This is the most popular OAuth account on the web and would make my life a bit easier. I get why this is not the option, but still.
 - **Faster UI.** I don't get the SPA idea in the portal. It is great when moving in scope of one module, but I would not mind a reload when going from the dashboard to AI
 - **More stable UI.** Some windows open full screen, some open as a blade (internal Azure name). Sometimes they don't open.
 
-The second place goes to New Relic. It is expensive and not exactly what I am looking for, but if I had to report performance to nontechnical people this would be the service I choose. It is easy, nice looking (this is more important than You think) and yet manages to deliver just enough information to get a glimpse what is happening. 
+The second place goes to **New Relic**. It is expensive and not exactly what I am looking for, but if I had to report performance to nontechnical people this would be the service I choose. It is easy, nice looking (this is more important than You think) and yet manages to deliver just enough information to get a glimpse what is happening. 
 
-The third place goes to Retrace from Stackify. It has better alerts than the top two, but no single request analytics and that was the reason why it took the third place. Still, it is a very good tool. Another plus is that it has the option to mute an error similar to Raygun.  
+The third place goes to **Retrace from Stackify**. It has better alerts than the top two, but no single request analytics and that was the reason why it took the third place. Still, it is a very good tool. Another plus is that it has the option to mute an error similar to Raygun.  
 
 In the next entry - Application Insights configuration and architecture.
 

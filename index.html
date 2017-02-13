@@ -10,7 +10,7 @@ comments: false
   <header>
     {% if post.image.feature %}
       <a href="/{{ post.url }}">
-          <div class="entry-image-index" style="background: url('{{ site.url }}/{{ post.image.feature }}') no-repeat scroll center center;  background-size: cover;">
+          <div class="entry-image-index" style="background: url('/{{ post.image.feature }}') no-repeat scroll center center;  background-size: cover;">
           </div>
       </a>
     {% endif %}

@@ -38,7 +38,7 @@ layout: compress
       </header>
     <div class="entry-content {% if page.image.feature %}entry-content-image{% endif %}">
       {% if page.image.feature %}
-        <div class="entry-image-index" style="background:url('{{ site.url }}/{{ page.image.feature }}') no-repeat scroll center center; background-size: cover;">
+        <div class="entry-image-index" style="background:url('/{{ page.image.feature }}') no-repeat scroll center center; background-size: cover;">
         </div>
       {% endif %}
       {{ content }}

@@ -141,7 +141,7 @@ I was quite impressed with how good New Relic inspects what went into each reque
 
 Another thing that is a nice feature, and very unique, is the Geo View. 
 It shows how page speed differs for different geo locations. And as You can see I have a problem with Russia (I have no idea why):
-![NewRelic request details](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/newRelic_geoPanel.png)
+![NewRelic request details](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/NewRelic_geoPanel.png)
 
 Installation is the easiest of all reviewed. All that is needed is to install the NewRelic Agent on the server. Dependencies detection, metering, even browser performance tracking works out of the box.
 

@@ -19,7 +19,7 @@ There is a [comparison table](#Comparison_table) at the end, and [what I've choo
 # Table of content:
 
 - [The current state of logging and monitoring](#The_current_state)
-- [Requierments](#Requierments)
+- [Requirements](#Requirements)
 - [The showdown](#The_showdown)
     - [Google Analytics](#Google_Analytics) 
     - [ELK +Graphite/Grafana](#ELK) 
@@ -49,7 +49,7 @@ Except for the last one the setup was more or less OK on the daily basis. But in
 - no way to do a post mortem why the site was slow an hour ago. The only source are the NLog files. 
 
 
-# <a name="Requierments"></a>Requierments 
+# <a name="Requirements"></a>Requirements 
 
 So what I wanted to achieve (in order of importance):
 

@@ -204,7 +204,7 @@ Retrace APM+ panel (from a demo application they provide. I was not able to get 
 <br/>
 
 <a name="Application_Insights"></a>
-![Application Insights](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/ApplicationInsights.png){: .logo}
+![Application Insights](/data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/applicationInsights.png){: .logo}
 
 ## Application Insights
 

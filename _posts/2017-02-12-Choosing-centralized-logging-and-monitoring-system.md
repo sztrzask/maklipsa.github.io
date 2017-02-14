@@ -198,7 +198,7 @@ Retrace APM+ panel (from a demo application they provide. I was not able to get 
 **The bad**
 
 - after verification, they want a whole lot of info
-- I was not able to get any APM+ statistics. Everything looked properly configured, but it did not work. I've emailed the support, but no answer (granted it was on the weekend).
+- I was not able to get any APM+ statistics. Everything looked properly configured, but it did not work. <s>I've emailed the support, but no answer (granted it was on the weekend)</s> Support contacted me just after the weekend and is very helpful, but we were not able to get it working.
 - Dashboard page is in beta, so it doesn't have that many features or great looking as Application Insights or New Relic.
 <br/>
 <br/>

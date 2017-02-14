@@ -342,7 +342,7 @@ It became clear quite fast that Datadog is targeted to administrators and people
 - *11 - there is only an infrastructure map.
 - *12 - the free version doesn't include alerts.
 - *13 - dedicated app
-- *14 - Kibana and Graphite is free, bit since I don't want to install it on my server I have to fing a SaaS(hosted) offering. The cheapest I could find was [Digital Ocean](https://www.digitalocean.com/pricing/#droplet). Also, logz.io have a free offering up to 1GB, but no [pricing](http://logz.io/pricing/) (?)
+- *14 - Kibana and Graphite is free, bit since I don't want to install it on my server I have to fing a SaaS(hosted) offering. The cheapest I could find was [Digital Ocean](https://www.digitalocean.com/pricing/#droplet). Also, logz.io have a free offering up to 1GB<s>, but no [pricing](http://logz.io/pricing/) (?)</s> the pricing widget appears on Edge and after disabling all add blockers and similar extensions.
 
 # <a name="What_Ive_choose" ></a>What I've choose?
 

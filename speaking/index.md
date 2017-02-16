@@ -9,10 +9,11 @@ I believe that sharing knowledge is a key activity keeping the community live an
 # Talks (future and past):
 2017
 
-- 26.06.2017 - **You are using the wrong database!** - [EN]DWX 2017
+- 26.06.2017 - **You are using the wrong database!** - [EN]Smart Data Developer Conference [conference page](http://smart-data-developer-conference.de/you-are-using-the-wrong-database/)
 - 27.06.2017 - **Introduction to graph databases** - [EN]DWX 2017
+- 03.04.2017 - **You are using the wrong database!** - 4Developers
 - 04.03.2017 - **Introduction to graph databases** - Kariera IT Gdańsk
-- 02.03.2017 - **Introduction to graph databases** - [EN]Voxxed Days Bristol
+- 02.03.2017 - **Introduction to graph databases** - [EN]Voxxed Days Bristol [conference page](https://voxxeddays.com/bristol/2017/02/13/an-introduction-to-graph-databases/)
 - 24.02.2017 - **Introduction to graph databases** - [EN]BOB 2017 Konferenz [conference page](http://bobkonf.de/2017/warda.html)
 - 07.02.2017 - **How I stopped worrying and learned to love parallel processing** - DEV@ZG [meetup](https://www.meetup.com/DEV-ZG/events/237148381/)
 - 04.02.2017 - **Introduction to graph databases** - [EN]FOSDEM [conference page](https://fosdem.org/2017/schedule/event/graph_intro_graph_databases/) [[video](http://mirror.as35701.net/video.fosdem.org/2017/H.2214/graph_intro_graph_databases.mp4)]

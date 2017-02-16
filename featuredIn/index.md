@@ -4,7 +4,7 @@ title: Featured in
 description: "Places where posts from this blog were featured in."
 ---
 
-One of the strongest incentives to keeping on blogging is to have a post featured on a high reputation website. So here is the list of my incentives:
+One of the strongest incentives for keeping on blogging is for someone else to decide that it is worth mentioning on his site. Here is the list of my incentives:
 
 ## ![](http://blog.cwa.me.uk/wp-content/themes/Hackedcoffeespot2/img/cup4.jpg)The Morning Brew
 

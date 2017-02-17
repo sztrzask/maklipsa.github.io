@@ -11,6 +11,7 @@ I believe that sharing knowledge is a key activity keeping the community live an
 
 - 26.06.2017 - **You are using the wrong database!** - [EN]Smart Data Developer Conference [conference page](http://smart-data-developer-conference.de/you-are-using-the-wrong-database/)
 - 27.06.2017 - **Introduction to graph databases** - [EN]DWX 2017
+- 03.04.2017 - **How I stopped worrying and learned to love parallel processing** - 4Developers
 - 03.04.2017 - **You are using the wrong database!** - 4Developers
 - 04.03.2017 - **Introduction to graph databases** - Kariera IT Gdańsk
 - 02.03.2017 - **Introduction to graph databases** - [EN]Voxxed Days Bristol [conference page](https://voxxeddays.com/bristol/2017/02/13/an-introduction-to-graph-databases/)

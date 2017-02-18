@@ -194,6 +194,7 @@ Retrace APM+ panel (from a demo application they provide. I was not able to get 
 - option to mark an error as "fixed" 
 - quite fast UI
 - very good email alerts. They look good and are very informative.
+- very good customer service :) (emails and the comments)
 
 **The bad**
 
@@ -238,6 +239,7 @@ There is also one thing that strongly shows that Application Insights is targete
 - detection of application map did not work that great with Oracle database (this may be a configuration issue, I haven't had time to investigate)
 - UI can get sluggish sometimes.
 - UI sometimes refuses to open a window. A reload helps. 
+
 <br/>
 <br/>
 

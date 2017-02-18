@@ -85,16 +85,4 @@
 {% unless background contains 'http://' or background contains 'https://' %}{% capture background %}/images/{{ background }}{% endcapture %}{% endunless %}
 <style type="text/css">body {background-image:url({{ background }});}</style>
 {% endif %}
-<link rel="manifest" href="/manifest.json">
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-<script>
-    var OneSignal = window.OneSignal || [];
-    OneSignal.push(["init", {
-        appId: "ef19b73b-7502-4fbd-bdf6-2e3f33a74983",
-        autoRegister: false,
-        notifyButton: {
-            enable: true /* Set to false to hide */
-        },
-        safari_web_id: 'web.onesignal.auto.0bc7de6a-1858-40cb-a30f-b71482b7a86d'
-    }]);
-</script>
+<script charset="UTF-8" src="//cdn.sendpulse.com/28edd3380a1c17cf65b137fe96516659/js/push/69ecc6957fb9ecce05251c8ec711162e_1.js" async></script>

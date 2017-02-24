@@ -6,8 +6,8 @@ description: "Places where posts from this blog were featured in."
 
 ## General info
 
-Hi. My name is Szymon Warda.
-This blog contains notes on problems I've encountered and how I've solved them. If You know a better way feel free to comment.
+Hi. My name is Szymon Warda.<br/>
+This blog contains notes on problems I've encountered and how I've solved them. If You know a better way feel free to comment.<br/>
 Opinions expressed here are my own, and should not interpreted in any other way. 
 
 ## Bio

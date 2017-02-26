@@ -51,7 +51,8 @@
 	}
   [class*="hint--"]:hover:before, [class*="hint--"]:hover:after {
     visibility: visible;
-    opacity: 1; }
+    opacity: 1; 
+    }
   /* [class*="hint--"]:hover:before, [class*="hint--"]:hover:after { */
     /* -webkit-transition-delay: 100ms; */
     /* -moz-transition-delay: 100ms; */

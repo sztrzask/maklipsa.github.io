@@ -13,7 +13,8 @@ image:
 In most cases .NET manages to solve the [DLL hell problem](https://en.wikipedia.org/wiki/DLL_Hell) pretty well, but sometimes it all falls apart, and when it does in best case scenario we see something like this:
 
 ```console
-Could not load file or assembly 'XXXX, Version=X.Y.Z.W, Culture=neutral, PublicKeyToken=eb42632606e9261f' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+Could not load file or assembly 'XXXX, Version=X.Y.Z.W, Culture=neutral, PublicKeyToken=eb42632606e9261f' or one of its dependencies. 
+The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
 ```
 
 The much worst case is this:
@@ -160,6 +161,7 @@ There can be many cases why the assembly fails to load, but 99% of them can be s
 
 If one of the projects in Your solution has a different version of the assembly this assembly may be copied with it down to the folder of the executable assembly often overwritten the version You would assume it should have.
 This is the reason why it is a good practice to have all references pointing to a single version of a given assembly. The easiest way to make sure that this is the case is by using `Package Manager` from Visual Studio (right click on the solution):
+
 ![](/data/2017-02-27-Could_not_load_file_or_assembly_or_one_of_its_dependencies/Package Explorer.png)
 
 And then:
@@ -195,7 +197,7 @@ This entry is saying that all assemblies matching all the rules:
 - culture equal to `neutral`
 - having version between `0.0.0.0` and `4.0.0.0`
 
-should be redirected to a assemble with version `4.0.0.0`.
+Should be redirected to a assemble with version `4.0.0.0`.
 
 ## Troubleshooting FusionLog
 

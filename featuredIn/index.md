@@ -8,6 +8,7 @@ One of the strongest incentives for keeping on blogging is for someone else to d
 
 ## ![](http://blog.cwa.me.uk/wp-content/themes/Hackedcoffeespot2/img/cup4.jpg)The Morning Brew
 
+- [The Morning Brew #2289](http://blog.cwa.me.uk/2017/02/28/the-morning-brew-2289/)
 - [The Morning Brew #2281](http://blog.cwa.me.uk/2017/02/16/the-morning-brew-2281/)
 - [The Morning Brew #2253](http://blog.cwa.me.uk/2016/12/30/the-morning-brew-2253/)
 - [The Morning Brew #2250](http://blog.cwa.me.uk/2016/12/23/the-morning-brew-2250/)
@@ -17,6 +18,7 @@ One of the strongest incentives for keeping on blogging is for someone else to d
  
 ## Week in .NET
 
+- [The week in .NET – On .NET with Eric Mellino, Happy Birthday from Scott Hunter, OzCode](https://blogs.msdn.microsoft.com/dotnet/2017/02/28/the-week-in-net-on-net-with-eric-mellino-happy-birthday-from-scott-hunter-ozcode/)
 - [The week in .NET – On .NET with Steve Smith, Jint, Blue Effect](https://blogs.msdn.microsoft.com/dotnet/2016/12/28/the-week-in-net-on-net-with-steve-smith-jint/)
 - [The week in .NET – .NET Core triage on On .NET, ShareX](https://blogs.msdn.microsoft.com/dotnet/2016/12/20/the-week-in-net-net-core-triage-on-on-net-sharex/)
 - [The Year in .NET – Visual Studio 2017 RC and .NET Core updated, On .NET with Stephen Cleary and Luis Valencia, Ulterius, Inferno, Bastion, LoGeek Night](https://blogs.msdn.microsoft.com/dotnet/2016/12/13/the-year-in-net-visual-studio-2017-rc-and-net-core-updated-on-net-with-stephen-cleary-and-luis-valencia-ulterius-inferno-bastion-logeek-night/)

@@ -8,7 +8,7 @@ image:
   feature: data/2017-02-12-Choosing-centralized-logging-and-monitoring-system/logo.jpg
 ---
 
-While I'm working on the next angle on [how to speed up calculating similarities]() I started investigating how to get better telemetry from [cookit](http://cookit.pl). Getting telemetry is easy - making sense of it is the hard part. This also brought another pain point of current setup - logging and monitoring.
+While I'm working on the next angle on [how to speed up calculating similarities](https://indexoutofrange.com/How-to-calculate-17-billion-similarities/) I started investigating how to get better telemetry from [cookit](http://cookit.pl). Getting telemetry is easy - making sense of it is the hard part. This also brought another pain point of current setup - logging and monitoring.
 Since [cookit](http://cookit.pl) is my pet, nonprofit project it was time to do something.
 
 <!--MORE-->

@@ -97,7 +97,7 @@ LOG: Initial PrivatePath = NULL<br/>
 LOG: Dynamic Base = NULL<br/>
 LOG: Cache Base = NULL<br/>
 LOG: <span class="hint--right hint--always" aria-label="Name of the executing assembly.">AppName = FusionLogRunner.exe</span><br/>
-<span class="hint--right hint--info hint--always" aria-label="The assembly that has the reference to the currently called assembly. A very useful information when deugging large systems.">Calling assembly : FusionLogLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null.</span><br/>
+<span class="hint--right hint--info hint--always" aria-label="The assembly that has the reference to the currently called assembly. A very useful information when debuging large systems.">Calling assembly : FusionLogLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null.</span><br/>
 ===
 LOG: This bind starts in default load context.<br/>
 LOG: <span class="hint--right hint--always" aria-label="Configuration file for the executable that initialized the process.">Using application configuration file: d:\src\private\FusionLog\FusionLogRunner\bin\Debug\FusionLogRunner.exe.Config</span><br/>

@@ -9,16 +9,7 @@ image:
   feature: data/2016-08-30-Dont-do-it-now!Part-5.Hangfire-job-continuation,-ContinueWith/logo.jpg
 ---
 
-This is a fifth part of a series:
-
-- [part 1 - Why schedule and procrastinate jobs?](/Don't-do-it)
-- [part 2 - Overview of Hangfie](/Don't-do-it-now!-Part-2.-Background-tasks,-job-queuing-and-scheduling-with-Hangfire/)
-- [part 3 - Scheduling and Queuing jobs in Hangfire](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/)
-- [part 4 - Dashboard, retries and job cancellation](/Don't-do-it-now!-Part-4.-Hangfire-details-dashboard,-retries-and-job-cancellation/)
-- [part 5 - Job continuation with ContinueWith](/Don't-do-it-now!-Part-5.-Hangfire-job-continuation,-ContinueWith/)
-- [part 6 - Recurring jobs and cron expressions](/Don't-do-it-now!-Part-6.-Hangfire-recurring-jobs/)
-
-[Part 3](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/) covered almost all functions in `BackgroundJob` class except for `ContinueWith` functions family. So here we go :)
+[Previous post](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/) covered almost all functions in `BackgroundJob` class except for `ContinueWith` functions family. So here we go :)
 
 The fact that it has the same name as a `System.Threading.Tasks.Task` function is not without a coincidence, or at least I hope so. This method allows chaining jobs where one will be enqueued when the previous finishes. To repeat - the job won't be executed, but enqueued. So it will go at the end of the queue.
 So lets look at the function and overrides signature:

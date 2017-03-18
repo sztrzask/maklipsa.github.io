@@ -19,20 +19,8 @@ By the time of writing it had:
 
 This scale may not seem huge, but trust me - It's enough to bring a slew of problems to light. And that [cookit runs on a crappy server](http://indexoutofrange.com/The-importance-of-running-on-crapp/), partly by choice, can make things all the more complicated.
 <!--MORE-->
-
-## Saga
-
-Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing it grew to few post. Here are all of them:
-
-- [How I calculate similarities in cookit?](/How_I_calculate_similarities_in_cookit)
-- [How to calculate 17 billion similarities](/How-to-calculate-17-billion-similarities)
-- [Independent code in performance optimizations](/Independent-code-in-performance-optimizations)
-- [Using bit masks for high performance calculatons](/Using-bit-operations-for-performance-optimizations)
-- [Making bits faster](/Making-bits-faster)
-- [Dividing a bit in two for performance](/Divide-and-conquer-bits-for-performance)
-- [Understanding OutOfMemoryException](/Understanding-OutOfMemoryException)
  
-But before turning to those problems, lets first answer this question: 
+Before turning to those problems, lets first answer this question: 
 
 ## How to calculate similarities?
 

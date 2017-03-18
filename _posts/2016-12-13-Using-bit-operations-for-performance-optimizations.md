@@ -17,18 +17,6 @@ The current implementation of `Similarity` iterates over one vector and checks i
 How to iterate only over the mutually owned ones and do it fast? 
 <!--MORE-->
 
-## Saga
-
-Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing it grew to few post. Here are all of them:
-
-- [How I calculate similarities in cookit?](/How_I_calculate_similarities_in_cookit)
-- [How to calculate 17 billion similarities](/How-to-calculate-17-billion-similarities)
-- [Independent code in performance optimizations](/Independent-code-in-performance-optimizations)
-- [Using bit masks for high performance calculatons](/Using-bit-operations-for-performance-optimizations)
-- [Making bits faster](/Making-bits-faster)
-- [Dividing a bit in two for performance](/Divide-and-conquer-bits-for-performance)
-- [Understanding OutOfMemoryException](/Understanding-OutOfMemoryException)
-
 ## Bit masks
 
 The fastest and least memory consuming way is to use an `int` or a `long` and set their bits individually. There is one problem with this. I need a mask for 1800 values, so my number would have to be 1800 bit... 

@@ -13,18 +13,6 @@ In my [ongoing series on calculating similarities](/tags/#similarity) one angle 
 
 <!--MORE-->
 
-## Saga
-
-Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing. This thread grew to a few post. Here are all of them:
-
-- [How I calculate similarities in cookit?](/How_I_calculate_similarities_in_cookit)
-- [How to calculate 17 billion similarities](/How-to-calculate-17-billion-similarities)
-- [Independent code in performance optimizations](/Independent-code-in-performance-optimizations)
-- [Using bit masks for high performance calculatons](/Using-bit-operations-for-performance-optimizations)
-- [Making bits faster](/Making-bits-faster)
-- [Dividing a bit in two for performance](/Divide-and-conquer-bits-for-performance)
-- [Understanding OutOfMemoryException](/Understanding-OutOfMemoryException)
-
 ## Use matrixes
 
 After some refactoring, I've managed to create a place where I could swap the existing implementation for the new one. 

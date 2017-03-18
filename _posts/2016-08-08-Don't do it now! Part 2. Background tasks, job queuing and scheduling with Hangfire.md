@@ -9,15 +9,6 @@ image:
   feature: data/2016-08-10-Dont-do-it-now!Part-2.Background-tasks-job-queuing-and-scheduling-with-Hangfire/logo.png
 ---
 
-This is the second part of a series discussing job scheduling and Hangfire details:
-
-- [part 1 - Why schedule and procrastinate jobs?](/Don't-do-it)
-- [part 2 - Overview of Hangfie](/Don't-do-it-now!-Part-2.-Background-tasks,-job-queuing-and-scheduling-with-Hangfire/)
-- [part 3 - Scheduling and Queuing jobs in Hangfire](/Don't-do-it-now!-Part-3.-Hangfire-details-jobs/)
-- [part 4 - Dashboard, retries and job cancellation](/Don't-do-it-now!-Part-4.-Hangfire-details-dashboard,-retries-and-job-cancellation/)
-- [part 5 - Job continuation with ContinueWith](/Don't-do-it-now!-Part-5.-Hangfire-job-continuation,-ContinueWith/)
-- [part 6 - Recurring jobs and cron expressions](/Don't-do-it-now!-Part-6.-Hangfire-recurring-jobs/)
-
 In the [previous post](/Don't-do-it) I've written about why I think the ability to schedule tasks for later execution is a fundamental technical feature, but also a must have from business' point of view.
 We are passed the *whys*, so let's get to the *hows*. The answer is simple - Hangfire. I've written about it [here](http://indexoutofrange.com/GC-can-kill-You-Practical-GC-performance-counters-in-NET/), [here](http://indexoutofrange.com/LocalOptimizationsDontAddUp/) and [here](http://indexoutofrange.com/How-is-cookit-build/), so yeah, you guessed it, I like it.  Hangfire is an amazing library. It has shown it's value in my pet project ([cookit.pl](http://cookit.pl)) and in a huge ERP system that we are building at work, where we replaced [Quartz.NET](http://www.quartz-scheduler.net/) with it and never looked back. 
 <!--MORE-->

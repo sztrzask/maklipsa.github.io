@@ -14,18 +14,6 @@ This post was inspired by a [discussion on Reddit](https://www.reddit.com/r/prog
 In this post, I will cover a [suggestion](https://www.reddit.com/r/programming/comments/5i2x5r/using_bit_masks_for_highperformance_calculations/db5ujwc/) by [BelowAverageITGuy](https://www.reddit.com/user/BelowAverageITGuy) that cut down the total execution time by almost one hour.
 <!--MORE-->
 
-## Saga
-
-Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing it grew to few post. Here are all of them:
-
-- [How I calculate similarities in cookit?](/How_I_calculate_similarities_in_cookit)
-- [How to calculate 17 billion similarities](/How-to-calculate-17-billion-similarities)
-- [Independent code in performance optimizations](/Independent-code-in-performance-optimizations)
-- [Using bit masks for high performance calculatons](/Using-bit-operations-for-performance-optimizations)
-- [Making bits faster](/Making-bits-faster)
-- [Dividing a bit in two for performance](/Divide-and-conquer-bits-for-performance)
-- [Understanding OutOfMemoryException](/Understanding-OutOfMemoryException)
-
 ## Recap 
 
 The last implementation of `GetNonZeroIndexes` looked like this:

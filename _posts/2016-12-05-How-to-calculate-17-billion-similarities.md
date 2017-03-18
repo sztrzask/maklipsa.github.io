@@ -18,18 +18,6 @@ It ended on a happy note and everything seemed to be downhill from there on. It 
 I've decided to, once again, use math to assess how long the calculation will take.   
 <!--MORE-->
 
-## Saga
-
-Before I go further here are some link to the previous posts on the problem of calculating similarities and then optimizing it grew to few post. Here are all of them:
-
-- [How I calculate similarities in cookit?](/How_I_calculate_similarities_in_cookit)
-- [How to calculate 17 billion similarities](/How-to-calculate-17-billion-similarities)
-- [Independent code in performance optimizations](/Independent-code-in-performance-optimizations)
-- [Using bit masks for high performance calculatons](/Using-bit-operations-for-performance-optimizations)
-- [Making bits faster](/Making-bits-faster)
-- [Dividing a bit in two for performance](/Divide-and-conquer-bits-for-performance)
-- [Understanding OutOfMemoryException](/Understanding-OutOfMemoryException)
-
 ### Reminder - how similarities are calculated
 
 In the [previous post](/How_I_calculate_similarities_in_cookit/) I've decided to calculate similarity by calculating the dot product between recipe ingredient vectors. In C# it will look more or less like this:

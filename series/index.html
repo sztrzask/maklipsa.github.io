@@ -17,9 +17,10 @@ comments: true
         {% assign firstPostInSeries = item.items.last %}
         <div class="entry-content {% if firstPostInSeries.image.feature %}entry-content-image{% endif %}">
           {% if firstPostInSeries.image.feature %}
-            <div class="entry-image-index" style="background:url('/{{ firstPostInSeries.image.feature }}') no-repeat scroll center center; background-size: cover;">
-          {% if firstPostInSeries.image.credit %}<div class="image-credit">Image source: <a href="{{ firstPostInSeries.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
-          </div>
+              <div class="entry-image-index" style="background:url('/{{ firstPostInSeries.image.feature }}') no-repeat scroll center center; background-size: cover;">
+            {% if firstPostInSeries.image.credit %}<div class="image-credit">Image source: <a href="{{ firstPostInSeries.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
+            </div>
+          {% endif %} 
         </div>
         <h1 id="{{ item.name | strip_newlines }}" class="tag-heading">{{ item.name | strip_newlines }}</h1>
           <ul>

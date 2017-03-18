@@ -4,6 +4,7 @@ title: Understanding OutOfMemoryException
 description: "An analysis why OutOfMemoryException happens. Additionally a riddle why it happened this time."
 modified: 2016-12-22
 tags: [.NET, cookit, performance, similarity, bit operations, Working set, Private Bytes, OutOfMemoryException, riddle]
+series: "How I calculate 17 bilion similarities in cookit"
 image:
   feature: data/2017-01-02-Understanding-OutOfMemoryException/logo.jpg
 ---

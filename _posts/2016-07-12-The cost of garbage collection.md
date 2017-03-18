@@ -4,6 +4,7 @@ title: The cost of garbage collection
 description: "A try to measure the cost of generation 0, 1 and 2 garbage collection"
 modified: 2016-07-12
 tags: [.NET, performance, GC, Garage collection, benchmark, GC.Collect, NBench]
+series: "The cost of garbage collection"
 image:
   feature: data/2016-07-12-The-cost-of-garbage-collection/logo.png
 ---

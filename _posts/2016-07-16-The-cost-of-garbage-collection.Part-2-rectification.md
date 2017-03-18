@@ -4,6 +4,7 @@ title: The cost of garbage collection. Part 2 - rectification.
 description: "An update to a try to measure the time cost of garbage collection in .NET."
 modified: 2016-07-16
 tags: [.NET, performance, GC, Garage collection, benchmark, GC.Collect, NBench]
+series: "The cost of garbage collection"
 image:
   feature: data/2016-07-16-The-cost-of-garbage-collection.Part-2-rectification/logo.jpg
 ---

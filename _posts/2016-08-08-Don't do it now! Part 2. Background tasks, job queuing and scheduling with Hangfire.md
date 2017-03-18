@@ -4,6 +4,7 @@ title: Don't do it now! Part 2. Background tasks, job queuing and scheduling wit
 description: ""
 modified: 2016-08-08
 tags: [.NET, Hangfire, cookit, architecture]
+series: "Don't do it now!"
 image:
   feature: data/2016-08-10-Dont-do-it-now!Part-2.Background-tasks-job-queuing-and-scheduling-with-Hangfire/logo.png
 ---

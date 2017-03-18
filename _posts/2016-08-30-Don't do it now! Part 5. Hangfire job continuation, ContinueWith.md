@@ -4,6 +4,7 @@ title: Don't do it now! Part 5. Hangfire details - job continuation with Continu
 description: "A look how Hangfire enables to chain jobs with ContinueWith"
 modified: 2016-08-30
 tags: [.NET, Hangfire, architecture]
+series: "Don't do it now!"
 image:
   feature: data/2016-08-30-Dont-do-it-now!Part-5.Hangfire-job-continuation,-ContinueWith/logo.jpg
 ---

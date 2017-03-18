@@ -4,6 +4,7 @@ title: Dividing a bit in two for performance
 description: "A tale how applying the oldest performance optimization techniques really affects performance"
 modified: 2016-12-22
 tags: [.NET, cookit, performance, similarity, bit operations]
+series: "How I calculate 17 bilion similarities in cookit"
 image:
   feature: data/2016-12-22-Dividing-a-bit-in-two-for-performance/logo.jpg
 ---

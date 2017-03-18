@@ -3,7 +3,8 @@ layout: post
 title: Debugging high memory usage. Part 1 - ProcDump 
 description: "Analysis of high memory usage can be tricky. This post describes the first steps needed in most cases - how to create a memory dump of the process."
 modified: 2016-09-19
-tags: [.NET, memory dump, SysInternal Siute, ProcDump, ]
+tags: [.NET, memory dump, SysInternal Siute, ProcDump]
+series: "Debugging high memory usage"
 image:
   feature: data/2016-09-21-Debugging-high-memory-usage.Part-1-ProcDump/logo.png
 ---

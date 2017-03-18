@@ -4,6 +4,7 @@ title: Independent code in performance optimizations
 description: "The fastest code is the one that doesn't execute. Second to that is the one that executes once"
 modified: 2016-12-11
 tags: [.NET, cookit, performance, similarity]
+series: "How I calculate 17 bilion similarities in cookit"
 image:
   feature: data/2016-12-12-Independent-code-in-performance-optimizations/logo.jpg
 ---

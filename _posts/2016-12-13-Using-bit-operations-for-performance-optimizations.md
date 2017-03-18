@@ -4,6 +4,7 @@ title: Using bit masks for high-performance calculations
 description: "A continuation of a series of how to get from 34 hours to about one"
 modified: 2016-11-28
 tags: [.NET, cookit, performance, similarity, bit operations, bit array, Loop unwinding]
+series: "How I calculate 17 bilion similarities in cookit"
 image:
   feature: data/2016-12-13-Using-bit-masks-for-high-performance-calculations/logo.jpg
 ---

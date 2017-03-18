@@ -4,6 +4,7 @@ title: Debugging high memory usage. Part 2 - .NET Memory Profiler
 description: "Analysis of high memory usage can be tricky. This post describes how to analyze a memory dump with .NET Memory Profiler and how to look for the cause why the application is allocating co much memory."
 modified: 2016-09-30
 tags: [.NET, memory dump, .NET Memory Profiler]
+series: "Debugging high memory usage"
 image:
   feature: data/2016-09-30-Debugging-high-memory-usage.Part-2-dot-net-memory-profiler/logo.png
 ---

@@ -4,6 +4,7 @@ title: Don't do it now! Part 3. Hangfire details - jobs
 description: "A more deeper dive into Hangfire scheduling API"
 modified: 2016-08-17
 tags: [.NET, Hangfire, architecture, job scheduling]
+series: "Don't do it now!"
 image:
   feature: data/2016-08-17-Dont-do-it-now!Part-3.Hangfire-details-jobs/logo.jpg
 ---

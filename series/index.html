@@ -1,0 +1,33 @@
+---
+layout: post-index
+title: All series
+description: "List of all series of articles"
+comments: true
+---
+
+<h2>It is quite often that a post has a continuation that explores the problem even deeper. Bellow is a list of such stories:</h2>
+<br/>
+<br/>
+<br/>
+{% assign series = site.posts | group_by: 'series' %}
+
+{% for item in series reversed %}{% unless forloop.last %}
+	<article>
+  {% assign firstPostInSeries = item.items.last %}
+  <div class="entry-content {% if firstPostInSeries.image.feature %}entry-content-image{% endif %}">
+    {% if firstPostInSeries.image.feature %}
+    <div class="entry-image-index" style="background:url('/{{ firstPostInSeries.image.feature }}') no-repeat scroll center center; background-size: cover;">
+    {% if firstPostInSeries.image.credit %}<div class="image-credit">Image source: <a href="{{ firstPostInSeries.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
+    </div>
+    {% endif %} {{ content }}
+  </div>
+	<h1 id="{{ item.name | strip_newlines }}" class="tag-heading">{{ item.name | strip_newlines }}</h1>
+		<ul>
+    {% for post in item.items reversed %}{% if post.title != null %}
+      <li class="entry-title">
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+      </li>
+    {% endif %}{% endfor %}
+		</ul>
+	</article><!-- /.hentry -->
+{% endunless %}{% endfor %}

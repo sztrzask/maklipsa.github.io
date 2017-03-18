@@ -4,6 +4,7 @@ title: Making bits faster
 description: "Bit operations are fast, but they can still be made faster"
 modified: 2016-12-19
 tags: [.NET, cookit, performance, similarity, bit operations]
+series: "How I calculate 17 bilion similarities in cookit"
 image:
   feature: data/2016-12-19-Making-bits-faster/logo.jpg
 ---

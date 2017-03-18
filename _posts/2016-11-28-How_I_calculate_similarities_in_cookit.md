@@ -4,6 +4,7 @@ title: How I calculate similarities in cookit?
 description: "How to define similarity between two objects? Worst yet. How to calculate it. This post describes the modeling process for defining similarity between recipes."
 modified: 2016-11-28
 tags: [.NET, cookit, performance, math, similarity]
+series: "How I calculate 17 bilion similarities in cookit"
 image:
   feature: data/2016-11-28-How_I_calculate_similarities_in_cookit/logo.jpg
 ---

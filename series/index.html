@@ -11,17 +11,15 @@ comments: true
 <br/>
 <br/>
 {% assign series = site.posts | group_by: 'series'%}
-
 {% for item in series %}
   {% if item.name != '' %}
     <article>  
         {% assign firstPostInSeries = item.items.last %}
         <div class="entry-content {% if firstPostInSeries.image.feature %}entry-content-image{% endif %}">
           {% if firstPostInSeries.image.feature %}
-          <div class="entry-image-index" style="background:url('/{{ firstPostInSeries.image.feature }}') no-repeat scroll center center; background-size: cover;">
+            <div class="entry-image-index" style="background:url('/{{ firstPostInSeries.image.feature }}') no-repeat scroll center center; background-size: cover;">
           {% if firstPostInSeries.image.credit %}<div class="image-credit">Image source: <a href="{{ firstPostInSeries.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
           </div>
-          {% endif %} {{ content }}
         </div>
         <h1 id="{{ item.name | strip_newlines }}" class="tag-heading">{{ item.name | strip_newlines }}</h1>
           <ul>

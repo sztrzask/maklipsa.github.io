@@ -1,29 +1,29 @@
 ---
 layout: post
 title: What is the simplest database?
-description: "You almost can't go simpler than key-value databases, but even them are more complex than they seem"
+description: "You almost can't go simpler than key-value databases, but even them are more complex than they seem."
 modified: 2017-03-20
 tags: [databases, architecture, key-value, analysis, comparison]
 image:
   feature: data/2017-03-20-What-is-the-simplest-database/logo.jpg
 ---
 
-The world of databases is a fascinating topic. It is very diverse. Many of them are extremly complex systems, but there are also very simple ones. Thy are the general purpuse ones, and ones that do only one thing good, but they do it excelent. Despite all of this we tend to pick them just like we order food in a restaurant:
+The world of databases is a fascinating topic. It is very diverse. Many of them are extremely complex systems, but there are also very simple ones. There are the general purpose ones, and ones that do only one thing good, but they do it excelent. Despite all of this we tend to pick them just like we order food in a restaurant:
 
 - I'll take the same as last time. It wasn't ideal for what I wanted, but I could pick worse.
-- Hmm... Everyone is taking this one so I'll take it also.
+- Hmm... Everyone is taking this one, so I'll take it also.
 
-Well maybe it is time to dig deeper into it?
+Well, maybe it is time to dig deeper into it?
 
 <!--MORE-->
 
 ## Preface 
 
-I'm writing this post in addition to my [You are using the wrong database!](https://indexoutofrange.com/speaking/cfp/You-are-using-the-wrong-database!/) talk which intention is to show:
+I'm writing this post in addition to my [You are using the wrong database!](/speaking/cfp/You-are-using-the-wrong-database!/) talk which intention is to show:
 
 - how important is picking the right database and how strongly it affects the whole system
-- how diverse is the world of databases
-- why the most common criterium for choosing: "I'll use what I know" sucks, to put it lightly.
+- How diverse is the world of databases.
+- Why the most common criterium for choosing: *"I'll use what I know"* sucks, putting it lightly.
 
 ## Definition
 
@@ -50,13 +50,20 @@ So this is where I put all the theoretical features mumbling? Not exactly, here 
 
 ## The simplest database
 
-Go on have a guess. What is the simplest database that fulfils all the must-haves and almost all should-haves?
+Go on have a guess. What is the simplest database that fulfills all the must-haves and almost all should-haves?
 
-Are You sure You know? Think again, but if You are sure CLICK HERE
+Are You sure You know? Think again, but if You are sure 
 
-### The file system is the simplest database
+<div id="wrapper">
+    <div type="button" class="button btn" onclick="show()" >CLICK HERE if You know </div>
+</div>
 
-Did You get it right? Let's got through the lists.
+<div class="entry-image-index" style="background:url('/data/2017-03-20-What-is-the-simplest-database/files.png') no-repeat scroll center center; background-size: cover;"> </div>
+
+
+### File system is the simplest database
+
+Did You get it right? Do You believe it? Let's got through the lists.
 **Must haves:**
 
 - [x] **ability to reliable persist data** - calling `fsync` will make sure that the file was written to the hard drive and the hard drive is what we think when talking about persistent storage.  
@@ -67,6 +74,29 @@ Did You get it right? Let's got through the lists.
   
 - [x] **ability to update data** - We can update a file right? We can even do a partial update thanks to the ability to start writing from a certain index.
 - [x] **has transactions** - A pass? Files systems have transactions? Yes. [Windows even has support for distributed transactions](https://msdn.microsoft.com/en-us/library/windows/desktop/aa363764(v=vs.85).aspx). This means that you can combine saving a file with an update in a database on an external server. Anyone who worked with distributed transaction knows that they should be avoided. That said, in some cases, it is not possible.
-- [x] **ability to query data** - We can query files by their name, content and directory structure. As You will see in the later posts, this is more that some databases offer.  
+- [x] **ability to query data** - We can query files by their name, content and directory structure. This is more that some real databases offer.
 
 This post is a preface for a more advanced series covering database mechanics and the variety of database types. If You are interested, subscribe to [RSS](https://indexoutofrange.com/feed.xml), or follow on [Twitter](https://twitter.com/maklipsa)
+
+<style>
+#wrapper{
+    width:100%;
+    display:none; 
+}
+.button{
+    height:40px; 
+    position:relative; margin: -20px -100px; 
+    width:200px; 
+    left:50%;
+    cursor: pointer;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $("#wrapper").show();
+    $("#wrapper").nextAll().hide();
+    function show(){
+        $("#wrapper").nextAll().show();
+        $("#wrapper").hide();
+    }
+</script>

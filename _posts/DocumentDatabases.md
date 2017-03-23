@@ -22,14 +22,21 @@
 - [counting the number of items can be expensive](https://www.g2crowd.com/survey_responses/dynamodb-review-103848)
 - [primary key - hash or hash range](https://www.slideshare.net/HirokazuTokuno/dynamo-32451865)
 - [No Date types](https://www.slideshare.net/HirokazuTokuno/dynamo-32451865)
+- [Document access in Couchbase is strongly consistent, query access is eventually consistent](https://blog.couchbase.com/10-things-developers-should-know-about-couchbase/)
+- [no limit on buckets but keep it under 10](https://blog.couchbase.com/10-things-developers-should-know-about-couchbase/)
 
+## Couchbase
 
-Couchbase
-
+- [buckets and vbuckets](https://dzone.com/articles/couchbase-architecture-deep)
 - [N1QL from version 4.5](https://developer.couchbase.com/documentation/server/4.5/getting-started/first-n1ql-query.html)
 - [Operations on arrays](http://query.pub.couchbase.com/tutorial/#12)
 - [Couchbase mobile and auto synch to server](https://www.g2crowd.com/survey_responses/couchbase-review-88037)
-- 
+- [slow queries on non index fields](https://forums.couchbase.com/t/very-slow-performance-on-query-without-index-on-simple-documents/6410/2)
+- [partial updates from version 4.6](https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html) / [no partial updates](https://forums.couchbase.com/t/does-couchbase-partial-json-update/5206)
+- [couchbase architecture info](https://dzone.com/articles/couchbase-architecture-deep)
+- [the client know about the topology](http://www.infoworld.com/article/2613970/nosql/nosql-showdown--mongodb-vs--couchbase.html?page=3)
+- [consistent on document level, no multi document transtions](https://developer.couchbase.com/documentation/server/4.6/concepts/data-management.html)
+
 ## Notes
 
 - [MongoDB Wikipedia](https://en.wikipedia.org/wiki/MongoDB)

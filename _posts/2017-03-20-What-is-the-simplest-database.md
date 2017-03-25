@@ -4,6 +4,7 @@ title: What is the simplest database?
 description: "You almost can't go simpler than key-value databases, but even them are more complex than they seem."
 modified: 2017-03-20
 tags: [databases, architecture, key-value, analysis, comparison]
+series: "databases"
 image:
   feature: data/2017-03-20-What-is-the-simplest-database/logo.jpg
 ---

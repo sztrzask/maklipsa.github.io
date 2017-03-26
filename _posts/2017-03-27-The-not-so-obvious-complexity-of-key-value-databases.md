@@ -142,30 +142,32 @@ Riak, an implementation of [Amazon Dynamo paper](http://www.allthingsdistributed
 
 ### Data types
 
-As I wrote before key-value stores don't care about the schema of stored objects, but they have special purpouse data types. In Riak case its:
+Key-value databases treat stored values as blobs, but some of them implement types that have a particular purpose and have separate API. In Riak case its:
 
 - [`Flags`](http://docs.basho.com/riak/kv/2.2.1/developing/data-types/maps/#flags) - true/false values. Can only be used inside a map type.
 - [`Registers`](http://docs.basho.com/riak/kv/2.2.1/developing/data-types/maps/#registers) - named binaries. Also can only be used inside a map 
-- [`Counters`](http://docs.basho.com/riak/kv/2.2.1/developing/data-types/counters/) - as the number suggests incremented integers. Can be used in a map and as a value on its own. 
-- [`Sets`](http://docs.basho.com/riak/kv/2.2.1/developing/data-types/sets/) - collection of binary values. Similar to the Counter type can be used on its own and in a map. 
+- [`Counters`](http://docs.basho.com/riak/kv/2.2.1/developing/data-types/counters/) - as the number suggests incremented integers. Can be used in a `map` and as a value on its own. 
+- [`Sets`](http://docs.basho.com/riak/kv/2.2.1/developing/data-types/sets/) - collection of binary values. Similar to the Counter type can be used on its own and in a `map`. 
 - [`Maps`](http://docs.basho.com/riak/kv/2.2.1/developing/data-types/maps/) - collection of values. Differently than Sets they can contain other data types, even other maps. 
-- [`HyperLogLog`](http://docs.basho.com/riak/kv/2.2.0/developing/data-types/hyperloglogs/) - a propabilistic structure for checking cardinality of a set.
+- [`HyperLogLog`](http://docs.basho.com/riak/kv/2.2.0/developing/data-types/hyperloglogs/) - a probabilistic structure for checking cardinality of a set.
 
 ### Clustering
 
-Riak supports clustering with tunnable consistensy. How is it done? Since the cluster is a ring architecture, like this:
+Riak supports clustering with tunable consistency. How is it done? Since the cluster is a ring architecture, like this:
 
 ![](/data/2017-03-27-The-not-so-obvious-complexity-of-key-value-databases/riak-ring.png)  
 
-Tuning the level of consistensy is done by defining how many nodes have to accept the operation before it's confirmed (default is 3). 
+Tuning the level of consistency is done by defining how many nodes have to accept the operation before it's confirmed (default is 3). 
 
-Riak cluster has very interesting properties:
+Riak goal from CAP is A, and it tries to achieve it by constructing a cluster where:
 
-- no master nodes (it is a characteristic of ring clusters).
-- any node can accept write for any key (no master node for a given hash value).
-- allows simultanious writes to a single key.
+- nodes are organized in a ring
+- there are no master nodes (it is a characteristic of ring clusters).
+- any node can accept writes for any key (no master node for a given hash value).
+- allows concurrent writes for a single key.
 
-This leads to the need for conflict resolution. Riak documentation suggests using custom types, since conflict resolution works better with them. In case of not defined types we have [multiple possibilities](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/): [timestamp](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#timestamp-based-resolution), [last-write-wins](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#last-write-wins) and [on the application side](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#resolve-conflicts-on-the-application-side). This works most of the time, but there have been people complaining about [Riak resurecting deleted keys even days after deletion](https://www.trustradius.com/reviews/riak-2015-12-01-11-11-07). Apparently it is better to set a custom `Deleted` flag than to delete.
+Allowing for concurrent writes to multiple machines leads to the need for conflict resolution. One way to mitigate the risk of a collision is to use Riak's custom types. Riaks behavior when dealing with conflicts can be configured, and ranges from [timestamp](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#timestamp-based-resolution), [last-write-wins](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#last-write-wins) to [letting the client decide](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#resolve-conflicts-on-the-application-side). 
+One thing to note is that it's not hard to find people complaining about [Riak resurrecting deleted values even days after deletion](https://www.trustradius.com/reviews/riak-2015-12-01-11-11-07).
  
 ### Must-haves:
 
@@ -187,14 +189,15 @@ This leads to the need for conflict resolution. Riak documentation suggests usin
 
 > Designed for: speed
 
-The number one should not be a shock to anyone. Redis is, as the full name suggests, a  **RE**mote **DI**ctionary **S**erver. Over the years it has grown a few functions more than it's oryginal purpuse, but it still is a memory key-value dictionary.
+The number one should not be a shock to anyone. Redis is, as the full name suggests, a  **RE**mote **DI**ctionary **S**erver. Over the years it has grown a few functionalities, but it still is a memory key-value dictionary.
 
 ### Architecture
 
-I must say I like how well thought out Redis concepts are, and how it builds powerful features using it's basic rules.
-Redis show that simplicity is speed. It runs on one thread and hosts only one database. To run multiple databases, run multiple Redis servers. Other important thing to note is that it is mainly a in-memory store with *optional* persistance:
+Redis show that simplicity is speed. It runs on one thread and hosts one database. To run multiple databases, run multiple Redis servers. Another important thing to note is that it is mainly an in-memory store with [*optional* persistence](https://redis.io/topics/persistence):
 
-- 
+- point in time snapshot
+- **A**ppend **O**nly **F**ile with async writes
+- combination of two above
 
 Thanks to the idea that *everything is a string* Redis exposes a interface for manipulating the values right on the database, without the need to send them to the client.  
 One last thing to note is that Redis has the option to write Lua scrips.

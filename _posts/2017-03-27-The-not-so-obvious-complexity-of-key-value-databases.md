@@ -9,7 +9,7 @@ image:
 ---
 
 
-The [previous post](/What-is-the-simplest-database/) laid out the most minimal requierments for something to be called a database. While they may be to bare bones for many there are a lot of databases that don't fulfil even half of them, and we are still using them on daily basis.
+The [previous post](/What-is-the-simplest-database/) laid out the most minimum requirements for something to be called a database. While they may be too bare bones for many, there are a lot of databases that don't fulfill even half of them, and this isn't stopping from using them on a daily basis.
 
 The last time I've looked at files, this time something a bit more complex - key-value databases.
 
@@ -23,33 +23,32 @@ The idea behind key-value databases is very simple:
 
 So we are saying goodbye to:
 
-- tables and columns - everything is a blob
+- tables, columns or ant data typing - everything is a blob of some kind
 - relations
-- in most cases any typing of data - it is ether a bite array or a string
 - complex operations 
 
-This is a lot, what do we gain?
+We gave almost everything,  what do we gain in exchange?
 
 # Why use a key-value database?
 
 ## Speed
 
-If You are thinking that getting the object from a key-value database is more or less the same as a index lookup in a relational database, keep on reading because You are very wrong, an order of [big **O**](https://en.wikipedia.org/wiki/Big_O_notation) wrong.
+If You are thinking that getting the object from a key-value database is more or less the same as an index lookup in a relational database, keep on reading because You are very wrong, an order of [big **O**](https://en.wikipedia.org/wiki/Big_O_notation) wrong.
 
 Indexes in relational databases are implemented using a [B-Tree structure](https://en.wikipedia.org/wiki/B-tree) that looks like this:
 
 ![](/data/2017-03-27-The-not-so-obvious-complexity-of-key-value-databases/B-tree.png)
 
-> This is one of the most fundamental structure for modern computer science. If You don’t know it please at least read [this Wikipedia page](https://en.wikipedia.org/wiki/B-tree). It will be a time well spend.
+> This is one of the most fundamental data structure in modern computer science. If You don’t know it please at least read [this Wikipedia page](https://en.wikipedia.org/wiki/B-tree). It will be a time well spend.
 
-While this is an amazing structure it has to obey the rules of mathematics when it comes to cost of search:
+While this is an amazing structure it has to obey the rules of mathematics when it comes to the cost of search:
 
 `O(log(n/m))`
 
 where:
 
-- n is the total number of elements
-- m - number of elements in a single node.
+- n - the total number of elements
+- m - the number of items in a single node.
 
 To contrast it, **most** key-value databases store the data in memory, so they can use a hashing function to determine the position of the element in the array. It's cost is:
 
@@ -59,47 +58,47 @@ You can't get any better than this.
 
 ## Simplicity
 
-If something is simple it breaks less often, is easier to maintain and to reason about. Without this simplicity we wouldn't have the next point. 
+If something is simple it breaks less often, is easier to maintain and to reason about. Without this simplicity, we wouldn't have the next point. 
 
 ## Horizontal scaling
 
-These rules:
+When we introduce the following rules, that most key-value databases implement:
 
-- the key is the only way to identify a value
-- hash function transforms the key into an integer in a deterministic way 
-- we aren't doing any aggregate operations
-- update always updates the **whole** value (the database doesn't know anything about the schema of the value)
+- the key is the only way to identify an item
+- the hash function transforms the key into an integer in a deterministic way 
+- we aren't doing any, or are limiting the scope, of aggregate operations
+- update always updates the **whole** value (since the database doesn't know about the schema of the item)
 
-This makes it very easy to horizontally scale such a solution. In the most simplistic way:
+Having those assumptions allow scaling such a solution horizontally easily. In the most simplistic way:
 
 `hash(key) % NUMBER_OF_SERVERS`
 
-This is an oversimplification, but some key-value databases actually use it. 
+While an oversimplification, but some key-value databases use it. 
 
 # What not to expect from key-value databases
 
-If You have been living in RDMS land here are some things not to look for in key value databases:
+If You have been living in RDMS land here are some things not to look for in key-value databases:
 
 ## Transactions
 
-It is very rare to see them in key-value databases. Instead we have `atomicity`. What is the difference?
+It is very rare to see them in key-value databases. Instead, we have `atomicity`. What is the difference?
 
-- **Atomicity** - means that the operation will execute or not. In short, in case of failure we won't up with corrupted data.
+- **Atomicity** - means that the operation will execute or not. In short, in the case of failure, we won't up with corrupted data.
 - **Transaction** - a series of multiple operations that will execute atomicity as one.
 
-Is the lack of transactions a problem? No. Let's examine the cases when we would actually use them:
+Is the lack of transactions a problem? No. Let's examine the cases when we would use them:
 
 - `SELECT` - no need for transactions. We ask for an element and get it back.
 - `DELETE`- single `DELETE` is atomic, so no problem here. The need could arrive when doing multiple deletes. This case boils down to the fact how did we get the keys of the elements to delete?
  
-	- If we stored those keys as a value of another key - go to the `complex statements flows`.
-	- If we want to delete values which keys fulfil some patter than just retry the delete.        
+    - If we stored those keys as a value of another key - go to the `complex statements flows`.
+    - If we want to remove values, which keys fulfill some pattern then just retry the delete.
 - `UPDATE` - the same as with `DELETE`.
-- `complex statements flows` - the need for it happens when the value of one key contains keys that should be, for example, deleted. This means that there is a relation, and this means that we are trying to do a RDMS on top of a key-value database, and this is not a good idea. 
+- `complex statements flows` - the need for it happens when the value of one key contains keys that should be, for example, deleted. This means that there is a relation, and this means that we are trying to simulate an RDMS on top of a key-value database, and it's not a good idea. 
 
 ## Examples
 
-While those are very simple databases they differ quite strongly. To show that let's examine [3 most popular key-value databases according to db-engines](http://db-engines.com/en/ranking/key-value+store). 
+While those are very simple databases, they differ quite significantly. To show that let's examine [3 most popular key-value databases according to db-engines](http://db-engines.com/en/ranking/key-value+store). 
 
 <br/>
 <br/>
@@ -111,16 +110,17 @@ While those are very simple databases they differ quite strongly. To show that l
 > Designed for: **cache**
 
 I'm starting from the third place and also from the oldest database in the ranking (initial release in 2003).
-Memcached is not exactly a database since it's main feature is auto deleting data. Think of it as a huge, fixed size, cache with auto deletion of items based on a FIFO. All items are stored in the memory, and there is no way to persist it (but let's face it: there is no sense for persistance if the database can delete the data at any time).
+Memcached is not exactly a database since its main feature involves auto deleting data. Think of it as a massive, fixed size in memory cache.  When there is no more memory available Memcached will remove the oldest values until it frees enough memory to store the new value.  Memcached doesn't have any option of persistence to disc, but let's face it: there is no sense for persistence if the database can delete the data at any time.
 
 Since Memcached is a cache store it has some limits on key and value sizes:
 
 - key: up to 250 bytes
 - value: up to 1MB
 
+Let's look at the must and should ave
 ### Must-haves:
 
-- [ ] **ability to reliably persist data** - Memcached will auto delete the oldest data, so this point is out. Also we are talking about a database that stores everything in memory, so let's not call it *reliable persistance*.
+- [ ] **ability to reliably persist data** - Memcached will auto delete the oldest data, and we are talking about a database that stores everything in memory, so let's not call it *reliable persistence*.
 - [x] **ability to reliably retrieve data** - If the data wasn't deleted it will be returned.
 - [ ] **ability to delete data** - This is a cache and it takes care of deleting.
 
@@ -136,9 +136,9 @@ Since Memcached is a cache store it has some limits on key and value sizes:
 
 ## Riak
 
-> Designed for: key-value database synchronized accros multiple data centers
+> Designed for: key-value database synchronized across multiple data centers
  
-The second place is taken by Riak, which is a implementation of [Amazon Dynamo paper](http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf). Riak is a completely different beast than Memcached and was build to solve different problems. It's a distributed, cross data center, persistent key-value database aiming for availability, even at the cost of consistency. The above statement contains a lot of information, so let's decompose.
+Riak, an implementation of [Amazon Dynamo paper](http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf),  is an entirely different beast than Memcached and was build to solve other problems. It's a distributed, cross data center, persistent key-value database aiming for availability, even at the cost of consistency. The above statement contains a lot of information, so let's decompose.
 
 ### Data types
 
@@ -244,27 +244,27 @@ Redis Cluster is **not able to guarantee strong consistency**.
 # Comparison
 
 |---
-| Option          		| Memcached 	| Riak	| Redis		| 
+| Option                  | Memcached     | Riak    | Redis        | 
 |:----------------------|:--------------|:------|:----------|
-| Key limits      		|250 bytes 		|No limit|			|
-| Value limits    		|1 MB      		|No limit|512 MB	|
-| Persistent			|No				|Yes	|			|
-| Connection protocol	|TCP/IP			|HTTP	|TCP/IP		|
-| Key scans				|No				|No*	|Yes		|
-| Scripting				|No				|No		|Yes(Lua)	|
-| Data schema			|No				|Yes	|			|
-| Data is stored as a	|binary			|binary	|string		|
-| 						|				|		|			|
-|Licence				|BSD 3-clause	|Apache 2|BSD 3-clause|
-|**Cluster**			|				|		|			|
-| Cluster info			|client knows all servers in cluster| | |
-| Cluster architecture	|share nothing	|ring	|		|
-| Consistency			|Doesn't apply	| Tunnable from eventual to strong|			|
-| Replication			|No				|Configurable|Async	|		
-| Multi data center sync|No				|Yes	|		|
-| Run on				|Windows/Linux/Unix|Linux		|		|
-| Main features			|auto deletion of data|			|			|
-| Build for				|cache server	|Key-value store accros multiple data centers|		|
+| Key limits              |250 bytes         |No limit|            |
+| Value limits            |1 MB              |No limit|512 MB    |
+| Persistent            |No                |Yes    |            |
+| Connection protocol    |TCP/IP            |HTTP    |TCP/IP        |
+| Key scans                |No                |No*    |Yes        |
+| Scripting                |No                |No        |Yes(Lua)    |
+| Data schema            |No                |Yes    |            |
+| Data is stored as a    |binary            |binary    |string        |
+|                         |                |        |            |
+|Licence                |BSD 3-clause    |Apache 2|BSD 3-clause|
+|**Cluster**            |                |        |            |
+| Cluster info            |client knows all servers in cluster| | |
+| Cluster architecture    |share nothing    |ring    |        |
+| Consistency            |Doesn't apply    | Tunnable from eventual to strong|            |
+| Replication            |No                |Configurable|Async    |        
+| Multi data center sync|No                |Yes    |        |
+| Run on                |Windows/Linux/Unix|Linux        |        |
+| Main features            |auto deletion of data|            |            |
+| Build for                |cache server    |Key-value store accros multiple data centers|        |
 
 
 legend:

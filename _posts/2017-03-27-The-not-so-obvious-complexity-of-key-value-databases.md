@@ -247,17 +247,6 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 - [ ] **has transactions** - No transaction support.
 - 
 
-## Architecture 
-
-- pattern search for keys (returns only keys, that have to be than fetched)
-- [ ] max value size/max key size
-- cluster is a all connected system
-- Lua scripting
-
-### Redis cluster
-
-Redis Cluster is **not able to guarantee strong consistency**.
-
 
 # Comparison
 
@@ -268,7 +257,7 @@ Redis Cluster is **not able to guarantee strong consistency**.
 | Value limits            |1 MB              |No limit|512 MB    |
 | Persistent            |No                |Yes    |            |
 | Connection protocol    |TCP/IP            |HTTP    |TCP/IP        |
-| Key scans                |No                |No*    |Yes        |
+| Key scans                |No                |Done with Solr    |Yes        |
 | Scripting                |No                |No        |Yes(Lua)    |
 | Data schema            |No                |Yes    |            |
 | Data stored    |binary            |binary    |string        |
@@ -283,11 +272,6 @@ Redis Cluster is **not able to guarantee strong consistency**.
 | Run on                |Windows/Linux/Unix|Linux        |        |
 | Main features            |auto deletion of data|            |            |
 | Build for                |cache server    |Key-value store across multiple data centers|        |
-
-
-legend:
-
-- `*` - it has support for search using Solr
 
 
 ## Drawbacks

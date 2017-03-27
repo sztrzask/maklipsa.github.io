@@ -41,7 +41,7 @@ Indexes in relational databases are implemented using a [B-Tree structure](https
 
 > This is one of the most fundamental data structure in modern computer science. If You don’t know it please at least read [this Wikipedia page](https://en.wikipedia.org/wiki/B-tree). It will be a time well spend.
 
-While this is an amazing structure it has to obey the rules of mathematics when it comes to the cost of search:
+While this is a remarkable structure it has to obey the rules of mathematics when it comes to the cost of search:
 
 `O(log(n/m))`
 
@@ -121,8 +121,8 @@ Let's look at the must and should ave
 ### Must-haves:
 
 - [ ] **ability to reliably persist data** - Memcached will auto delete the oldest data, and we are talking about a database that stores everything in memory, so let's not call it *reliable persistence*.
-- [x] **ability to reliably retrieve data** - If the data wasn't deleted it will be returned.
-- [ ] **ability to delete data** - This is a cache and it takes care of deleting.
+- [ ] **ability to reliably retrieve data** - If the data wasn't deleted it will be returned.
+- [x] **ability to delete data**
 
 ### Should-haves:
 
@@ -166,7 +166,7 @@ Riak goal from CAP is A, and it tries to achieve it by constructing a cluster wh
 - any node can accept writes for any key (no master node for a given hash value).
 - allows concurrent writes for a single key.
 
-Allowing for concurrent writes to multiple machines leads to the need for conflict resolution. One way to mitigate the risk of a collision is to use Riak's custom types. Riaks behavior when dealing with conflicts can be configured, and ranges from [timestamp](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#timestamp-based-resolution), [last-write-wins](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#last-write-wins) to [letting the client decide](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#resolve-conflicts-on-the-application-side). 
+Allowing for concurrent writes to multiple machines leads to the need for conflict resolution. One way to mitigate the risk of a collision is to use Riak's custom types. Riak's behavior when dealing with conflicts can be configured, and ranges from [timestamp](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#timestamp-based-resolution), [last-write-wins](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#last-write-wins) to [letting the client decide](http://docs.basho.com/riak/kv/2.2.1/developing/usage/conflict-resolution/#resolve-conflicts-on-the-application-side). 
 One thing to note is that it's not hard to find people complaining about [Riak resurrecting deleted values even days after deletion](https://www.trustradius.com/reviews/riak-2015-12-01-11-11-07).
  
 ### Must-haves:
@@ -197,19 +197,19 @@ Redis show that simplicity is speed. It runs on one thread and hosts one databas
 
 - point in time snapshot
 - **A**ppend **O**nly **F**ile with async writes
-- combination of two above
+- bouth of the above
 
-Thanks to the idea that *everything is a string* Redis exposes a interface for manipulating the values right on the database, without the need to send them to the client.  
-One last thing to note is that Redis has the option to write Lua scrips.
+Building upon the idea that *everything is a string* Redis exposes an interface for manipulating the values right on the database, without the need to send them to the client.  
+One last thing to note is that Redis has the option to write Lua scripts.
 
 ### Data structures
 
-Redis, similarly to Riak implements custom data structure, but non structured data is stored as a string, not as binary. Custom data structures are:
+Redis, similarly to Riak implements custom data structure, but nonstructured data is stored as a string, not as binary. Custom data structures are:
 
-- `Binary-safe strings`
-- `Lists` - collections of string elements sorted according to the order of insertion. Implemented as linked lists
-- `Sets` -  collections of unique, unsorted string elements.
-- `Sorted sets` - similar to `Sets` but every string element has a score(floating number). The elements are always taken sorted by their score, so unlike Sets it is possible to retrieve a range of elements (for example: the top 10, or the bottom 10).
+- `Binary-safe string`
+- `Lists` - collections of strings sorted according to the order of insertion (a linked list)
+- `Sets` -  collections of unique, unsorted strings.
+- `Sorted sets` - similar to `Sets` but every string has a score (a floating number). Elements are always sorted by score, so unlike `Sets` it is possible to retrieve ranges like top or bottom 10.
 - `Hashes` - maps composed of fields associated with values. Both the field and the value are strings.
 - `Bit arrays` - allows to set, clear, count and find the first set or unset bit.
 - `HyperLogLogs` - the same as in Riak
@@ -219,15 +219,15 @@ Redis, similarly to Riak implements custom data structure, but non structured da
 Redis is taking a different approach to clustering than the previous two:
 
 - all nodes are connected
-- values are automaticly shared on multiple servers
-- has the concept of master datasets
-- it does not guarantee [strong constistency](https://redis.io/topics/cluster-tutorial)
-- client should hold a routing table for a cluster
-- cluster is a self healing one. It can detect not responding and new nodes      
+- values are automatically propagated to multiple servers
+- has the concept of master and slave datasets 
+- it does not guarantee [strong constistency](https://redis.io/topics/cluster-tutorial)(https://redis.io/topics/cluster-tutorial)
+- it if advised for the client to keep an up to date routing table of the cluster
+- it can detect not responding and new nodes.
 - nodes do not proxy requests. This means that if we request a key not present on the current node the server will return `MOVED` command to the client.
-- multi node commands and Lua scripts are limited to near keys (no cross server operations)
-- replication is anychronius
-- one node should server 
+- multi-node commands and Lua scripts are limited to near keys (no cross server operations)
+- replication is asynchronous
+- only one node accepts a write for a given key
 
 ### Pub-sub
 
@@ -262,12 +262,12 @@ Redis Cluster is **not able to guarantee strong consistency**.
 |**Cluster**            |                |        |            |
 | Cluster info            |client knows all servers in cluster| | |
 | Cluster architecture    |share nothing    |ring    |        |
-| Consistency            |Doesn't apply    | Tunnable from eventual to strong|            |
+| Consistency            |Doesn't apply    | Tunable from eventual to strong|            |
 | Replication            |No                |Configurable|Async    |        
 | Multi data center sync|No                |Yes    |        |
 | Run on                |Windows/Linux/Unix|Linux        |        |
 | Main features            |auto deletion of data|            |            |
-| Build for                |cache server    |Key-value store accros multiple data centers|        |
+| Build for                |cache server    |Key-value store acros multiple data centers|        |
 
 
 legend:

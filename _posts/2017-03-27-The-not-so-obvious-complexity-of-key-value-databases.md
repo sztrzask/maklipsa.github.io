@@ -121,15 +121,15 @@ Let's look at the must and should haves:
 
 ### Must-haves:
 
-- [ ] **ability to reliably persist data** - Memcached will auto delete the oldest data, and we are talking about a database that stores everything in memory, so let's not call it *reliable persistence*.
-- [ ] **ability to reliably retrieve data** - If the data wasn't deleted it will be returned.
+- [-] **ability to reliably persist data** - Memcached will auto delete the oldest data, and we are talking about a database that stores everything in memory, so let's not call it *reliable persistence*.
+- [-] **ability to reliably retrieve data** - If the data wasn't deleted it will be returned.
 - [x] **ability to delete data** - using [delete command](https://www.tutorialspoint.com/memcached/memcached_delete_key.htm){:target="_blank"}
 
 ### Should-haves:
 
-- [ ] **ability to query data** - We can't do any matching on keys.
+- [-] **ability to query data** - We can't do any matching on keys.
 - [x] **ability to update data** - We can update the whole value. No partial updates. 
-- [ ] **has transactions** - No the case in this databases.   
+- [-] **has transactions** - No the case in this databases.   
 
 <br/>
 <br/>
@@ -178,9 +178,9 @@ One thing to note is that it's not hard to find people complaining about [Riak r
 
 ### Should-haves:
 
-- [ ] **ability to query data** - We can't do any matching on keys, although it supports key searches using Solr.
+- [-] **ability to query data** - We can't do any matching on keys, although it supports key searches using Solr.
 - [x] **ability to update data** - When using custom types they are possible. With blobs, no.
-- [ ] **has transactions** - No transaction support.
+- [-] **has transactions** - No transaction support.
 
 <br/>
 <br/>
@@ -236,7 +236,7 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 
 ### Must-haves:
 
-- [ ] **ability to reliably persist data** - This is not the main goal of Redis. Provided persistence options don't give 100% certainty of data recovery in case of for example power failure.  
+- [-] **ability to reliably persist data** - This is not the main goal of Redis. Provided persistence options don't give 100% certainty of data recovery in case of for example power failure.  
 - [x] **ability to reliably retrieve data** - Redis has the notion of a master node for a given key and if we don't mess with the routing table data will be returned reliably.   
 - [x] **ability to delete data** - just works.
 
@@ -244,40 +244,35 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 
 - [x] **ability to query data** - Redis exposses API to search for keys matching a pattern. What to note is **it will return the keys, not the values**.
 - [x] **ability to update data** - Works with custom types, and with blobs. Since everything is a string Redis provides string operations that are executed on the server and thus don't require a round trip to the client.  
-- [ ] **has transactions** - No transaction support.
-- 
+- [-] **has transactions** - No transaction support.
 
 
 # Comparison
 
 |---
-| Option                  | Memcached     | Riak    | Redis        | 
-|:----------------------|:--------------|:------|:----------|
-| Key limits              |250 bytes         |No limit|            |
-| Value limits            |1 MB              |No limit|512 MB    |
-| Persistent            |No                |Yes    |            |
-| Connection protocol    |TCP/IP            |HTTP    |TCP/IP        |
-| Key scans                |No                |Done with Solr    |Yes        |
-| Scripting                |No                |No        |Yes(Lua)    |
-| Data schema            |No                |Yes    |            |
-| Data stored    |binary            |binary    |string        |
-|                         |                |        |            |
-|Licence                |BSD 3-clause    |Apache 2|BSD 3-clause|
-|**Cluster**            |                |        |            |
-| Cluster info            |client knows all servers in cluster| | |
-| Cluster architecture    |share nothing    |ring    |        |
-| Consistency            |Doesn't apply    | Tunable from eventual to strong|            |
-| Replication            |No                |Configurable|Async    |        
-| Multi data center sync|No                |Yes    |        |
-| Run on                |Windows/Linux/Unix|Linux        |        |
-| Main features            |auto deletion of data|            |            |
-| Build for                |cache server    |Key-value store across multiple data centers|        |
+| Option                  	| Memcached     	| Riak    		| Redis        	| 
+|:--------------------------|:------------------|:--------------|:--------------|
+| Key limits              	|250 bytes         	|No limit		|No limit		|
+| Value limits	            |1 MB              	|No limit		|512 MB    		|
+| Persistent            	|No                	|Yes    		|Optional		|
+| Connection protocol    	|TCP/IP            	|HTTP    		|TCP/IP        	|
+| Key scans                	|No                	|Done with Solr |Yes        	|
+| Scripting                	|No                	|No        		|Yes(Lua)    	|
+| Data schema            	|No                	|Custom types + blob|Custom types + blob|
+| Data stored    			|binary            	|binary    		|string        	|
+|Licence                	|BSD 3-clause    	|Apache 2		|BSD 3-clause	|
+|  		                    |                	|	        	|            	|
+|**Cluster**            	|                	|        		|            	|
+| Cluster info            	|Client knows all servers in cluster|Client knows some nodes|Client knows the routing table|
+| Cluster architecture    	|share nothing    	|ring    		|all connected	|
+| Consistency            	|Doesn't apply    	| Tunable from eventual to strong|No guarantee|
+| Replication            	|No                	|Configurable	|Async    		|        
+| Multi data center sync	|No                	|Yes    		|No        		|
+|  		                    |                	|	        	|            	|
+| Run on                	|Windows/Linux/Unix	|Linux        	|Windows/Linux	|
+| Main features            	|auto deletion of data|multi data center replication|speed/pub-sub            |
+| Build for                	|cache server    	|Key-value store across multiple data centers|speed       |
 
-
-## Drawbacks
-
-### In memory
-### Large objects
 
 ## Further reading:
 
@@ -289,10 +284,6 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 - [Riak reviews](https://www.g2crowd.com/products/riak/reviews){:target="_blank"}
 - [Most popular Key-value databases comparison on db-engines.com](http://db-engines.com/en/system/Memcached%3BRedis%3BRiak+KV){:target="_blank"}
 - [Very good Memcached Wikipedia page](https://en.wikipedia.org/wiki/Memcached){:target="_blank"}
-
-
-TODO:
-- dopisać się tu:http://stackoverflow.com/questions/37059609/what-are-riak-advantages-for-redis-key-value-store
 
 <style>
 div.entry-content .logo{

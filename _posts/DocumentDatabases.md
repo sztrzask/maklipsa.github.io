@@ -20,10 +20,11 @@
 - [Secondary indexes are not supported](https://www.trustradius.com/reviews/amazon-dynamodb-2016-08-18-15-51-58)
 - [can't store empty strings](https://www.g2crowd.com/survey_responses/dynamodb-review-220581)
 - [counting the number of items can be expensive](https://www.g2crowd.com/survey_responses/dynamodb-review-103848)
-- [primary key - hash or hash range](https://www.slideshare.net/HirokazuTokuno/dynamo-32451865)
-- [No Date types](https://www.slideshare.net/HirokazuTokuno/dynamo-32451865)
+- [primary key - hash or hash range](https://www.slideshare.net/HirokazuTokuno/dynamo-32451865) http://stackoverflow.com/questions/27329461/what-is-hash-and-range-primary-key
+- [No Date types](https://www.slideshare.net/HirokazuTokuno/dynamo-32451865), http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html
 - [Document access in Couchbase is strongly consistent, query access is eventually consistent](https://blog.couchbase.com/10-things-developers-should-know-about-couchbase/)
 - [no limit on buckets but keep it under 10](https://blog.couchbase.com/10-things-developers-should-know-about-couchbase/)
+- 
 
 ## Couchbase
 

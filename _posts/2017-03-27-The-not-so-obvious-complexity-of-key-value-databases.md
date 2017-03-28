@@ -5,7 +5,7 @@ description: ""
 series: "databases"
 tags: [Redis, database, key-value]
 image:
-  feature: data/2017-03-27-The-not-so-obvious-complexity-of-key-value-databases/logo.jpg
+  feature: data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/logo.jpg
 ---
 
 
@@ -37,7 +37,7 @@ If You are thinking that getting the object from a key-value database is more or
 
 Indexes in relational databases are implemented using a [B-Tree structure](https://en.wikipedia.org/wiki/B-tree){:target="_blank"} that looks like this:
 
-![](/data/2017-03-27-The-not-so-obvious-complexity-of-key-value-databases/B-tree.png)
+![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/B-tree.png)
 
 > This is one of the most fundamental data structure in modern computer science. If You don’t know it please at least read [this Wikipedia page](https://en.wikipedia.org/wiki/B-tree){:target="_blank"}. It will be a time well spend.
 
@@ -67,7 +67,7 @@ When we introduce the following rules, that most key-value databases implement:
 - the key is the only way to identify an item
 - the hash function transforms the key into an integer in a deterministic way 
 - we aren't doing any, or are limiting the scope, of aggregate operations
-- update always updates the **whole** value (since the database doesn't know about the schema of the item)
+- update changes the **whole** value (since the database doesn't know about the schema of the item). There are some databases that bypassed this rule. For more keep on reading.
 
 Having those assumptions allow scaling such a solution horizontally easily. In the most simplistic way:
 
@@ -103,14 +103,14 @@ While those are very simple databases, they differ quite significantly. To show 
 <br/>
 <br/>
 
-![](/data/2017-03-27-The-not-so-obvious-complexity-of-key-value-databases/memcached.jpg){: .logo}
+![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/memcached.jpg){: .logo}
 
 ## Memcached
 
 > Designed for: **cache**
 
 I'm starting from the third place and also from the oldest database in the ranking (initial release in 2003).
-Memcached is not exactly a database since its main feature involves auto deleting data. Think of it as a massive, fixed size, in memory cache.  When there is no more memory available Memcached will start removing oldest values until it frees enough memory to store the new value.  Memcached doesn't have any option of persistence to disc, but let's face it: there is no sense for persistence if the database can delete the data at any time.
+Memcached is not exactly a database since its main feature involves auto deleting data. Think of it as a massive, fixed size, in memory cache. When there is no more memory available Memcached will start removing elements using the LRU algorithm. It starts deleting the least used values until it frees enough memory to store the new value.  Memcached doesn't have any option of persistence to disc, but let's face it: there is no sense for persistence if the database can delete the data at any time.
 
 Since Memcached is a cache store it has some limits on key and value sizes:
 
@@ -133,7 +133,7 @@ Let's look at the must and should haves:
 
 <br/>
 <br/>
-![](/data/2017-03-27-The-not-so-obvious-complexity-of-key-value-databases/riak.png){: .logo}
+![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/riak.png){: .logo}
 
 ## Riak
 
@@ -156,7 +156,7 @@ Key-value databases treat stored values as blobs, but some of them implement typ
 
 Riak supports clustering with tunable consistency. How is it done? Since the cluster is a ring architecture, like this:
 
-![](/data/2017-03-27-The-not-so-obvious-complexity-of-key-value-databases/riak-ring.png)  
+![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/riak-ring.png)  
 
 Tuning the level of consistency is done by defining how many nodes have to accept the operation before it's confirmed (default is 3). 
 
@@ -184,7 +184,7 @@ One thing to note is that it's not hard to find people complaining about [Riak r
 
 <br/>
 <br/>
-![](/data/2017-03-27-The-not-so-obvious-complexity-of-key-value-databases/redis.png){: .logo}
+![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/redis.png){: .logo}
 
 ## Redis
 

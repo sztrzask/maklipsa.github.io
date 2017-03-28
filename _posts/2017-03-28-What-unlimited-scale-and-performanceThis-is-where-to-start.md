@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Think You know something about key-value databases?
-description: ""
+title: What unlimited scale and performance? This is where to start
+description: "When looking for performance and scale, there is one database type to use."
 series: "databases"
-tags: [Redis, database, key-value]
+tags: [Redis, Riak, Memcached, database, key-value, architecture, preformance]
 image:
-  feature: data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/logo.jpg
+  feature: data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/logo.jpg
 ---
 
 
@@ -37,7 +37,7 @@ If You are thinking that getting the object from a key-value database is more or
 
 Indexes in relational databases are implemented using a [B-Tree structure](https://en.wikipedia.org/wiki/B-tree){:target="_blank"} that looks like this:
 
-![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/B-tree.png)
+![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/B-tree.png)
 
 > This is one of the most fundamental data structure in modern computer science. If You don’t know it please at least read [this Wikipedia page](https://en.wikipedia.org/wiki/B-tree){:target="_blank"}. It will be a time well spend.
 
@@ -83,7 +83,7 @@ If You have been living in RDMS land here are some things not to look for in key
 
 It is very rare to see them in key-value databases. Instead, we have **atomicity**. What is the difference?
 
-- **Atomicity** - means that the operation will execute or not. In short, in the case of failure, we won't up with corrupted or partially changed data.
+- **Atomicity** - means that the operation will execute or not. In short, in the case of failure, we won't end up with corrupted or partially changed data.
 - **Transaction** - a series of multiple operations that will execute atomicity as one.
 
 Is the lack of transactions a problem? No. Let's examine the cases when we would use them:
@@ -103,7 +103,7 @@ While those are very simple databases, they differ quite significantly. To show 
 <br/>
 <br/>
 
-![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/memcached.jpg){: .logo}
+![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/memcached.jpg){: .logo}
 
 ## Memcached
 
@@ -133,7 +133,7 @@ Let's look at the must and should haves:
 
 <br/>
 <br/>
-![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/riak.png){: .logo}
+![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/riak.png){: .logo}
 
 ## Riak
 
@@ -156,7 +156,7 @@ Key-value databases treat stored values as blobs, but some of them implement typ
 
 Riak supports clustering with tunable consistency. How is it done? Since the cluster is a ring architecture, like this:
 
-![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/riak-ring.png)  
+![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/riak-ring.png)  
 
 Tuning the level of consistency is done by defining how many nodes have to accept the operation before it's confirmed (default is 3). 
 
@@ -184,7 +184,7 @@ One thing to note is that it's not hard to find people complaining about [Riak r
 
 <br/>
 <br/>
-![](/data/2017-03-28-The-not-so-obvious-complexity-of-key-value-databases/redis.png){: .logo}
+![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/redis.png){: .logo}
 
 ## Redis
 
@@ -242,7 +242,7 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 
 ### Should-haves:
 
-- [x] **ability to query data** - Redis exposses API to search for keys matching a pattern. What to note is **it will return the keys, not the values**.
+- [x] **ability to query data** - Redis exposes API to search for keys matching a pattern. What to note is **it will return the keys, not the values**.
 - [x] **ability to update data** - Works with custom types, and with blobs. Since everything is a string Redis provides string operations that are executed on the server and thus don't require a round trip to the client.  
 - [-] **has transactions** - No transaction support.
 
@@ -250,29 +250,35 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 # Comparison
 
 |---
-| Option                  	| Memcached     	| Riak    		| Redis        	| 
+| Option                      | Memcached         | Riak            | Redis            | 
 |:--------------------------|:------------------|:--------------|:--------------|
-| Key limits              	|250 bytes         	|No limit		|No limit		|
-| Value limits	            |1 MB              	|No limit		|512 MB    		|
-| Persistent            	|No                	|Yes    		|Optional		|
-| Connection protocol    	|TCP/IP            	|HTTP    		|TCP/IP        	|
-| Key scans                	|No                	|Done with Solr |Yes        	|
-| Scripting                	|No                	|No        		|Yes(Lua)    	|
-| Data schema            	|No                	|Custom types + blob|Custom types + blob|
-| Data stored    			|binary            	|binary    		|string        	|
-|Licence                	|BSD 3-clause    	|Apache 2		|BSD 3-clause	|
-|  		                    |                	|	        	|            	|
-|**Cluster**            	|                	|        		|            	|
-| Cluster info            	|Client knows all servers in cluster|Client knows some nodes|Client knows the routing table|
-| Cluster architecture    	|share nothing    	|ring    		|all connected	|
-| Consistency            	|Doesn't apply    	| Tunable from eventual to strong|No guarantee|
-| Replication            	|No                	|Configurable	|Async    		|        
-| Multi data center sync	|No                	|Yes    		|No        		|
-|  		                    |                	|	        	|            	|
-| Run on                	|Windows/Linux/Unix	|Linux        	|Windows/Linux	|
-| Main features            	|auto deletion of data|multi data center replication|speed/pub-sub            |
-| Build for                	|cache server    	|Key-value store across multiple data centers|speed       |
+| Key limits                  |250 bytes             |No limit        |No limit        |
+| Value limits                |1 MB                  |No limit        |512 MB            |
+| Persistent                |No                    |Yes            |Optional        |
+| Connection protocol        |TCP/IP                |HTTP            |TCP/IP            |
+| Key scans                    |No                    |Done with Solr |Yes            |
+| Scripting                    |No                    |No                |Yes(Lua)        |
+| Data schema                |No                    |Custom types + blob|Custom types + blob|
+| Data stored                |binary                |binary            |string            |
+|Licence                    |BSD 3-clause        |Apache 2        |BSD 3-clause    |
+|                              |                    |                |                |
+|**Cluster**                |                    |                |                |
+| Cluster info                |Client knows all servers in cluster|Client knows some nodes|Client knows the routing table|
+| Cluster architecture        |share nothing        |ring            |all connected    |
+| Consistency                |Doesn't apply        | Tunable from eventual to strong|No guarantee|
+| Replication                |No                    |Configurable    |Async            |        
+| Multi data center sync    |No                    |Yes            |No                |
+|                              |                    |                |                |
+| Run on                    |Windows/Linux/Unix    |Linux            |Windows/Linux    |
+| Main features                |auto deletion of data|multi data center replication|speed/pub-sub            |
+| Build for                    |cache server        |Key-value store across multiple data centers|speed       |
 
+<br/>
+
+> Big thanks to Łukasz Pyrzyk for proofreading and pointing out some mistackes. Go check out [his blog](http://pyrzyk.net)
+
+
+Next, wide column databases.
 
 ## Further reading:
 

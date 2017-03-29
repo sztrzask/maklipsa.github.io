@@ -244,7 +244,7 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 
 - [x] **ability to query data** - Redis exposes API to search for keys matching a pattern. What to note is **it will return the keys, not the values**.
 - [x] **ability to update data** - Works with custom types, and with blobs. Since everything is a string Redis provides string operations that are executed on the server and thus don't require a round trip to the client.  
-- [-] **has transactions** - No transaction support.
+- [o] **has transactions** - There are no transactions in the RDMS understanding, but as Funbit pointed out, Lua scripts run atomicity.
 
 
 # Comparison

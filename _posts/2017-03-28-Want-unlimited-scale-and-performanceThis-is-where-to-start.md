@@ -1,11 +1,11 @@
 ---
 layout: post
-title: What unlimited scale and performance? This is where to start
+title: Want unlimited scale and performance? This is where to start
 description: "When looking for performance and scale, there is one database type to use."
 series: "databases"
 tags: [Redis, Riak, Memcached, database, key-value, architecture, preformance]
 image:
-  feature: data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/logo.jpg
+  feature: data/2017-03-28-Want-unlimited-scale-and-performanceThis-is-where-to-start/logo.jpg
 ---
 
 
@@ -37,7 +37,7 @@ If You are thinking that getting the object from a key-value database is more or
 
 Indexes in relational databases are implemented using a [B-Tree structure](https://en.wikipedia.org/wiki/B-tree){:target="_blank"} that looks like this:
 
-![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/B-tree.png)
+![](/data/2017-03-28-Want-unlimited-scale-and-performanceThis-is-where-to-start/B-tree.png)
 
 > This is one of the most fundamental data structure in modern computer science. If You don’t know it please at least read [this Wikipedia page](https://en.wikipedia.org/wiki/B-tree){:target="_blank"}. It will be a time well spend.
 
@@ -103,7 +103,7 @@ While those are very simple databases, they differ quite significantly. To show 
 <br/>
 <br/>
 
-![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/memcached.jpg){: .logo}
+![](/data/2017-03-28-Want-unlimited-scale-and-performanceThis-is-where-to-start/memcached.jpg){: .logo}
 
 ## Memcached
 
@@ -133,7 +133,7 @@ Let's look at the must and should haves:
 
 <br/>
 <br/>
-![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/riak.png){: .logo}
+![](/data/2017-03-28-Want-unlimited-scale-and-performanceThis-is-where-to-start/riak.png){: .logo}
 
 ## Riak
 
@@ -156,7 +156,7 @@ Key-value databases treat stored values as blobs, but some of them implement typ
 
 Riak supports clustering with tunable consistency. How is it done? Since the cluster is a ring architecture, like this:
 
-![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/riak-ring.png)  
+![](/data/2017-03-28-Want-unlimited-scale-and-performanceThis-is-where-to-start/riak-ring.png)  
 
 Tuning the level of consistency is done by defining how many nodes have to accept the operation before it's confirmed (default is 3). 
 
@@ -184,7 +184,7 @@ One thing to note is that it's not hard to find people complaining about [Riak r
 
 <br/>
 <br/>
-![](/data/2017-03-28-What-unlimited-scale-and-performanceThis-is-where-to-start/Redis.png){: .logo}
+![](/data/2017-03-28-Want-unlimited-scale-and-performanceThis-is-where-to-start/Redis.png){: .logo}
 
 ## Redis
 

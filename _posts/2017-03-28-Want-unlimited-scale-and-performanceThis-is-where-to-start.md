@@ -84,7 +84,8 @@ If You have been living in RDMS land here are some things not to look for in key
 It is very rare to see them in key-value databases. Instead, we have **atomicity**. What is the difference?
 
 - **Atomicity** - means that the operation will execute or not. In short, in the case of failure, we won't end up with corrupted or partially changed data.
-- **Transaction** - a series of multiple operations that will execute atomicity as one.
+- **
+- tion** - a series of multiple operations that will execute atomicity as one.
 
 Is the lack of transactions a problem? No. Let's examine the cases when we would use them:
 
@@ -244,7 +245,7 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 
 - [x] **ability to query data** - Redis exposes API to search for keys matching a pattern. What to note is **it will return the keys, not the values**.
 - [x] **ability to update data** - Works with custom types, and with blobs. Since everything is a string Redis provides string operations that are executed on the server and thus don't require a round trip to the client.  
-- [o] **has transactions** - There are no transactions in the RDMS understanding, but as Funbit pointed out, Lua scripts run atomicity.
+- [o] **has transactions** - As Funbit and Alex pointed out, there are transactions in Redis. In Lua scripts and using the [MULTI statement](https://redis.io/topics/transactions).
 
 
 # Comparison
@@ -255,6 +256,7 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 | Key limits                  |250 bytes             |No limit        |No limit        |
 | Value limits                |1 MB                  |No limit        |512 MB            |
 | Persistent                |No                    |Yes            |Optional        |
+| Transactions                |No        |No        |Yes    |
 | Connection protocol        |TCP/IP                |HTTP            |TCP/IP            |
 | Key scans                    |No                    |Done with Solr |Yes            |
 | Scripting                    |No                    |No                |Yes(Lua)        |

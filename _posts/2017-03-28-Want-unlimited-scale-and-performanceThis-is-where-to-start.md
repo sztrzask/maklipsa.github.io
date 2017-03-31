@@ -223,7 +223,7 @@ Redis is taking a different approach to clustering than the previous two:
 - all nodes are connected
 - values are automatically propagated to multiple servers
 - has the concept of master and slave datasets 
-- it does not guarantee [strong constistency](https://redis.io/topics/cluster-tutorial){:target="_blank"}
+- it does not guarantee [strong constistency](https://redis.io/topics/cluster-tutorial){:target="_blank"}, but it can be achieved using [WAIT](https://redis.io/commands/wait)
 - it if advised for the client to keep an up to date routing table of the cluster
 - it can detect not responding and new nodes.
 - nodes do not proxy requests. This means that if we request a key not present on the current node the server will return `MOVED` command to the client.
@@ -269,7 +269,7 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 | Cluster architecture        |share nothing        |ring            |all connected    |
 | Consistency                |Doesn't apply        | Tunable from eventual to strong|No guarantee|
 | Replication                |No                    |Configurable    |Async            |        
-| Multi data center sync    |No                    |Yes            |No                |
+| Multi data center sync    |No                    |Yes            |Yes(only Enterprise version) |
 |                              |                    |                |                |
 | Run on                    |Windows/Linux/Unix    |Linux            |Windows/Linux    |
 | Main features                |auto deletion of data|multi data center replication|speed/pub-sub            |

@@ -195,7 +195,7 @@ The number one should not be a shock to anyone. Redis is, as the full name sugge
 
 ### Architecture
 
-Redis show that simplicity is speed. It runs on one thread and hosts one database. To run multiple databases, run multiple Redis servers. Another important thing to note is that it is mainly an in-memory store with [*optional* persistence](https://redis.io/topics/persistence){:target="_blank"}:
+Redis show that simplicity is speed. Important thing to note is that it is mainly an in-memory store with [*optional* persistence](https://redis.io/topics/persistence){:target="_blank"}:
 
 - point in time snapshot
 - **A**ppend **O**nly **F**ile with async writes

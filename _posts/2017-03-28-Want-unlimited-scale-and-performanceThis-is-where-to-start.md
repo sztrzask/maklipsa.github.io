@@ -254,7 +254,7 @@ One feature that is unique to Redis, and to key-value databases in general (sinc
 | Option                      | Memcached         | Riak            | Redis            | 
 |:--------------------------|:------------------|:--------------|:--------------|
 | Key limits                  |250 bytes             |No limit        |No limit        |
-| Value limits                |1 MB                  |No limit        |512 MB            |
+| Value limits                |1 MB                  |No limit        |[512 MB](https://redis.io/topics/data-types-intro#redis-strings)            |
 | Persistent                |No                    |Yes            |Optional        |
 | Transactions                |No        |No        |Yes    |
 | Connection protocol        |TCP/IP                |HTTP            |TCP/IP            |

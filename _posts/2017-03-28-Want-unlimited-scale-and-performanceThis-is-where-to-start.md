@@ -187,7 +187,7 @@ One thing to note is that it's not hard to find people complaining about [Riak r
 <br/>
 ![](/data/2017-03-28-Want-unlimited-scale-and-performanceThis-is-where-to-start/Redis.png){: .logo}
 
-## Redis
+##  <a name="Redis"></a>Redis
 
 > Designed for: speed
 

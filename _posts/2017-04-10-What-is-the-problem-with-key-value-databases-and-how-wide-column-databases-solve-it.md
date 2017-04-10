@@ -7,7 +7,6 @@ series: "databases"
 tags: [databases, architecture, key-value database, wide-column database]
 image:
   feature: data/2017-04-10-What-is-the-problem-with-key-value-databases-and-how-wide-column-stores-solve-it/logo.jpg
-published: false
 ---
  
 

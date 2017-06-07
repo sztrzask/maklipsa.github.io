@@ -8,10 +8,14 @@ I believe that sharing knowledge is a key activity keeping the community live an
 
 # Talks (future and past):
 2017
-
+ 
 - 4-6.10.2017 - **Introduction to graph databases** - [EN]Topconf Dusseldorf 2017 [conference page](https://www.topconf.com/conference//duesseldorf-2017/talk/an-introduction-to-graph-databases/) 
 - 26.06.2017 - **You are using the wrong database!** - [EN]Smart Data Developer Conference [conference page](http://smart-data-developer-conference.de/you-are-using-the-wrong-database/)
 - 27.06.2017 - **Introduction to graph databases** - [EN][DWX 2017](http://www.developer-week.de/Programm/Veranstaltung/(event)/21424)
+- 26.05.2017 - **Graphs (also in SQL Server 2017)** - [PL]Data Science Summit 2017 [conference page](http://www.dssconf.pl)
+- 24.05.2017 - **Introduction to graph databases** - [PL]Data Science Students Group - [web page](http://datascience.mini.pw.edu.pl/?p=914)
+- 20.05.2017 - ***You are using the wrong database!** - Kariera IT Kraków
+- 16.05.2017 - **You are using the wrong database!** - [PL]DEV@ZG - [meetup](https://www.meetup.com/DEV-ZG/events/239124672/)
 - 22.04.2017 - **You are using the wrong database!** - InfoMEET [conference page](http://novial.pl/infomeet/p/63/infomeet-warszawa)
 - 03.04.2017 - **How I stopped worrying and learned to love parallel processing** - 4Developers [conference page](http://2017.4developers.org.pl/pl/program/lectures/jak-przestalem-sie-bac-i-pokochalem-przetwarzanie-rownolegle/)
 - 03.04.2017 - **You are using the wrong database!** - 4Developers [conference page](http://2017.4developers.org.pl/pl/program/lectures/base-problem/)

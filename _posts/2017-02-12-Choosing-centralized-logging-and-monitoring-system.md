@@ -322,7 +322,7 @@ It became clear quite fast that Datadog is targeted to administrators and people
 |Request dependencies details|N               |N                      |Y       |N       |Y                   |N      |N
 |:-----------------------|:-------------------|:----------------------|:-------|:-------|:-------------------|:------|
 |**Making life easier**  |
-|Mobile access           |Y &#42;13           |3rd party&#42;6        |Y *13   |N       |Works &#42;2        |Y      |N
+|Mobile access           |Y &#42;13           |3rd party&#42;6        |Y *13   |N       |Works &#42;2        |Y      |S
 |OAuth                   |Y                   |N                      |N       |N       |N                   |Y      |N
 |:-----------------------|:-------------------|:----------------------|:-------|:-------|:-------------------|:------|
 |**Features**            |
@@ -331,7 +331,8 @@ It became clear quite fast that Datadog is targeted to administrators and people
 
 **Legend:**
 
-- CbI - Can be implemented 
+- CbI - Can be implemented
+- S - Sort of. Not fully supported, or with very few features. 
 - *2 - Azure portal is usable on mobile, but not a mobile first experience ;)
 - *3 - Application Insights is [free up to 1 GB per month](https://azure.microsoft.com/en-us/pricing/details/application-insights/). There is also a data cap and data sampling option, so staying in the limit is realistic.
 - *4 - You have to implement the browser side and the proxy 

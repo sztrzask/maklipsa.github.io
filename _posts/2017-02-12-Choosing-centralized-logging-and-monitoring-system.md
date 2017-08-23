@@ -322,7 +322,7 @@ It became clear quite fast that Datadog is targeted to administrators and people
 |Request dependencies details|N               |N                      |Y       |N       |Y                   |N      |N
 |:-----------------------|:-------------------|:----------------------|:-------|:-------|:-------------------|:------|
 |**Making life easier**  |
-|Mobile access           |Y &#42;13           |3rd party&#42;6        |Y *13   |N       |Works &#42;2        |Y      |S
+|Mobile access           |Y &#42;13           |3rd party&#42;6        |Y *13   |N       |Works &#42;2        |Y      |N
 |OAuth                   |Y                   |N                      |N       |N       |N                   |Y      |N
 |:-----------------------|:-------------------|:----------------------|:-------|:-------|:-------------------|:------|
 |**Features**            |

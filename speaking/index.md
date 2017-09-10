@@ -8,8 +8,11 @@ I believe that sharing knowledge is a key activity keeping the community live an
 
 # Talks (future and past):
 2017
- 
-- 4-6.10.2017 - **Introduction to graph databases** - [EN]Topconf Dusseldorf 2017 [conference page](https://www.topconf.com/conference//duesseldorf-2017/talk/an-introduction-to-graph-databases/) 
+
+
+- 29-20.11.2017 - **You are using the wrong database!** - [EN]Big Data Conference Vilnus [conference page](http://www.bigdataconference.lt/)
+- 19-20.10.2017 - **You are using the wrong database!** - [PL] PyData 
+- 18.09.2017 - **You are using the wrong database!** - [PL] 4developers Gdańsk [conference page](https://gdansk.4developers.org.pl/warda.html)
 - 26.06.2017 - **You are using the wrong database!** - [EN]Smart Data Developer Conference [conference page](http://smart-data-developer-conference.de/you-are-using-the-wrong-database/)
 - 27.06.2017 - **Introduction to graph databases** - [EN][DWX 2017](http://www.developer-week.de/Programm/Veranstaltung/(event)/21424)
 - 26.05.2017 - **Graphs (also in SQL Server 2017)** - [PL]Data Science Summit 2017 [conference page](http://www.dssconf.pl)

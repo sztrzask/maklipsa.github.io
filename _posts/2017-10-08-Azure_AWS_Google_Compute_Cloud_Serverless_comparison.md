@@ -8,6 +8,7 @@
 
 [Hosting comparison](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale) 
 Internal messaging
+Very wide integration in azure ecosystem. can be triggered by almost anything
 
 
 ## AWS
@@ -19,13 +20,13 @@ Internal messaging
 # Comparison table
 
 |---
-| Name                			|AWS    																	|Azure																																|Google Cloud Platform
-|:-----------------------		|:------------------														|:----------------------																											|:-------
-|**Serverless**             	|																			|																																	|
-|Name							|[AWS Lambda](https://aws.amazon.com/lambda)								|[Azure Functions](https://azure.microsoft.com/en-us/services/functions/)															|[Cloud Functions](https://cloud.google.com/functions/)
-|Deployment options   			|Manual\*1     																|[Bitbucket,Dropbox,external/local repository, GitHub, OneDriveVSTS](https://docs.microsoft.com/en-us/azure/azure-functions/functions-continuous-deployment) 																			|[Manual](https://cloud.google.com/functions/docs/deploying/filesystem), [Google Cloud Code Repository](https://cloud.google.com/source-repositories/docs/), [GitHub,Bitbucket](https://cloud.google.com/source-repositories/docs/connecting-hosted-repositories)
-|Run locally					|[In beta](http://docs.aws.amazon.com/lambda/latest/dg/test-sam-local.html) |[Yes](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)													|[Alpha](https://cloud.google.com/functions/docs/emulator)
-|Pricing						|																			|																																	|
+| Name                			|AWS    																									|Azure																																|Google Cloud Platform
+|:-----------------------		|:------------------																						|:----------------------																											|:-------
+|**Serverless**             	|																											|																																	|
+|Name							|[AWS Lambda](https://aws.amazon.com/lambda)																|[Azure Functions](https://azure.microsoft.com/en-us/services/functions/)															|[Cloud Functions](https://cloud.google.com/functions/)
+|Deployment options   			|Manual\*1     																								|[Bitbucket,Dropbox,external/local repository, GitHub, OneDriveVSTS](https://docs.microsoft.com/en-us/azure/azure-functions/functions-continuous-deployment) 																			|[Manual](https://cloud.google.com/functions/docs/deploying/filesystem), [Google Cloud Code Repository](https://cloud.google.com/source-repositories/docs/), [GitHub,Bitbucket](https://cloud.google.com/source-repositories/docs/connecting-hosted-repositories)
+|Run locally					|[In beta](http://docs.aws.amazon.com/lambda/latest/dg/test-sam-local.html) 								|[Yes](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)													|[Alpha](https://cloud.google.com/functions/docs/emulator)
+|Pricing						|																											|																																	|
 |	Billing 					|
 |		Billing types			|Consumption																								|[Consumption and provisioned](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale)								|Consumption
 |		Processing time			|[$0.000001667 GB-s](https://aws.amazon.com/lambda/pricing/#lambda)											|[$0.000016**/GB-s** \*3](https://azure.microsoft.com/en-us/pricing/details/functions/)												|[$0.000000231-$0.000002900](https://cloud.google.com/functions/pricing#compute_time)
@@ -46,7 +47,7 @@ Internal messaging
 |	Max memory used				|[1536MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)								|																																	|[2048MB](https://cloud.google.com/functions/pricing#compute_time)
 |Blue-green deployment			|																											|																																	|
 |A/B testing
-|Between function communication	|																											|																																	|
+|Between function communication	|[Almost anything in AWS\*6](http://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html)		|[Schedule, HTTP, trigger on events in: BlobStorage, Azure Event Hub, Azure Storage Queue, Azure Service Bus, Azure Cosmos DB, Microsoft Graph](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) |[Google Cloud Pub/Sub](https://cloud.google.com/functions/docs/writing/background) or [HTTP](https://cloud.google.com/functions/docs/writing/http)
 |Trigger sources				|																											|																																	|
 |**Blob storage**
 |
@@ -61,7 +62,6 @@ Legend:
 \*3 - Azure computes processing time in consumption pricing this way: EXECUTION_TIME\*MEMORY 
 \*4 - AWS lambda traffic charges [are priced](https://aws.amazon.com/lambda/pricing/#Additional_Charges) according to the [EC2 prices](https://aws.amazon.com/ec2/pricing/on-demand/)
 \*5 - [It can be increased using AWS Support Center](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)
- 
-Overall:
+\*6 - [AWS supports triggers from: Amazon S3, Amazon DynamoDB, Amazon Kinesis Streams, Amazon Simple Notification Service, Amazon Simple Email Service, Amazon Cognito, AWS CloudFormation, Amazon CloudWatch Logs, Amazon CloudWatch Events, AWS CodeCommit, Scheduled Events (powered by Amazon CloudWatch Events), AWS Config, Amazon Alexa, Amazon Lex, Amazon API Gateway, AWS IoT Button, Amazon CloudFront, Amazon Kinesis Firehose](http://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html)
 
 - Azure has the best documentation. Google is very close behind, and AWS is far, far behind.

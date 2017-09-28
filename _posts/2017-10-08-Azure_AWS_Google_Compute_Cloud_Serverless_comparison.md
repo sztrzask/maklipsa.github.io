@@ -2,10 +2,12 @@
 ## Google pricing model
 
 [Quotas](https://cloud.google.com/functions/quotas)
+[Provisioning on "machines"](https://cloud.google.com/functions/pricing#compute_time)
 
 ## Azure pricing model
 
 [Hosting comparison](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale) 
+Internal messaging
 
 
 ## AWS
@@ -25,21 +27,27 @@
 |Run locally					|[In beta](http://docs.aws.amazon.com/lambda/latest/dg/test-sam-local.html) |[Yes](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)													|[Alpha](https://cloud.google.com/functions/docs/emulator)
 |Pricing						|																			|																																	|
 |	Billing 					|
-|		Billing types			|																											|[Consumption and provisioned](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale)								|Consumption
+|		Billing types			|Consumption																								|[Consumption and provisioned](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale)								|Consumption
 |		Processing time			|[$0.000001667 GB-s](https://aws.amazon.com/lambda/pricing/#lambda)											|[$0.000016**/GB-s** \*3](https://azure.microsoft.com/en-us/pricing/details/functions/)												|[$0.000000231-$0.000002900](https://cloud.google.com/functions/pricing#compute_time)
 |		Processing time - tics	|[100ms rounded to nearest tics](https://aws.amazon.com/lambda/pricing/#duration)							|[Every 1 second](https://azure.microsoft.com/en-us/pricing/details/functions/)														|[Every 100ms rounded up](https://cloud.google.com/functions/pricing#invocations)
 |		Per call - free			|[1 million calls](https://aws.amazon.com/lambda/pricing/#lambda)											|[1 million calls/month](https://azure.microsoft.com/en-us/pricing/details/functions/)												|[First 2 million calls/month](https://cloud.google.com/functions/pricing#invocations)
 |		Per call - paid			|[$0.20/million executions](https://azure.microsoft.com/en-us/pricing/details/functions/)					|[$0.20/million executions](https://azure.microsoft.com/en-us/pricing/details/functions/)											|[$0.40/million calls](https://cloud.google.com/functions/pricing)
 |		Outgoing network - free	|[15GB/month **for all AWS**](https://aws.amazon.com/free/#AWS_Free_Tier_(12_Month_Introductory_Period):)	|[5GB for **all Azure**](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)												|[5GB/month](https://cloud.google.com/functions/pricing#networking)
 |		Outgoing network - paid	|[$0.0-$0.09 per GB](https://aws.amazon.com/ec2/pricing/on-demand/)\*4										|[$0.05-$0.175 per GB](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)												|[$0.12/GB](https://cloud.google.com/functions/pricing#networking) 
-|Provisioning					|																											|Consumption has no provisioning, App Service uses its [provisioning](https://docs.microsoft.com/en-us/azure/app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment)							|[5 tiers. From 128MB to 2Gb](https://cloud.google.com/functions/pricing#compute_time)
+|Provisioning					|																											|Consumption has no provisioning, App Service uses its [provisioning](https://docs.microsoft.com/en-us/azure/app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment)							|[5 tiers. Memory from 128MB to 2GB. CPU from 200MHz to 2.4Ghz ](https://cloud.google.com/functions/pricing#compute_time)
 |Supported languages			|[Node.js, Java, C#,Python](http://docs.aws.amazon.com/lambda/latest/dg/lambda-app.html#lambda-app-author)	|[C#, F#, Node.js](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function)					|[Node.js](https://cloud.google.com/functions/docs/writing/)
-|Max execution time				|[5 minutes\*5](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)							|[Consumption plan - 10 minutes, App Service - no limit](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale) 	|[9 minutes](https://cloud.google.com/functions/quotas)
 |Monitoring						|[CloudWatch](http://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-access-metrics.html)
-|Blue-green deployment
+|Quotas							|
+|	Max execution time			|[5 minutes\*5](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)						|[Consumption plan - 10 minutes, App Service - no limit](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale) 	|[9 minutes](https://cloud.google.com/functions/quotas)
+|	Deployment package size		|[50MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)								|																																	|[100MB(compressed) sources](https://cloud.google.com/functions/quotas#resource_limits)
+|	Deployment package size w dependecies|[250MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)						|																																	|[500MB(uncompressed)](https://cloud.google.com/functions/quotas#resource_limits)
+|	Max request size			|?																											|																																	|[10MB](https://cloud.google.com/functions/quotas#resource_limits)
+|	Max response size			|?																											|																																	|[10MB](https://cloud.google.com/functions/quotas#resource_limits)
+|	Max memory used				|[1536MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)								|																																	|[2048MB](https://cloud.google.com/functions/pricing#compute_time)
+|Blue-green deployment			|																											|																																	|
 |A/B testing
-|**Messaging**
-|
+|Between function communication	|																											|																																	|
+|Trigger sources				|																											|																																	|
 |**Blob storage**
 |
 |**Document database**

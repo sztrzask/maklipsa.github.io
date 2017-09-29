@@ -10,7 +10,7 @@ The portal is slow
 [Hosting comparison](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale) 
 Internal messaging
 Very wide integration in azure ecosystem. can be triggered by almost anything
-
+Consumption vs hosted
 
 ## AWS
 
@@ -45,7 +45,7 @@ Very wide integration in azure ecosystem. can be triggered by almost anything
 |	Deployment package size w dependecies|[250MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)						|																																			|[500MB(uncompressed)](https://cloud.google.com/functions/quotas#resource_limits)
 |	Max request size			|?																											|																																			|[10MB](https://cloud.google.com/functions/quotas#resource_limits)
 |	Max response size			|?																											|																																			|[10MB](https://cloud.google.com/functions/quotas#resource_limits)
-|	Max memory used				|[1536MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)								|																																			|[2048MB](https://cloud.google.com/functions/pricing#compute_time)
+|	Max memory used				|[1536MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)								|[1.5GB(only in consumption plan)](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#how-the-consumption-plan-works)																																			|[2048MB](https://cloud.google.com/functions/pricing#compute_time)
 |Between function communication	|[messaging (Amazon SQS, SNS)](http://docs.aws.amazon.com/lambda/latest/dg/dlq.html)						|[messaging (Storage queues or Azure Service Bus) ,HTTP](https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices)	|[Google Cloud Pub/Sub](https://cloud.google.com/functions/docs/writing/background)
 |Trigger sources				|[Almost anything in AWS\*6](http://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html)		|[Schedule, HTTP, trigger on events in: BlobStorage, Azure Event Hub, Azure Storage Queue, Azure Service Bus, Azure Cosmos DB, Microsoft Graph](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) |[Google Cloud Pub/Sub](https://cloud.google.com/functions/docs/writing/background) or [HTTP](https://cloud.google.com/functions/docs/writing/http)
 

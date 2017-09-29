@@ -46,15 +46,11 @@ Very wide integration in azure ecosystem. can be triggered by almost anything
 |	Max request size			|?																											|																																			|[10MB](https://cloud.google.com/functions/quotas#resource_limits)
 |	Max response size			|?																											|																																			|[10MB](https://cloud.google.com/functions/quotas#resource_limits)
 |	Max memory used				|[1536MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)								|																																			|[2048MB](https://cloud.google.com/functions/pricing#compute_time)
-|Between function communication	|																											|[messaging (Storage queues or Azure Service Bus) ,HTTP](https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices)	|[]()
+|Between function communication	|[messaging (Amazon SQS, SNS)](http://docs.aws.amazon.com/lambda/latest/dg/dlq.html)						|[messaging (Storage queues or Azure Service Bus) ,HTTP](https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices)	|[Google Cloud Pub/Sub](https://cloud.google.com/functions/docs/writing/background)
 |Trigger sources				|[Almost anything in AWS\*6](http://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html)		|[Schedule, HTTP, trigger on events in: BlobStorage, Azure Event Hub, Azure Storage Queue, Azure Service Bus, Azure Cosmos DB, Microsoft Graph](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) |[Google Cloud Pub/Sub](https://cloud.google.com/functions/docs/writing/background) or [HTTP](https://cloud.google.com/functions/docs/writing/http)
-|**Blob storage**
-|
-|**Document database**
-|
 
 
-Legend:
+**Legend:**
 
 \*1 - There are libraries that make it easier, but this is the out of the box solution. The other thing to note is that I didn't manage to find one definitive documentation saying what is the situation.
 \*2 - In Azure [free grants apply to paid, consumption subscriptions only.](https://azure.microsoft.com/en-us/pricing/details/functions/)

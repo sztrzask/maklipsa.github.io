@@ -7,11 +7,17 @@ description: "List of events I had pleasure of speaking at"
 I believe that sharing knowledge is a key activity keeping the community live and active. That is why I present what I have learned on conferences and user groups.
 
 # Talks (future and past):
+
+2018
+
+
+- 10.01.2018 - - **Introduction to graph databases** - [PL]KGD.NET [meetup page](https://www.meetup.com/pl-PL/KGD-NET/events/246160213/)
+
 2017
 
-
 - 29-20.11.2017 - **You are using the wrong database!** - [EN]Big Data Conference Vilnus [conference page](http://www.bigdataconference.lt/)
-- 19-20.10.2017 - **You are using the wrong database!** - [PL] PyData 
+- 28.11.2017 - **You are using the wrong database!** - [PL]Koło Naukowe Data Science [group page](http://datascience.mini.pw.edu.pl/?p=933)
+- 19-20.10.2017 - **You are using the wrong database!** - [PL] PyData [conference page](https://pydata.org/warsaw2017/schedule/)
 - 18.09.2017 - **You are using the wrong database!** - [PL] 4developers Gdańsk [conference page](https://gdansk.4developers.org.pl/warda.html)
 - 26.06.2017 - **You are using the wrong database!** - [EN]Smart Data Developer Conference [conference page](http://smart-data-developer-conference.de/you-are-using-the-wrong-database/)
 - 27.06.2017 - **Introduction to graph databases** - [EN][DWX 2017](http://www.developer-week.de/Programm/Veranstaltung/(event)/21424)

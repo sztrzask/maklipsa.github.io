@@ -23,7 +23,7 @@ I believe that sharing knowledge is a key activity keeping the community live an
 - 27.06.2017 - **Introduction to graph databases** - [EN][DWX 2017](http://www.developer-week.de/Programm/Veranstaltung/(event)/21424)
 - 26.05.2017 - **Graphs (also in SQL Server 2017)** - [PL]Data Science Summit 2017 [conference page](http://www.dssconf.pl)
 - 24.05.2017 - **Introduction to graph databases** - [PL]Data Science Students Group - [web page](http://datascience.mini.pw.edu.pl/?p=914)
-- 20.05.2017 - ***You are using the wrong database!** - Kariera IT Kraków
+- 20.05.2017 - **You are using the wrong database!** - Kariera IT Kraków
 - 16.05.2017 - **You are using the wrong database!** - [PL]DEV@ZG - [meetup](https://www.meetup.com/DEV-ZG/events/239124672/)
 - 22.04.2017 - **You are using the wrong database!** - InfoMEET [conference page](http://novial.pl/infomeet/p/63/infomeet-warszawa)
 - 03.04.2017 - **How I stopped worrying and learned to love parallel processing** - 4Developers [conference page](http://2017.4developers.org.pl/pl/program/lectures/jak-przestalem-sie-bac-i-pokochalem-przetwarzanie-rownolegle/)

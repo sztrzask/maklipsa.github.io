@@ -15,21 +15,19 @@ But running precompiled F# code is not that easy. Here is how to do it and why t
 
 <!--MORE-->
 
+## The problem
 
-## Attach repository to Azure Functions
-
-The first take would be to attach the F# repository to Azure Functions (the fastest and simplest start).
-We can do it from `Platform features->Deployment options->Setup`
+The easiest way to run precompiled functions in s to attach the F# repository to Azure Functions. This can be done  
+from `Platform features->Deployment options->Setup`
 
 ![](/data/2018-01-08-Precompiled-FSharp-Azure-Functions-1.0/deployment-options.png)
-
 
 
 Doing this will trigger code compilation and failure:
 
 ![](/data/2018-01-08-Precompiled-FSharp-Azure-Functions-1.0/deployment-failure.png)
 
-## Build failure investigation
+## Build failure investigations
 
 Clicking on the info shows the details:
 
@@ -129,4 +127,16 @@ See what is missing?
 The first prop file (`Microsoft.FSharp.NetSdk.props`) points at this point into `4.1` folder and there is none.
 
 The worst part is that in those folders we can't upload/change any files so from my perspective having auto-compiled F# functions is not going to work. 
+  
+<style>
+.entry-content img
+{
+    margin: 0 auto;
+    display: block;
+}
+.center-text{
+    text-align: center;
+    font-size: 1.5em;
+}
+</style>
   

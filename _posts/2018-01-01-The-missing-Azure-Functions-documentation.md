@@ -45,7 +45,7 @@ There are some changes/limitations compared to version 1.0:
 - the OS is Linux
 - runtime is .NET Core
 - only C#, F#, JavaScript and Java is supported (Azure functions 1.0 supported Batch, C#, F#, JavaScript, PowerShell, Bash, Python, and TypeScript)
-- there is no consumption plan billing (as of the time of writing, but I'm sure that one will be offered they go to stable)
+- ~~there is no consumption plan billing (as of the time of writing, but I'm sure that one will be offered they go to stable)~~ (apparently this is a false assumption - look at the comments)
 
 Of course, there are some benefits:
 

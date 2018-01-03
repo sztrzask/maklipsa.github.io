@@ -116,7 +116,7 @@ After navigating to the first file, its content can be viewed using the pen icon
 
 So indeed `D:\Program Files (x86)\Microsoft SDKs\F#\4.1\Framework\v4.0\Microsoft.FSharp.NetSdk.props` is the file we are looking for.
 
-### Locating the problem 
+### Locating the problem
  
 Trying to locate the file will end on the `D:\Program Files (x86)\Microsoft SDKs\F#\` part of the file since it looks like this:
 
@@ -127,16 +127,14 @@ See what is missing?
 The first prop file (`Microsoft.FSharp.NetSdk.props`) points at this point into `4.1` folder and there is none.
 
 The worst part is that in those folders we can't upload/change any files so from my perspective having auto-compiled F# functions is not going to work. 
+So how to solve this issue? For me the only sensible way to go is to use Web Deploy and deploy to Azure Functions like to any other IIS site (what it actually is) - more on this in the next post. 
   
 <style>
 .entry-content img
+
 {
     margin: 0 auto;
     display: block;
-}
-.center-text{
-    text-align: center;
-    font-size: 1.5em;
 }
 </style>
   

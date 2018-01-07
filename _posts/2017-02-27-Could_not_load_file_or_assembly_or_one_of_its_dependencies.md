@@ -46,8 +46,8 @@ To enable logging the first four should be set to `1` and the last to a **existi
 
 It can be done  manually with the use of `regedit.exe`, but since it can be automated, here are the scripts:
 
-[![Disable Fusion Log](/data/2017-02-27-Could_not_load_file_or_assembly_or_one_of_its_dependencies/reg.png){: .regIco}Disable Fusion Log](/data/2017-02-27-Could_not_load_file_or_assembly_or_one_of_its_dependencies/disable-full-fusion.reg)
-[![Enable Fusion Log](/data/2017-02-27-Could_not_load_file_or_assembly_or_one_of_its_dependencies/reg.png){: .regIco}Enable Fusion Log](/data/2017-02-27-Could_not_load_file_or_assembly_or_one_of_its_dependencies/enable-full-fusion.reg)
+[![Disable Fusion Log](/data/2017-02-27-Could_not_load_file_or_assembly_or_one_of_its_dependencies/reg.png){: .regIco}Disable Fusion Log](/data/2017-02-27-Could_not_load_file_or_assembly_or_one_of_its_dependencies/disable-full-fusionLog.reg)
+[![Enable Fusion Log](/data/2017-02-27-Could_not_load_file_or_assembly_or_one_of_its_dependencies/reg.png){: .regIco}Enable Fusion Log](/data/2017-02-27-Could_not_load_file_or_assembly_or_one_of_its_dependencies/enable-full-fusionLog.reg)
 
 > CHECK THE FILES CONTENT BEFORE RUNNING! (they are just text files)
 > DON'T RUN THIS OR ANY OTHER SCRIPT WITHOUT CHECKING. 

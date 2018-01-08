@@ -6,7 +6,7 @@ modified: 2018-02-01
 series: "Azure Functions"
 tags: [azure, azure functions, F#, troubleshooting, .NET, F# type providers, compilation, error MSB4019]
 image:
-  feature: data/2018-01-08-Precompiled-FSharp-Azure-Functions-1.0/logo.png
+  feature: data/2018-01-08-Troubleshooting-compiled-Azure-Functions-in-F/logo.png
 ---
 
 

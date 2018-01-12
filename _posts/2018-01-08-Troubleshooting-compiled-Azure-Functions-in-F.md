@@ -129,7 +129,7 @@ The first prop file (`Microsoft.FSharp.NetSdk.props`) is pointing to
 ## How to solve it?
 
 The fastest, but not the cleanest, solution would be to upload the missing files. While Kudu supports file upload, it is only allowed in specific folders, and this is not one of them :(.
-The second solution is to use the fact that Azure Functions are hosted like an IIS website and use WebDeploy for deploying a prepared package. How exactly to do it? That will be the next post. 
+The second solution is to use the fact that Azure Functions are hosted like an IIS website and use WebDeploy for deploying a prepared package. How to use VSTS for package creation and build/deployment automation - in the next post.  
   
 <style>
 .entry-content img

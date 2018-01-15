@@ -110,6 +110,6 @@ I believe that sharing knowledge is a key activity keeping the community live an
 	}
 	.cfp{
 		display:block;
-		margin-bottom: 0px;
+		margin-bottom: 0px !important;
 	}
 </style

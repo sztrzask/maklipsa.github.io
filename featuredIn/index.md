@@ -8,6 +8,8 @@ One of the strongest incentives for keeping on blogging is for someone else to d
 
 ## ![](http://blog.cwa.me.uk/wp-content/themes/Hackedcoffeespot2/img/cup4.jpg)The Morning Brew
 
+- [The Morning Brew #2500](http://blog.cwa.me.uk/2018/01/08/the-morning-brew-2500/)
+- [The Morning Brew #2496](http://blog.cwa.me.uk/2018/01/02/the-morning-brew-2496/)
 - [The Morning Brew #2289](http://blog.cwa.me.uk/2017/02/28/the-morning-brew-2289/)
 - [The Morning Brew #2281](http://blog.cwa.me.uk/2017/02/16/the-morning-brew-2281/)
 - [The Morning Brew #2253](http://blog.cwa.me.uk/2016/12/30/the-morning-brew-2253/)
@@ -24,6 +26,10 @@ One of the strongest incentives for keeping on blogging is for someone else to d
 - [The Year in .NET – Visual Studio 2017 RC and .NET Core updated, On .NET with Stephen Cleary and Luis Valencia, Ulterius, Inferno, Bastion, LoGeek Night](https://blogs.msdn.microsoft.com/dotnet/2016/12/13/the-year-in-net-visual-studio-2017-rc-and-net-core-updated-on-net-with-stephen-cleary-and-luis-valencia-ulterius-inferno-bastion-logeek-night/)
 - [The week in .NET – On .NET on MyGet – FlexViewer – I Expect You To Die](https://blogs.msdn.microsoft.com/dotnet/2016/12/06/the-week-in-net-on-net-on-myget-flexviewer-i-expect-you-to-die/)
 - [The week in .NET – Cosmos on On.NET, GongSolutions.WPF.DragDrop, Transistor](https://blogs.msdn.microsoft.com/dotnet/2016/11/29/the-week-in-net-cosmos-on-on-net-gongsolutions-wpf-dragdrop-transistor/)
+
+
+## Week in Azure
+
 
 ## High Scalability
 

@@ -28,7 +28,14 @@ One of the strongest incentives for keeping on blogging is for someone else to d
 - [The week in .NET – Cosmos on On.NET, GongSolutions.WPF.DragDrop, Transistor](https://blogs.msdn.microsoft.com/dotnet/2016/11/29/the-week-in-net-cosmos-on-on-net-gongsolutions-wpf-dragdrop-transistor/)
 
 
-## Week in Azure
+## Azure Weekly
+
+- [Azure Weekly Issue #157](http://campaigns.endjin.com/t/ViewEmailArchive/t/829BD1B56C551E14/C67FD2F38AC4859C/)
+
+
+## F# Weekly
+
+- [F# Weekly #2, 2018 – Don Syme will help Xamarin team to make F# better for mobile and cloud users](https://sergeytihon.com/2018/01/13/f-weekly-2-2018-don-syme-will-help-xamarin-team-to-make-f-better-for-mobile-and-cloud-users/)
 
 
 ## High Scalability

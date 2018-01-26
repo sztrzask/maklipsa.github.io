@@ -54,6 +54,9 @@ I believe that sharing knowledge is a key activity keeping the community live an
 # Talks:
 
 <p class="container">
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Serverless-is-not-about-code-It-is-how-you-think/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Serverless-is-not-about-code-It-is-how-you-think" >
+        <span>Serverless is not about code. It is how you think</span>
+    </a>
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Azure-for-less-than-one-dollar-a-day/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Azure-for-less-than-one-dollar-a-day" >
         <span>Azure for less than one dollar a day</span>
     </a>

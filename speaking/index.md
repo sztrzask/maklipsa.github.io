@@ -54,6 +54,9 @@ I believe that sharing knowledge is a key activity keeping the community live an
 # Talks:
 
 <p class="container">
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Terraform-with-Microsoft-Azure/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Terraform-with-Microsoft-Azure" >
+        <span>Terraform with Microsoft Azure</span>
+    </a>
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Serverless-is-not-about-code-It-is-how-you-think/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Serverless-is-not-about-code-It-is-how-you-think" >
         <span>Serverless is not about code. It is how you think</span>
     </a>

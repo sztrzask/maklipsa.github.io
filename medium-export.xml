@@ -75,7 +75,7 @@ author_name: Simon Warda
             <wp:post_type>post</wp:post_type>
             <wp:post_password/>
             <wp:is_sticky>0</wp:is_sticky>
-            <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{{ post.image.feature }}"/>
+            <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{{ 'https://indexoutofrange.com/' | append: post.image.feature }}"/>
         </item>
         {% endfor %}
     </channel>

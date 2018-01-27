@@ -55,7 +55,11 @@ author_name: Simon Warda
             <guid isPermaLink="true">{{ page.site_root }}{{ post.url }}</guid>
             <description/>
             <content:encoded>
-                <![CDATA[{{ "<img src='https://indexoutofrange.com/" | append: post.image.feature |append: "' />" | append: post.content | replace: 'href="/','href="https://indexoutofrange.com/' | replace: 'src="/','src="https://indexoutofrange.com/' }}]]>
+                {% if post.image.feature %}
+                    <![CDATA[{{ "<img src='https://indexoutofrange.com/" | append: post.image.feature |append: "' />" | append: post.content | replace: 'href="/','href="https://indexoutofrange.com/' | replace: 'src="/','src="https://indexoutofrange.com/' }}]]>
+                {% else %}
+                    <![CDATA[{{ post.content | replace: 'href="/','href="https://indexoutofrange.com/' | replace: 'src="/','src="https://indexoutofrange.com/' }}]]>
+                {% endif %}
             </content:encoded>
             <excerpt:encoded>
                 <![CDATA[{{post.excerpt}}]]>

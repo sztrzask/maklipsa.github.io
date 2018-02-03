@@ -17,10 +17,11 @@ I believe that sharing knowledge is a key activity keeping the community live an
 
 - 29-20.11.2017 - **You are using the wrong database!** - [EN]Big Data Conference Vilnus [conference page](http://www.bigdataconference.lt/)
 - 28.11.2017 - **You are using the wrong database!** - [PL]Koło Naukowe Data Science [group page](http://datascience.mini.pw.edu.pl/?p=933)
-- 19-20.10.2017 - **You are using the wrong database!** - [PL] PyData [conference page](https://pydata.org/warsaw2017/schedule/)
-- 18.09.2017 - **You are using the wrong database!** - [PL] 4developers Gdańsk [conference page](https://gdansk.4developers.org.pl/warda.html)
+- 19-20.10.2017 - **You are using the wrong database!** - [PL] PyData [conference page](https://pydata.org/warsaw2017/schedule/) [[video](https://www.youtube.com/watch?v=2lYE7Pu1ZiM)]
+- 18.09.2017 - **You are using the wrong database!** - [PL]4developers Gdańsk [conference page](https://gdansk.4developers.org.pl/warda.html)
 - 26.06.2017 - **You are using the wrong database!** - [EN]Smart Data Developer Conference [conference page](http://smart-data-developer-conference.de/you-are-using-the-wrong-database/)
-- 27.06.2017 - **Introduction to graph databases** - [EN][DWX 2017](http://www.developer-week.de/Programm/Veranstaltung/(event)/21424)
+- 27.06.2017 - **Introduction to graph databases** - [EN][DWX 2017](http://www.developer-week.de/Programm/Veranstaltung/`(event`)/21424)
+- 20.06.2017 - **How I stopped worrying and learned to love parallel processing** - [PL] Wroc.net [group page](http://wrocnet.github.io/2017/06/20/100-spotkanie-wroclawskiej-grupy-net.html) [[video](https://www.youtube.com/watch?v=wfrqdFdA_48)]
 - 26.05.2017 - **Graphs (also in SQL Server 2017)** - [PL]Data Science Summit 2017 [conference page](http://www.dssconf.pl)
 - 24.05.2017 - **Introduction to graph databases** - [PL]Data Science Students Group - [web page](http://datascience.mini.pw.edu.pl/?p=914)
 - 20.05.2017 - **You are using the wrong database!** - Kariera IT Kraków

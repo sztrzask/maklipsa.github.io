@@ -9,4 +9,4 @@ image:
 
 ## Short abstract
 
-Serverless is the word in IT in 2018, but as all its predecessors it has become overloaded and simplified. Serverless is way more than Azure Function, AWS Lambda, or GCP Cloud Functions. It is not only how to execute code, but how to design applications in a truly cloud way. This session will look how to design serverless application, what components to use, the pitfalls and gains of different approaches mainly, but not only, concentrating on Microsoft Azure.
+Serverless is THE WORD, and like all its predecessors it has become overloaded and simplified to just Azure Function/AWS Lambda/GCP Cloud Functions depending what Your camp is. But serverless started way earlier, and not with code execution. Serverless is not only how to execute code, but how to **design** applications in a truly cloud way. We will look into cloud offerings that can be used for serverless architecture, the pitfalls and gains of different approaches mostly concentrating on Microsoft Azure.

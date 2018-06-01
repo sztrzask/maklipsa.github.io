@@ -10,10 +10,11 @@ I believe that sharing knowledge is a key activity keeping the community live an
 
 2018
 
-- 29-30.05.2018 - **Terraform with Microsoft Azure** - [PL]CLoudDeveloperDays 2018 [conference page](http://cloud.developerdays.pl/terraform-with-microsoft-azure/)
+- 26-28.09.2018 - **Azure for less than one dollar a day** - [PL]DevConf 2018 [conference page](http://devconf.pl/)
+- 29-30.05.2018 - **Terraform with Microsoft Azure** - [EN]CLoudDeveloperDays 2018 [conference page](http://cloud.developerdays.pl/terraform-with-microsoft-azure/)
 - 26.05.2018 - **Azure for less than one dollar a day** - [PL]RZEmiosło.IT [conference page](https://segfault.events/speakers/szymon-warda/)
 - 18.05.2018 - **You are using the wrong database!** - [PL]SegFault [conference page](https://segfault.events/speakers/szymon-warda/)
-- 14.04.2018 - **Serverless is not about code. It is how you think** - [PL]KGD.NET [conference page](https://konferencjaget.net/en/lodz/speakers)
+- 14.04.2018 - **Serverless is not about code. It is how you think** - [PL]GET.NET [conference page](https://konferencjaget.net/en/lodz/speakers)
 - 09.04.2018 - **Serverless is not about code. It is how you think** - [PL]4developers [conference page](https://4developers.org.pl/lecture.html#id=40661)
 - 10.01.2018 - **Introduction to graph databases** - [PL]KGD.NET [meetup page](https://www.meetup.com/pl-PL/KGD-NET/events/246160213/)
 

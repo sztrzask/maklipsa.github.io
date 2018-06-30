@@ -9,7 +9,7 @@ image:
 
 ## Short abstract
 
-Cloud is a combination of extremes and lack of limits. In seconds, we can solve (almost) any problem by just throwing more CPUs, GPUs, and RAM at it. There is only the matter of cost. This talk will talk about money and how to spend it wisely in the cloud. Cloud architecture done good is cheep.
+Cloud is a combination of extremes and lack of limits. In seconds, we can solve (almost) any problem by just throwing more CPUs, GPUs, and RAM at it. There is only the matter of cost. This talk will talk about money and how to spend it wisely in the cloud. Cloud architecture done right is cheap.
 
 ## Description
 

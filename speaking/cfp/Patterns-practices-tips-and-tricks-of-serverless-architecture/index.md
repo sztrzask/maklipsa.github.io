@@ -4,7 +4,7 @@ title: Patterns, practices, tips, and tricks of serverless architecture
 description: "Patterns, practices, tips, and tricks of serverless architecture"
 tags: [cloud, Azure, speaking, serverless, patterns practicess, tips and tricks ]
 image:
-  feature: speaking/cfp/Patterns-practices-tips-and-tricks-of-serverless-architecture/logo.jpg
+  feature: speaking/cfp/Patterns-practices-tips-and-tricks-of-serverless-architecture/logo.png
 ---
 
 ## Short abstract

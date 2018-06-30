@@ -9,4 +9,4 @@ image:
 
 ## Short abstract
 
-Serverless is different. Some good practices became anti-patterns and the other way around. In some cases impossible is now solved out of the box, and what was simple is now impossible. It is what this talk is about - what is good, what is bad and how to approach the new unknown. Tips, tricks and design patterns for the brave world of serverless architecture.
+Serverless is not a minor iteration to software architecture. It changes a lot. Some good practices became anti-patterns, impossible is now solved out of the box, and what was simple is now impossible. This is what this talk is about - what is good, what is bad and how to approach the new unknown. Tips, tricks and design patterns for the brave world of serverless architecture.

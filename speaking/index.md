@@ -60,8 +60,8 @@ I believe that sharing knowledge is a key activity keeping the community live an
 # Talks:
 
 <p class="container">
-    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Patterns-and-practices-of-serverless-architecture/logo.png') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Patterns-and-practices-of-serverless-architecture" >
-        <span>Patterns, practicess, tips and tricks of serverless architecture</span>
+    <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Patterns-practices-tips-and-tricks-of-serverless-architecture/logo.png') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Patterns-practices-tips-and-tricks-of-serverless-architecture" >
+        <span>Patterns, practices, tips, and tricks of serverless architecture</span>
     </a>
     <a class="entry-image-index cfp" style="background:url('/speaking/cfp/Terraform-with-Microsoft-Azure/logo.jpg') no-repeat scroll center center; background-size: cover;" href="/speaking/cfp/Terraform-with-Microsoft-Azure" >
         <span>Terraform with Microsoft Azure</span>

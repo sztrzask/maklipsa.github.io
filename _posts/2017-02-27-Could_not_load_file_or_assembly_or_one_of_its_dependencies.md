@@ -79,35 +79,36 @@ The best way to understand how .NET runtime loads assemblies let's look at the l
 
 First an easy one - the one that succeeded.
 <br/>
-
-<article class="fusionLogText" >
-*** Assembly Binder Log Entry  (<span class="hint--top hint--always" aria-label="Date and time when the runtime attempted to locate the assembly.">25.02.2017 @ 13:44:54</span>) ***<br/>
-<br/>
-<span class="hint--right hint--success hint--always" aria-label="The result of this try." >The operation was successful.</span><br/>
-Bind result: hr = 0x0. The operation completed successfully.</a><br/>
-Assembly manager loaded from:  <span class="hint--right hint--always" aria-label="The exact runtime manager responsible for locating the assembly.">C:\Windows\Microsoft.NET\Framework\v4.0.30319\clr.dll</span><br/>
-Running under executable  <span class="hint--right hint--always" aria-label="Executing assembly. This assembly contains the starting point of the process.">d:\src\FusionLogTest\FusionLogRunner\bin\Debug\FusionLogRunner.exe</span><br/>
-<br/>
---- A detailed error log follows.<br/>
-=== Pre-bind state information ===<br/>
-LOG: <span class="hint--right hint--always" aria-label="Exact assembly that is being looked for.">DisplayName = NLog, Version=3.2.1.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c</span><br/>
-(Fully-specified)<br/>
-LOG: <span class="hint--right hint--always" aria-label="Folder of the executing assembly.">Appbase = file:///d:/src/FusionLog/FusionLogRunner/bin/Debug/</span><br/>
-LOG: Initial PrivatePath = NULL<br/>
-LOG: Dynamic Base = NULL<br/>
-LOG: Cache Base = NULL<br/>
-LOG: <span class="hint--right hint--always" aria-label="Name of the executing assembly.">AppName = FusionLogRunner.exe</span><br/>
-<span class="hint--right hint--info hint--always" aria-label="The assembly that has the reference to the currently called assembly. A very useful information when debuging large systems.">Calling assembly : FusionLogLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null.</span><br/>
-===
-LOG: This bind starts in default load context.<br/>
-LOG: <span class="hint--right hint--always" aria-label="Configuration file for the executable that initialized the process.">Using application configuration file: d:\src\private\FusionLog\FusionLogRunner\bin\Debug\FusionLogRunner.exe.Config</span><br/>
-LOG: Using host configuration file: <br/>
-LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.<br/>
-LOG: <span id="redirect" class="hint--right hint--info hint--always" aria-label="The runtime found a redirect for this assembly to version 4.0.0.0">Redirect found in application configuration file: 3.2.1.0 redirected to 4.0.0.0.</span><br/>
-LOG: Post-policy reference: NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c<br/>
-LOG: <span class="hint--right hint--success hint--always" aria-label="Info that it managed to locate the redidected assembly, and the location of that assembly that is being loaded.">Binding succeeds. Returns assembly from d:\src\private\FusionLog\FusionLogRunner\bin\Debug\NLog.dll.</span><br/>
-LOG: Assembly is loaded in default load context.<br/>
-</article>
+<pre>
+  <article class="fusionLogText" >
+  *** Assembly Binder Log Entry  (<span class="hint--top hint--always" aria-label="Date and time when the runtime attempted to locate the assembly.">25.02.2017 @ 13:44:54</span>) ***<br/>
+  <br/>
+  <span class="hint--right hint--success hint--always" aria-label="The result of this try." >The operation was successful.</span><br/>
+  Bind result: hr = 0x0. The operation completed successfully.</a><br/>
+  Assembly manager loaded from:  <span class="hint--right hint--always" aria-label="The exact runtime manager responsible for locating the assembly.">C:\Windows\Microsoft.NET\Framework\v4.0.30319\clr.dll</span><br/>
+  Running under executable  <span class="hint--right hint--always" aria-label="Executing assembly. This assembly contains the starting point of the process.">d:\src\FusionLogTest\FusionLogRunner\bin\Debug\FusionLogRunner.exe</span><br/>
+  <br/>
+  --- A detailed error log follows.<br/>
+  === Pre-bind state information ===<br/>
+  LOG: <span class="hint--right hint--always" aria-label="Exact assembly that is being looked for.">DisplayName = NLog, Version=3.2.1.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c</span><br/>
+  (Fully-specified)<br/>
+  LOG: <span class="hint--right hint--always" aria-label="Folder of the executing assembly.">Appbase = file:///d:/src/FusionLog/FusionLogRunner/bin/Debug/</span><br/>
+  LOG: Initial PrivatePath = NULL<br/>
+  LOG: Dynamic Base = NULL<br/>
+  LOG: Cache Base = NULL<br/>
+  LOG: <span class="hint--right hint--always" aria-label="Name of the executing assembly.">AppName = FusionLogRunner.exe</span><br/>
+  <span class="hint--right hint--info hint--always" aria-label="The assembly that has the reference to the currently called assembly. A very useful information when debuging large systems.">Calling assembly : FusionLogLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null.</span><br/>
+  ===
+  LOG: This bind starts in default load context.<br/>
+  LOG: <span class="hint--right hint--always" aria-label="Configuration file for the executable that initialized the process.">Using application configuration file: d:\src\private\FusionLog\FusionLogRunner\bin\Debug\FusionLogRunner.exe.Config</span><br/>
+  LOG: Using host configuration file: <br/>
+  LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.<br/>
+  LOG: <span id="redirect" class="hint--right hint--info hint--always" aria-label="The runtime found a redirect for this assembly to version 4.0.0.0">Redirect found in application configuration file: 3.2.1.0 redirected to 4.0.0.0.</span><br/>
+  LOG: Post-policy reference: NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c<br/>
+  LOG: <span class="hint--right hint--success hint--always" aria-label="Info that it managed to locate the redidected assembly, and the location of that assembly that is being loaded.">Binding succeeds. Returns assembly from d:\src\private\FusionLog\FusionLogRunner\bin\Debug\NLog.dll.</span><br/>
+  LOG: Assembly is loaded in default load context.<br/>
+  </article>
+</pre>
 
 ### The operation failed.
 
@@ -115,6 +116,7 @@ Now for something harder, but more interesting. A failed log file. Also for NLog
 
 <br/>
 
+<pre>
 <article class="fusionLogText" >
 *** Assembly Binder Log Entry  (<span class="hint--top hint--always" aria-label="Date and time when the runtime attempted to locate the assembly.">25.02.2017 @ 14:46:28</span>) ***<br/>
 <br/>
@@ -152,6 +154,7 @@ LOG: <span class="hint--right hint--always" aria-label="Info about the assembly 
 <span class="hint--right hint--error hint--always" aria-label="Error code">ERR: Run-from-source setup phase failed with hr = 0x80131040.</span><br/>
 <span class="hint--right hint--error hint--always" aria-label="Finall error code">ERR: Failed to complete setup of assembly (hr = 0x80131040). Probing terminated.</span><br/>
 </article>
+</pre>
 
 ## How to fix "Could not load file or assembly"?
 

@@ -140,3 +140,24 @@ pre {
 		border-radius: 4px;
 	}
 }
+
+/* 
+   Full Screen Image Secttion
+   ========================================================================== */
+.full-screen-width {
+    margin-right: -999em;
+    margin-left: -999em;
+    figure{
+        margin-right: auto;
+        margin-left: auto;
+        width: 100vw;
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}
+#main{
+    overflow: hidden;
+}

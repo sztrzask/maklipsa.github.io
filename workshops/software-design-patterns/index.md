@@ -33,7 +33,7 @@ Most developers know design patterns, but don't use them. This training is desig
     7. **Chain of responsibility design pattern** - key pattern to understand most UI frameworks.
     8. **Singleton design pattern** - refreshed, and proper usage of one of the most common design patterns. We also measure different implementations with [Benchmark.net](https://benchmarkdotnet.org/) to remove any performance myths.
     9. **Observable design pattern** - a very powerful pattern, especially when used with [reactive programming](/workshops/application-architecture) and [Reactive Extensions](https://github.com/dotnet/reactive).
-    10 **Command** and **mediator** design patterns - the key to understand event architecture
+    10. **Command** and **mediator** design patterns - the key to understand event architecture
     11. **Decorator design pattern** - add responsibilities to objects dynamically
     12. **Visitor design pattern** -  without change define a new operation to a class
     13. **Context** - not an official design pattern, but a construct used in C# and .net.

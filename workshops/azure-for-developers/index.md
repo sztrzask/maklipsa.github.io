@@ -8,8 +8,6 @@ image:
 TheoryToPracticeRatio: 90 
 ---
 
-# Goal
-
 This workshop is designed to introduce developers to a wide array of most commonly used Azure services. Key features:
 
 - Very hands-on heavy
@@ -17,7 +15,7 @@ This workshop is designed to introduce developers to a wide array of most common
 - Helps developers choose the proper service to a given problem
 - Cost optimization
 
-# Program
+# <img src="/data/workshops/list.svg" class="listIcon" > Program
 
 0. **Introduction**
 1. **Cloud orchestration with Terraform**

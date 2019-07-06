@@ -8,8 +8,6 @@ image:
 TheoryToPracticeRatio: 90  
 ---
 
-# Goal
-
 From theory to practice. This workshop is designed to put developers and architects on a fast track to developing distributed systems in Azure by:
 
 - Starting with the most needed theory shown on attendee done exercises.
@@ -17,7 +15,7 @@ From theory to practice. This workshop is designed to put developers and archite
 - Being hands-on heavy 
 - Using tools for the whole application lifecycle. From local development, through deployment, to operations.
 
-# Program
+# <img src="/data/workshops/list.svg" class="listIcon" > Program
 
 0. **Introduction**
 1. **Synchronus patterns**

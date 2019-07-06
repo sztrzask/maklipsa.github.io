@@ -8,15 +8,13 @@ image:
 TheoryToPracticeRatio: 95 
 ---
 
-# Goal
-
 This training is design to widen the scope of what software architects can do and give them tools to execute by:
 
 - showing how to use DI container and ORM conventions for application extensive problem-solving. 
 - giving tools to mitigate serious performance problems in the development phase.
 - showing different styles of application architecture and when to use them
 
-# Program
+# <img src="/data/workshops/list.svg" class="listIcon" > Program
 
 0. **Introduction**
     1. What are the responsibilities of application architecture

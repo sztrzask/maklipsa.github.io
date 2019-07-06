@@ -8,8 +8,6 @@ image:
 TheoryToPracticeRatio: 100
 ---
 
-# Goal
-
 Everyone needs a refresh or a reminder of good coding practices. This training offers a unique take by:
 
 - Being 100% hands-on.
@@ -17,7 +15,7 @@ Everyone needs a refresh or a reminder of good coding practices. This training o
 - Presenting design patterns in a modern take. They are more than 20 years old by now.
 - Including proper behaviors with DI containers and ORM frameworks. 
 
-# Program
+# <img src="/data/workshops/list.svg" class="listIcon" > Program
 
 1. **SOLID is the basis for understanding design patterns** 
     SOLID principles are the key to understanding design patterns.

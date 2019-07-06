@@ -8,8 +8,6 @@ image:
 TheoryToPracticeRatio: 95  
 ---
 
-# Goal
-
 Splitting a system into multiple applications poses multiple new challenges. This training aims to:
 
 - Acquaint attendees with distributed systems design patterns
@@ -17,7 +15,7 @@ Splitting a system into multiple applications poses multiple new challenges. Thi
 - Highlight what, when, and how will go wrong. Also how to detect that it did.
 - Build awareness of how to use infrastructure solutions for mitigating problems.
 
-# Program
+# <img src="/data/workshops/list.svg" class="listIcon" > Program
 
 0. **Introduction**
 1. **Synchronus patterns**

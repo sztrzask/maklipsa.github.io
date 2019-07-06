@@ -8,8 +8,6 @@ image:
 TheoryToPracticeRatio: 95  
 ---
 
-# Goal
-
 Most developers know design patterns, but don't use them. This training is design to change this by:
 
 - Being 100% hands down.
@@ -19,7 +17,7 @@ Most developers know design patterns, but don't use them. This training is desig
 - Presenting design patterns in a modern take. They are more than 20 years old by now.
 - Attendees learn how to refactor existing code, not only to apply it in greenfield projects.
 
-# Program
+# <img src="/data/workshops/list.svg" class="listIcon" > Program
 
 1. **SOLID is the basis for understanding design patterns** 
     Without understanding SOLID principles, design patterns are just a definition.

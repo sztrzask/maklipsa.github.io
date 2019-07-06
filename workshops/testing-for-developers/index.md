@@ -8,8 +8,6 @@ image:
 TheoryToPracticeRatio: 95  
 ---
 
-# Goal
-
 This training is design to make writing tests easier by:
 
 - showing how good practices in writing code translate to easy to write tests
@@ -19,7 +17,7 @@ This training is design to make writing tests easier by:
 - passing good practices that minimize test maintenance overhead
 - learning when to remove tests
 
-# Program
+# <img src="/data/workshops/list.svg" class="listIcon" > Program
 
 0. **Introduction**
 1. **Testing**

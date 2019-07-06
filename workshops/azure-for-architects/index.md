@@ -8,15 +8,13 @@ image:
 TheoryToPracticeRatio: 80
 ---
 
-# Goal
-
 This workshop is designed to give architects a high-level practical overview of Azure offering by:
 
 - being hands-on heavy
 - focusing on use cases for each service
 - incorporating good cloud architecture patterns and practices 
 
-# Program
+# <img src="/data/workshops/list.svg" class="listIcon" > Program
 
 0. **Introduction**
 1. **Cloud orchestration with Terraform**

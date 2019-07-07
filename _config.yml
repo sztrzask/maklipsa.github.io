@@ -98,3 +98,6 @@ exclude:
   - package.json
   - spec
   - tmp
+    
+plugins:
+  - jekyll-target-blank

@@ -45,11 +45,16 @@ layout: compress
       {{ content }}
       <footer class="entry-meta">
         <span class="entry-tags">{% for tag in page.tags %}<a href="/tags/#{{ tag }}" title="Pages tagged {{ tag }}" class="tag"><span class="term">{{ tag }}</span></a>{% unless forloop.last %}{% endunless %}{% endfor %}</span>
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-585414256290e6c1"></script> 
-        <div class="addthis_inline_share_toolbox"></div>
+        <section class="article-open_shere">
+            <a class="article-open_shere-twitter article-open_window" href="https://twitter.com/share?text={{page.title}};url={{site.url}}{{page.url}}"><i class="fa fa-twitter"></i> Tweet</a>
+            <a class="article-open_shere-facebook article-open_window" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}"><i class="fa fa-facebook"></i> Post</a>
+            <a class="article-open_shere-linkedin article-open_window" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{site.url}}{{page.url}}"><i class="fa fa-linkedin"></i> Update</a>
+            <a class="article-open_shere-email" href="mailto:?subject={{page.title}};body={{site.url}}{{page.url}}"><i class="fa fa-envelope"></i> Email</a>
+            <a class="article-open_shere-feed" href="/feed.xml"><i class="fa fa-rss"></i> RSS</a>
+        </section>
       </footer>
+      {% include newsletter.html %}
     </div><!-- /.entry-content -->
-    {% include newsletter.html %}
     <div class="entry-content author_info" >
       <section class="article-open_author">
         <figure class="article-open_author_image">

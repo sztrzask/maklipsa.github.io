@@ -65,3 +65,36 @@
 b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a {
 	transition: all 0.2s ease;
 }
+
+// Share
+.article-open_shere a {
+	margin: 1.2rem 10px;
+	display: inline-block;
+	padding: 12px 20px;
+	letter-spacing: .1em;
+	border-radius: 20px;
+	text-decoration: none;
+	color: #fcfbf7 !important;
+}
+.article-open_shere a, .pagination_next, .pagination_prev, .tag {
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.article-open_shere a, .pagination_next, .pagination_prev, .sponsor_bar, .tag {
+	font-family: Tahoma,Geneva,sans-serif;
+}
+.article-open_shere-twitter {
+	background-color: #55acee;
+}
+.article-open_shere-facebook {
+	background-color: #3b5998;
+}
+.article-open_shere-linkedin {
+  background-color: #4875B4;
+}
+.article-open_shere-email {
+	background-color: #97908F;
+}
+.article-open_shere-feed {
+	background-color: #dd7346;
+}

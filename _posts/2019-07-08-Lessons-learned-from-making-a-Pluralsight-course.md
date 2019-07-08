@@ -57,7 +57,7 @@ A few topics fitted those criteria:
 After much thinking and talking with people from Pluralsight, the decision was made to do a course about TPL Dataflow. It fitted the criteria perfectly:
 
 - Not too many devs know TPL Dataflow
-- I used it a lot when [optimizing cookit](http://localhost:4000/How_I_calculate_similarities_in_cookit/) and [calculating 17 billion similarities](http://localhost:4000/How-to-calculate-17-billion-similarities/)
+- I used it a lot when [optimizing cookit](/How_I_calculate_similarities_in_cookit/) and [calculating 17 billion similarities](/How-to-calculate-17-billion-similarities/)
 - It's a perfect tool for some use-cases. I wanted to have a deeper understanding of how it works.
 
 ## What is TPL Dataflow?

@@ -49,7 +49,7 @@ I believe that sharing knowledge is a key activity keeping the community live an
 - 08.11.2016 - **Graph databases - why and how** - Dev@ZG - [meetup](https://www.meetup.com/DEV-ZG/events/234737689/)
 - 05.11.2016 - **How I stopped worrying and learned to love parallel processing** - [conference page](http://dotnetconf.pl/Agenda)[[youtube](https://www.youtube.com/watch?v=Dup24FdDYj4&t=572s)]
 - 26.10.2016 - **Graph databases - why and how** - PG.NET [[youtube](https://www.youtube.com/watch?v=BW3gD-eb9zM)][[group page](http://events.pozoga.eu/poznanska-grupa-net-62/)]
-- 23.07.2016 - **Neo4j in practice - everything that is left when the hype is over** - Warsaw .NET User Group[[meetup](http://www.meetup.com/WG-NET/events/231937626/)] [[slides](indexoutofrange.com/presentations/PracticalNeo4j/index.html)][[youtube](https://www.youtube.com/watch?v=3n1fVvW-oW8)]
+- 23.07.2016 - **Neo4j in practice - everything that is left when the hype is over** - Warsaw .NET User Group[[meetup](http://www.meetup.com/WG-NET/events/231937626/)][[youtube](https://www.youtube.com/watch?v=3n1fVvW-oW8)]
 - 11.04.2016 - **Graph databases - why and how** - 4Developers conference[[youtube](https://www.youtube.com/watch?v=ISKC25G1HCY)]
 
 2015

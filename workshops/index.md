@@ -2,6 +2,8 @@
 layout: page
 title: Workshops
 description: ""
+image:
+  feature: data/workshops/logo.jpg
 ---
 
 ## General information

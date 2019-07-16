@@ -8,7 +8,7 @@ image:
   feature: data/2019-07-15-How-to-model-hierarchical-data-in-noSQL-datababases/logo.jpg
 ---
 
-Querying hierarchical data is always where the big boys of SQL shined. And I really mean the **big boys** part since only Oracle, and Microsoft SQL Server have support for CTE (**C**ommon **T**able **E**xpressions) that allow for executing one SQL statement what will fetch a subtree.
+Querying hierarchical data is always where the big boys of SQL shined. And I really mean the **big boys** part since <s>only Oracle, and Microsoft SQL Server have support for CTE</s> [As Thomas Levesque pointed out in the comments, not only those have support for CTE. Full list on [wikipedia](https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL#Common_table_expression)] (**C**ommon **T**able **E**xpressions) that allow for executing one SQL statement what will fetch a subtree.
 There are data modeling approaches that allow for doing hierarchical data reads with noSQL databases and databases without support for CTE.
 
 <!--MORE-->

@@ -4,6 +4,7 @@ title: How to model hierarchical data in noSQL databases
 description: "Modeling hierarchical data in noSQL databases (or in SQL databases without support for CTE) isn't easy or ideal. But there are a few options."
 modified: 2019-07-15
 tags: [data modeling, CTE, SQL, SQL Server, Mongo, DynamoDB, hierarchy]
+series: "Data modeling"
 image:
   feature: data/2019-07-15-How-to-model-hierarchical-data-in-noSQL-datababases/logo.jpg
 ---
@@ -45,7 +46,7 @@ names are self-explanatory.
 
 As I wrote earlier, with SQL, we can use CTE. It will look more or less like this:
 
-```
+```sql
 WITH Folder_CTE (Id, Name)
 AS
 (
@@ -89,7 +90,7 @@ Techniques for modeling hierarchy efficiently can be applied in noSQL databases 
 The first approach is to fetch each individual layer of hierarchy one at a time with the looping done by the application. 
 The initial SQLs will look like this:
 
-```
+```sql
 SELECT 
     Id,
     Name
@@ -98,7 +99,7 @@ FROM Folder
 
 The next SQL will look like this:
 
-```
+```sql
 SELECT 
     Id,
     Name
@@ -120,7 +121,7 @@ Another approach is to get all the data, build the hierarchy in the app, and the
 
 The idea of this approach is to extend our object/table with one additional field - `HierarchyPath`:
 
-```
+```json
 {
     "Id":
     "Name":
@@ -163,7 +164,7 @@ This type of indexes are available in most document databases under different na
 
 In our case, the query will look more or less like this :
 
-```
+```sql
 SELECT 
     Id,
     Name

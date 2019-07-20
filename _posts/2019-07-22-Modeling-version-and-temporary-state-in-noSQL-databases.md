@@ -2,7 +2,7 @@
 layout: post
 title: Modeling version and temporary state in noSQL databases
 description: "Versioning is a must in most systems. 
-When looking deeper this problem is very similar to storing draft state. Here we explore a few ways to model this in SQL and noSQL databases."
+When looking deeper, this problem is very similar to storing draft state. Here we explore a few ways to model this in SQL and noSQL databases."
 modified: 2019-07-22
 tags: [data modeling, SQL, SQL Server, Mongo, DynamoDB, draft, versioning, auditing, ACID transactions]
 series: "Data modeling"
@@ -13,16 +13,17 @@ image:
 The problem of storing draft state and auditing is not limited to noSQL databases, and as [previously](/How-to-model-hierarchical-data-in-noSQL-datababases/), below patterns can be applied to SQL modeling. But because noSQL databases are, in most cases, lacking transactionality over multiple partitions, the problem is harder there. Making it more interesting :)
 Additionally, smart use of neet features of noSQL databases allows for a novel solution. 
 
-# The problem (s)
+# The problem(s):
 
 ## Problem 1: Storing temporary state
 
 Most developers cringe when they hear about storing temporary state, but can't imagine living without `Save as draft` in Gmail, or git stash :)
-A few use-cases :
+Give the users what You expect. 
+A  different few use-cases :
 
 - The user can edit a document and save it as a draft. That draft can be later on committed or discarded.
 - UI flow requires a page reload when working on a single object. I know that we have SPA applications now, but not everywhere and we might be switching between different systems, or refactoring a legacy system.
-- Our document validation logic is quite complex, requires external HTTP calls, takes a long time to execute, and sometimes requires retries. Since we are good developers, we don’t execute the logic during save, but schedule a background task. If something fails, we notify the user - a good UX.
+- Our document validation logic is quite complex, requires external HTTP calls, takes a long time to execute, and sometimes requires retries. Since we are good developers, we don’t run that logic during saving but save as draft, schedule a background task to do the validation. If something fails, we notify the user - a good UX.
 
 <!--MORE-->
 
@@ -34,31 +35,32 @@ We can solve it in a few ways:
 This is one of the most common solutions I see in systems. It is effortless, and those are all of its advantages.
 The list of disadvantages is longer:
 
-- Everyone has to remember to add `State = Confirmed` to every query over this collection.
+- Everyone has to remember to add `State = Confirmed` to every query over this collection/table.
 - Modeling different objects (`DraftOrder` and `Order`) using enums is breaking SOLID principles.
-- Adding a `Status` property opens the gates to other states. If we leave opened gates, we can be sure that dragons will come.
-- Draft object structure can’t have required fields verified on the database level. Leading us to objects that are the same but are not the same.
+- Adding a `Status` property opens the gates to other states. If we leave opened gates, we can be sure that dragons🐉 will come.
+- We can't reuse the required fields, and validation logic since a draft is not a full object. Leading us to objects that are the same but are not the same.
 
 #### Add a boolean field `IsDraft`. 
 
-It might look like a good workaround not to leave the gates opened. But it is even worse because more flag fields will come making the problem of state distributed.
+It might look like a good workaround to not leaving the gates open. But it is even worse because more flag fields will come making the problem of state distributed (current state = SUM(all flag fields)).
 
 #### A separate table/collection to store the draft object. 
 
 We can create a separate table or collection to store draft state. Sounds OK, but again we have some drawbacks here:
 
 - When migrating object structure, we have to migrate the structure of the original object **and** the drafts.
-- Most noSQL databases guarantee transactionality only in the scope of a single partition. Approving a draft object should be an immutable operation (can be retried), so it shouldn't be a problem, but your mileage may vary.
+- Most noSQL databases guarantee transactionality only in the scope of a single partition. We loose this by splitting the collections.
 
 ## Problem 2: Entity auditing
 
-In essence: Who changed what and when. A must-have in most financial systems and with time will be implemented in every system that allows for any data update. Why?
+In essence: Who changed what and when. A must-have in most financial systems and with time will be implemented in every system that allows for any user data update. Why?
 
-![House MD](/data/2019-07-22-Modeling-version-and-temporary-state-in-noSQL-databases/House.jpg)
 
-Why did I say that those two problems are very similar? Change the `State` to `VersionNumber` add who and when did the change and we have versioning. I know I am oversimplifying, but still.
+<div style="text-align:center"><img src="/data/2019-07-22-Modeling-version-and-temporary-state-in-noSQL-databases/House.jpg" /></div>
 
-Also here we have a few well-known patterns:
+Why did I say that those two problems are very similar? Change the `State` to `VersionNumber` add who and when did the change and we have versioning. I know I am oversimplifying but stay with me.
+
+Now for a few well-known patterns:
 
 ### Storing only the changed fields
 
@@ -84,6 +86,9 @@ Where:
     }
     table, th, td {
     border: 1px solid black;
+    }
+    th{
+      font-weight: bold;
     }
 </style>
 
@@ -125,10 +130,10 @@ All the above solutions can be implemented in SQL and noSQL databases, but they 
 When we take into account features that noSQL databases offer:
 
 - `PartitionKey`/`PrimaryKey` can be assigned to multiple rows/objects/states.
-- `Id`/`SecondaryKey`  can be used as a drilldown key to a specific object.
+- `Id`/`SecondaryKey`  can be used as a drill-down key to a specific object.
 - The ability to do commands pre-checks. A pre-check is an `if` statement. It has two properties:
     - is executed in the same transaction before the operation.
-    - if it returns false the operation won't execute.
+    - if it returns false, the operation won't execute.
 
 Having the above allows us for a bit different solution:
 
@@ -163,7 +168,7 @@ Select MAX(Version) Where PartitionKey=X
 2. Copy the Version 0 item to a new record with Version = newMax +1 
 
 ```sql
-INSERT (PartitionKey, Version, CurrentVersion, ....) Values (v0.PartitionKey, newMaxVersion, v0.CurrentVersion, v0 business properties....) 
+COPY (PartitionKey, Version, CurrentVersion, ....) Values (v0.PartitionKey, newMaxVersion, v0.CurrentVersion, v0 business properties....) 
 ```
 
 This is why we have a unique index on `(PartitionKey, Version)` pair. The `newMaxVersion` calculation is done in a separate call/transaction, so there is no guarantee that nothing happened in the middle (no new version was created). If a new version was created in the meantime, we will get an error. All we have to do is to recalculate the `newMaxVersion` and try to do a new insert. 
@@ -181,9 +186,9 @@ Some explanation to the above:
 - `v0` - the `Version = 0` row.
 - `newRow` - our new row.
 
-Why does it work?
+#### Why does it work?
 
-`IF v0.CurrentVersion = newRow.CurrentVersion` is a command pre-check mentioned before. If this statement is false the operation will fail. 
+`IF v0.CurrentVersion = newRow.CurrentVersion` is a command pre-check mentioned before. If this statement is false, the operation will fail. 
 What it gives us, and why do we have it? 
 We are comparing the `CurrentVersion` of the current state of the record with the `CurrentVersion` of our row when we started editing.
 
@@ -193,3 +198,7 @@ Remember that we are updating the `CurrentVersion` **with each approval**. It wi
 Without the `if` we would override changes made by someone else. With it, we will discover a version conflict that has to be resolved.
 
 Another benefit to this approach is ACID like transactionality from starting editing to approving the version.
+
+# Conclusion
+
+Yes, noSQL databases are simpler and less powerful in terms of features than their SQL cousins. But data modeling is about looking at the limitations and turning them into advantages.

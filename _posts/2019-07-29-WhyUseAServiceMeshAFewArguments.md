@@ -64,10 +64,10 @@ Almost every policy has some number attached to it:
 
 | Policy | Number | Sources |
 |:------|:---------|:---------|
-| Timeout of the service we are calling | - timeout value | - SLA agreement verified using System monitoring |
-| Retry | - number of retries <br/> - backoff time <br/> - jitter value | - System monitoring |
-| Caching | - caching time | - the service HTTP headers <br/> - System montoring|
-| Circuit breaker | - open state time | - System monitoring |
+| Timeout of the service we are calling | Timeout value | SLA agreement verified using System monitoring |
+| Retry | Number of retries <br/> Backoff time <br/> Jitter value | System monitoring |
+| Caching | Caching time | HTTP headers <br/> - System montoring|
+| Circuit breaker | Open state time | System monitoring |
 
 <style>
     table {
@@ -84,18 +84,10 @@ Almost every policy has some number attached to it:
 Even if the developer acquires those values, they might change over time. What then? Should we redeploy the code to change the timeout value? It doesn't sound reasonable. 
 The alternative is to have them in a config file, leading do a large and unmaintainable file.
 
-
-<!-- <img class="floatingLeftImage" src="/data/2019-07-29-Why-use-a-service-mesh-a-few-arguments/breaker.png"> -->
+{% include /newsletter.html %}
 
 # The circuit breaker
 
-<!-- <img class="floatingLeftImage" src="/data/2019-07-29-Why-use-a-service-mesh-a-few-arguments/breaker.jpg">
-<style>
-.floatingLeftImage{
-    margin-right: 7px;
-    margin-top: 7px;
-}
-</style> -->
 The circuit breaker policy is the one that gains the most when done in the layer of a service mesh. For two reasons:
 
 ## Distributed circuit breaker
@@ -186,6 +178,6 @@ Let's asume that you didn't use a service mesh.<br/> Then you add all the necess
 
 We won't have a lightweight reverse proxy deployed with every service (probably). But is this such a high overhead versus all the things that a service mesh makes easier?
 
-# So no flaws?
+# No flaws?
 
 On the contrary! Service meshes offer even more ways to shoot ourselves in the feet, hands, the head, etc. Like with every technology we will have to spend time to learn it's pitfalls and how to avoid them. But this is a topic for a different conversation.

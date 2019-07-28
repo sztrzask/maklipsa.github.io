@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Why use a service mesh? A few arguments
-description: "Kubernetes is THE topic of discussions now in IT. I would argue that it is only an intermediate step."
+description: "Kubernetes is THE topic of discussions in IT now. I would argue that it is only an intermediate step."
 modified: 2019-07-22
 tags: [kubernetes, k8s, service mesh, architecture]
 image:
@@ -9,7 +9,7 @@ image:
 ---
 
 I will be back to the [series about data modeling in noSQL databases](/Modeling-version-and-temporary-state-in-noSQL-databases/), but for now, I want to note down a few arguments that are still hot after an interesting discussion with a friend.
-The talk boild down to a simple question: 
+The talk boiled down to a simple question: 
 
 <div class="center">
     <div class="button" >Should I use a service mesh or use a bare bones Kubernetes?</div>
@@ -43,7 +43,7 @@ The argument that "we can define them once and reuse" is false. Those policies w
 
 This title is a read-bate, but let me explain. Developers are not the ones who will get the call when the system crashes. 
 They should be, but in most cases, the on-call person will be someone with "DevOps" in the job title. 
-This crates a week incentive for implementing those rules **properly**. Most developers have their backlogs full of business features that will take them more than a year to implement. They won't spend enough time on this. 
+This creates a week incentive for implementing those rules **properly**. Most developers have their backlogs full of business features that will take them more than a year to implement. They won't spend enough time on this. 
 And even if they would:
 
 ## Developers don't understand
@@ -58,7 +58,7 @@ Those are not the tasks of a developer, but an SRE (**S**ervice **R**eliability 
 
 ## Developers don't have the numbers
  
-Let's imagine a person who wants to do it properly, and will spend a lot of time into understanding how a system might fail. They still are missing some crucial information. **The numbers.**
+Let's imagine a person who wants to do it properly, and will spend a lot of time understanding how a system might fail. They would be still missing some crucial information. **The numbers.**
 Almost every policy has some number attached to it:
 
 
@@ -81,7 +81,7 @@ Almost every policy has some number attached to it:
     }
 </style>
 
-Even if the developer acquires those values, they might change. What then? Should we redeploy the code to change the timeout value? It doesn't sound reasonable. 
+Even if the developer acquires those values, they might change over time. What then? Should we redeploy the code to change the timeout value? It doesn't sound reasonable. 
 The alternative is to have them in a config file, leading do a large and unmaintainable file.
 
 
@@ -118,9 +118,9 @@ Adding requests to a system under load will only make it worse. With the excepti
 It is better to fail them earlier and have a chance for the system healing itself. 
 An overload circuit breaker protects from failure happening, not from the consequences of failure. Such a circuit breaker is hard to implement on the application layer, but very simple when using a service mesh.
 
-# Get ride of documentation
+# Get rid of documentation
 
-A service mesh can easily give us the **actual** topology of the system. No more looking at diagrams and asking ourselves: 
+At least some parts of it. A service mesh can easily give us the **actual** topology of the system. No more looking at diagrams and asking ourselves: 
 
 <div id="wrapper">
     <div class="button" >How outdated is it?</div>
@@ -180,8 +180,12 @@ Going back to the talk that sparked the need for writing this article. The more 
 
 <div class="center">
     <div class="button" >
-Let's asume that you didn't use a service mesh.<br/> Then you add all the necessary infrastructure for a distributed system.<br/> **How different will we be from a service mesh?** 
+Let's asume that you didn't use a service mesh.<br/> Then you add all the necessary infrastructure for a distributed system.<br/> <b>How different will it be from a service mesh?</b> 
     </div>
 </div>
 
 We won't have a lightweight reverse proxy deployed with every service (probably). But is this such a high overhead versus all the things that a service mesh makes easier?
+
+# So no flaws?
+
+On the contrary! Service meshes offer even more ways to shoot ourselves in the feet, hands, the head, etc. Like with every technology we will have to spend time to learn it's pitfalls and how to avoid them. But this is a topic for a different conversation.

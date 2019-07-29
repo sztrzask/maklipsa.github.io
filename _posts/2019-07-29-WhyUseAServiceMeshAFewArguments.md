@@ -53,7 +53,7 @@ This knowledge can be gained from:
 
 - Watching systems fail daily.
 - Doing post mortem and root cause analysis.
-- Having access to systems failing where people notice. That is the production environment.
+- Having access to systems failing where people notice - the production environment.
 Those are not the tasks of a developer, but an SRE (**S**ervice **R**eliability **E**ngineer). 
 
 ## Developers don't have the numbers
@@ -92,10 +92,15 @@ The circuit breaker policy is the one that gains the most when done in the layer
 
 ## Distributed circuit breaker
 
-Having a circuit breaker is fine. But it is only the beginning of what it can and should do to protect our system from cascading failure. 
-A standard circuit breaker works in the scope of a single application, not the whole system. When a service fails, or even worse, is under heavy load, each service will still hammer it with calls until each breaker opens.
-The more reasonable way to do it is to use a distributed circuit breaker. One that breaks broadcasts the information about opening a breaker for a service. 
-Here comes a problem. Implementing a distributed circuit breaker in the application code is very hard and will require the use of some centralized coordinator. 
+Having a circuit breaker is fine. But it is only the beginning of what it can and should do to protect our system from cascading failure.
+
+A standard circuit breaker works in the scope of a single application, not the whole system. It looks at requests going out of the service and monitors the number of errors. If the percentage of errors crosses a particular value, communication to that server is cut for some time. We do it not to escalate failure to other services. When looking from a single service point of view, it is the right solution.
+
+When looking from the point of view of the whole system, the problem is still unresolved. Because each service has to open it's breaker independently, services will hammer the under stress service.
+The more reasonable way to do it is to use a distributed circuit breaker. A distributed circuit breaker broadcasts the information about opening and closing a breaker to other services. If a breaker in one service opens, others will be notified about this via the broadcast, and also open. 
+This way, we remove a faulty service from the whole system almost at once.
+
+Implementing a distributed circuit breaker in the application code is not a trivial task and will require the use of some centralized coordinator. 
 
 When switching our mindset to a service mesh where we are proxying all incoming requests, the solution becomes very simple. We can break on the proxy — a much simpler solution.
 

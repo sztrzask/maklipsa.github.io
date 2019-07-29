@@ -66,7 +66,7 @@ Almost every policy has some number attached to it:
 |:------|:---------|:---------|
 | Timeout of the service we are calling | Timeout value | SLA agreement verified using System monitoring |
 | Retry | Number of retries <br/> Backoff time <br/> Jitter value | System monitoring |
-| Caching | Caching time | HTTP headers <br/> - System montoring|
+| Caching | Caching time | HTTP headers <br/> System montoring|
 | Circuit breaker | Open state time | System monitoring |
 
 <style>
@@ -119,7 +119,7 @@ An overload circuit breaker protects from failure happening, not from the conseq
 
 At least some parts of it. A service mesh can easily give us the **actual** topology of the system. No more looking at diagrams and asking ourselves: 
 
-<div id="wrapper">
+<div class="center">
     <div class="button" >How outdated is it?</div>
 </div>
 

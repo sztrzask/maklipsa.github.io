@@ -55,7 +55,7 @@ Go on have a guess. What is the simplest database that fulfills all the must-hav
 
 Are You sure You know? Think again, but if You are sure 
 
-<div id="wrapper">
+<div class="center" id="wrapper" >
     <div type="button" class="button btn" onclick="show()" >CLICK HERE if You know </div>
 </div>
 
@@ -79,19 +79,6 @@ Did You get it right? Do You believe it? Let's got through the lists.
 
 This post is a preface for a more advanced series covering database mechanics and the variety of database types. If You are interested, subscribe to [RSS](https://indexoutofrange.com/feed.xml), or follow on [Twitter](https://twitter.com/maklipsa)
 
-<style>
-#wrapper{
-    width:100%;
-    display:none; 
-}
-.button{
-    height:40px; 
-    position:relative; margin: -20px -100px; 
-    width:200px; 
-    left:50%;
-    cursor: pointer;
-}
-</style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
     $("#wrapper").show();

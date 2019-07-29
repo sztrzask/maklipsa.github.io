@@ -13,23 +13,10 @@ However (hopefully) my blog will come back to life.
 One of the things that kept me busy during this time was realizing one of my goals: 
 
 
-<div id="wrapper">
+<div class="center">
     <div class="button" > Make a video course for Pluralsight. </div>
 </div>
 
-<style>
-#wrapper{
-    width:100%;
-}
-.button{
-    position: relative;
-    margin: -20px -100px;
-    left: 50%;
-    font-size: x-large;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-</style>
 
 And I [made it](https://app.pluralsight.com/library/courses/microsoft-tpl-dataflow/table-of-contents):
 <!--MORE-->

@@ -137,7 +137,7 @@ An even better idea is to refactor the audit logging function into a class. Sinc
 
 ## We aren't testing the same thing!
 
-No, aren't. We are missing one test. One that will call `LogRegisterAttempt`, read the log file and verify if it has the log entry - a simple integration test. I leave it to the reader ;)
+No, we aren't. We are missing one test. One that will call `LogRegisterAttempt`, read the log file and verify if it has the log entry - a simple integration test. I leave it to the reader ;)
  
 # Conclusion
 
